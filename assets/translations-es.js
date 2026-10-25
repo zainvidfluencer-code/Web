@@ -678,6 +678,6 @@ YouTube Shorts|YouTube Shorts
 Rate on request|Tarifa a consultar
 `;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
-  window.VidfluencerTranslations.es = Object.fromEntries(rows.trim().split('
-').map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
+  window.VidfluencerTranslations.es = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
 })();
+
