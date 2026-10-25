@@ -135,17 +135,17 @@
       trigger.setAttribute('aria-expanded','false');
       if (returnFocus) trigger.focus();
     }
-    function openMenu() {
+    function openMenu(focusSelected = false) {
       menu.hidden = false;
       trigger.setAttribute('aria-expanded','true');
       const selected = options.find(option => option.dataset.value === select.value) || options[0];
-      if (selected) selected.focus();
+      if (focusSelected && selected) selected.focus({preventScroll:true});
     }
-    trigger.addEventListener('click', () => menu.hidden ? openMenu() : closeMenu(false));
+    trigger.addEventListener('click', () => menu.hidden ? openMenu(false) : closeMenu(false));
     trigger.addEventListener('keydown', event => {
       if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        openMenu();
+        openMenu(true);
       }
     });
     document.addEventListener('click', event => {
