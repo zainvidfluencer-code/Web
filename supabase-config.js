@@ -6,7 +6,7 @@ window.VIDFLUENCER_CONFIG = {
   supabaseUrl: "https://etzzzhbfeokhtzdwjyhn.supabase.co",
   publishableKey: "sb_publishable_KT83dHO41ImPI5sDMTVT8w_H9tt5Xep",
   supabaseJsUrl: "https://esm.sh/@supabase/supabase-js@2.118.0",
-  liveAuthReady: false,
+  liveAuthReady: true,
   pendingCanBrowse: false,
   reviewTimingText: "We aim to review complete applications within 3–5 business days.",
   campaignsPage: "campaigns.html",
