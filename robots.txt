@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /vf-admin-gate-k8m2q.html
+Disallow: /vf-admin-desk-k8m2q.html

@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>if(new URLSearchParams(location.search).get('embed')==='1')document.documentElement.classList.add('embed-mode')</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>Creator account | Vidfluencer</title>
+  <style>
+    :root { color-scheme: light; --page:#f7f8fc; --paper:#fff; --ink:#11182d; --muted:#657089; --blue:#4055d6; --line:#e2e5ef; --soft:#eef0fa; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:var(--page); color:var(--ink); }
+    a { color:inherit; text-decoration:none; }
+    button,input { font:inherit; }
+    .topbar { height:76px; display:flex; align-items:center; justify-content:space-between; width:min(1160px,calc(100% - 48px)); margin:auto; }
+    .brand { display:grid; place-items:center; width:54px; height:54px; }
+    .brand img { width:48px; height:42px; object-fit:contain; }
+    .topbar-actions { display:flex; align-items:center; gap:18px; }
+    .language-picker { display:inline-flex; align-items:center; gap:7px; min-height:40px; padding:0 10px; border:1px solid var(--line); border-radius:12px; background:#fff; color:var(--muted); font-size:12px; font-weight:700; }
+    .language-picker select { max-width:92px; border:0; outline:0; background:transparent; color:var(--ink); font:inherit; cursor:pointer; }
+    .back-link { color:var(--muted); font-size:14px; font-weight:650; }
+    .back-link:hover { color:var(--blue); }
+    .page { width:min(1160px,calc(100% - 48px)); margin:48px auto 80px; display:grid; grid-template-columns:minmax(0,1fr); gap:42px; align-items:start; }
+    .intro { max-width:760px; align-self:start; padding-top:0; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; margin-bottom:19px; color:var(--blue); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:22px; height:2px; background:var(--blue); }
+    h1,h2,p { margin-top:0; }
+    h1 { margin-bottom:18px; font-size:clamp(42px,5vw,62px); line-height:1.02; letter-spacing:-.06em; }
+    h1 span { color:var(--blue); }
+    .intro-copy { max-width:680px; color:var(--muted); font-size:17px; line-height:1.7; }
+    .benefits { display:grid; max-width:720px; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; padding:0; margin:30px 0 0; list-style:none; color:#414c65; font-size:14px; }
+    .benefits li { display:flex; align-items:center; gap:11px; }
+    .check { display:grid; flex:none; width:24px; height:24px; place-items:center; border-radius:8px; background:#e9ecff; color:var(--blue); font-weight:900; }
+    .card { overflow:hidden; border:1px solid #e7e9f1; border-radius:28px; background:var(--paper); box-shadow:0 24px 70px rgb(28 39 91 / .09); }
+    .card-head { padding:29px 34px 20px; text-align:center; background:radial-gradient(ellipse at 50% -12%,#e6e9ff 0,transparent 67%),#fff; }
+    .status-banner { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid #e5e8f3; border-radius:99px; color:#66718a; background:rgb(255 255 255 / .8); font-size:11px; font-weight:700; }
+    .status-banner[hidden], .privacy-note[hidden] { display:none; }
+    .status-dot { width:7px; height:7px; border-radius:50%; background:#319760; }
+    .status-banner.blocked .status-dot { background:#d15d59; }
+    .card-head h2 { margin:17px 0 5px; font-size:27px; letter-spacing:-.04em; }
+    .card-head p { margin:0; color:var(--muted); font-size:13px; }
+    .stepper { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; padding:0 34px 18px; }
+    .step { display:grid; justify-items:center; gap:6px; color:#9aa2b3; font-size:10px; font-weight:700; }
+    .step-number { display:grid; width:27px; height:27px; place-items:center; border:1px solid var(--line); border-radius:50%; color:#7d879e; background:#fff; font-size:11px; }
+    .step.active { color:var(--blue); }
+    .step.active .step-number,.step.done .step-number { border-color:var(--blue); color:#fff; background:var(--blue); }
+    .card-body { padding:5px 34px 32px; }
+    .oauth-label { margin:0 0 9px; color:#68738a; text-align:center; font-size:12px; font-weight:700; }
+    .oauth-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:16px; }
+    .oauth-button { display:flex; min-height:58px; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:6px 4px; border:1px solid var(--line); border-radius:11px; background:#fff; color:#344057; cursor:pointer; font-size:12px; font-weight:700; transition:border-color .16s,background .16s,transform .16s; }
+    .oauth-button:hover { border-color:#c4cbea; background:#fafbff; transform:translateY(-1px); }
+    .oauth-button svg { width:17px; height:17px; flex:none; }
+    .auth-divider { display:flex; align-items:center; gap:12px; margin:0 0 17px; color:#929bad; font-size:11px; }
+    .auth-divider::before,.auth-divider::after { content:""; height:1px; flex:1; background:var(--line); }
+    .mode-tabs { display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; border:1px solid var(--line); border-radius:13px; background:#f6f7fb; }
+    .mode-tabs { margin-bottom:21px; }
+    .tab { min-height:38px; border:0; border-radius:9px; background:transparent; color:var(--muted); cursor:pointer; font-size:13px; font-weight:700; }
+    .tab[aria-pressed="true"] { color:var(--ink); background:#fff; box-shadow:0 1px 4px rgb(21 29 55 / .09); }
+    .field { display:grid; gap:7px; margin-bottom:15px; }
+    .field label { color:#48536b; font-size:12px; font-weight:700; }
+    .required-mark { color:var(--blue); }
+    .field input,.field select,.field textarea { width:100%; min-height:46px; padding:0 14px; border:1px solid #dfe3ed; border-radius:11px; outline:0; color:var(--ink); background:#fff; font-size:14px; transition:border-color .16s,box-shadow .16s; }
+    .field textarea { min-height:84px; padding:11px 14px; resize:vertical; }
+    .field select { cursor:pointer; }
+    .field input:focus,.field select:focus,.field textarea:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
+    .agreement-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:12px; border-bottom:1px solid var(--line); background:#fff; }
+    .agreement-toolbar label { color:#48536b; font-size:12px; font-weight:700; }
+    .agreement-toolbar select { min-height:36px; padding:0 10px; border:1px solid var(--line); border-radius:9px; color:var(--ink); background:#fff; font:inherit; font-size:12px; }
+    .agreement-toolbar a { color:var(--blue); font-size:12px; font-weight:700; }
+    .contract-box { overflow:hidden; padding:0; margin:15px 0 10px; border:1px solid var(--line); border-radius:14px; background:#fafbfe; }
+    .contract-box iframe { display:block; width:100%; height:440px; border:0; background:#eef0f7; }
+    .agreement-note { margin:0 0 16px; color:var(--muted); font-size:11px; line-height:1.5; }
+    .contract-fields { display:grid; grid-template-columns:1fr 1fr; column-gap:12px; }
+    .contract-fields .wide { grid-column:1 / -1; }
+    .guardian-fields { padding:13px 13px 1px; margin:0 0 13px; border:1px solid #e2e5ef; border-radius:12px; background:#fafbfe; }
+    .guardian-fields legend { padding:0 5px; color:var(--muted); font-size:12px; font-weight:700; }
+    @media(max-width:520px) { .topbar-actions { gap:9px; } .back-link { font-size:12px; } .agreement-toolbar { gap:8px; } .contract-box iframe { height:360px; } .contract-fields { grid-template-columns:1fr; } .contract-fields .wide { grid-column:auto; } }
+    .field input::placeholder { color:#a4acbb; }
+    .field input:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
+    .field input[aria-invalid="true"] { border-color:#d65050; }
+    .portfolio-note { margin:-5px 0 13px; color:#818ba0; font-size:11px; line-height:1.5; }
+    .password-line { display:flex; justify-content:space-between; align-items:center; margin:1px 0 14px; color:var(--muted); font-size:12px; }
+    .email-resend { display:block; margin:16px auto 0; }
+    .text-button { padding:0; border:0; background:none; color:var(--blue); cursor:pointer; font-size:12px; font-weight:700; }
+    .primary { display:flex; width:100%; min-height:48px; align-items:center; justify-content:center; gap:8px; border:0; border-radius:12px; background:var(--blue); color:white; cursor:pointer; font-size:14px; font-weight:750; transition:background .18s,transform .18s; }
+    .primary:hover { background:#2e43bd; transform:translateY(-1px); }
+    .secondary { display:flex; width:100%; min-height:45px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:12px; background:#fff; color:var(--ink); cursor:pointer; font-size:13px; font-weight:700; }
+    .helper { min-height:18px; margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.5; }
+    .helper.error { color:#b72e38; }
+    .helper.success { color:#27744b; }
+    .account-foot { margin:18px 0 0; color:var(--muted); text-align:center; font-size:12px; }
+    .account-foot .text-button { margin-left:3px; }
+    [hidden] { display:none !important; }
+    .code-row { display:flex; gap:9px; margin:18px 0; }
+    .code-row input { width:100%; height:54px; border:1px solid var(--line); border-radius:12px; outline:0; text-align:center; font-size:24px; font-weight:800; letter-spacing:.32em; }
+    .code-row input:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
+
+    .signature { margin-bottom:16px; }
+    .consent { display:flex; gap:10px; align-items:flex-start; margin:4px 0 18px; color:#59647b; font-size:12px; line-height:1.5; }
+    .consent input { width:16px; height:16px; flex:none; margin:1px 0 0; accent-color:var(--blue); }
+    .success-mark { display:grid; width:56px; height:56px; place-items:center; margin:4px auto 16px; border-radius:18px; background:#e9f7ed; color:#29804b; font-size:28px; font-weight:800; }
+    .done-card { padding:20px 10px 4px; text-align:center; }
+    .done-card p { color:var(--muted); line-height:1.6; }
+    .done-card .primary { margin-top:20px; }
+    .privacy-note { margin:18px 0 0; color:#8790a3; text-align:center; font-size:11px; line-height:1.55; }
+    :focus-visible { outline:3px solid #8d9aff; outline-offset:3px; }
+    @media(max-width:900px) { .page { grid-template-columns:1fr; gap:35px; width:min(760px,calc(100% - 36px)); margin-top:30px; } .intro { max-width:680px; } .intro-copy { max-width:600px; } h1 { font-size:clamp(38px,8vw,54px); } .benefits { grid-template-columns:1fr 1fr; margin-top:20px; } }
+    @media(max-width:520px) { .topbar { width:calc(100% - 32px); height:66px; } .page { width:calc(100% - 24px); margin:22px auto 44px; gap:24px; } .intro { padding:0 5px; } .intro-copy { font-size:15px; } .benefits { grid-template-columns:1fr; gap:9px; font-size:13px; } .card { border-radius:22px; } .card-head { padding:24px 20px 17px; } .stepper { padding:0 19px 15px; gap:3px; } .step { font-size:9px; } .card-body { padding:4px 20px 25px; } .card-head h2 { font-size:24px; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition-duration:.01ms !important; } }
+  
+/* Compact flag selector with a matching, accessible language menu */
+.lang-switcher{position:relative;display:inline-flex;align-items:center;z-index:70}
+.lang-native-select{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;opacity:0!important}
+.lang-switcher .lang-trigger{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:104px;min-height:42px;padding:0 13px;border:1px solid #e2e5ef;border-radius:999px;background:#fff;color:#11182d;font:inherit;font-size:13px;font-weight:750;cursor:pointer;box-shadow:0 2px 6px rgb(17 24 45 / .03);transition:border-color .16s,box-shadow .16s,background .16s}
+.lang-switcher .lang-trigger:hover{border-color:#cbd1e4;background:#fcfcff;box-shadow:0 4px 14px rgb(17 24 45 / .08)}
+.lang-flag{display:block;width:24px;height:16px;flex:none;border-radius:2px;box-shadow:0 0 0 .45px #e2e5ed}
+.lang-code{letter-spacing:.025em}
+.lang-chevron{width:7px;height:7px;margin:-4px 1px 0 4px;border-right:1.7px solid #737d91;border-bottom:1.7px solid #737d91;transform:rotate(45deg);transition:transform .16s}
+.lang-trigger[aria-expanded="true"] .lang-chevron{margin-top:4px;transform:rotate(225deg)}
+.lang-menu{position:absolute;top:calc(100% + 9px);right:0;width:250px;padding:8px;border:1px solid #e8eaf2;border-radius:20px;background:#fff;box-shadow:0 14px 36px rgb(21 29 55 / .14);z-index:90}
+.lang-switcher .lang-option{display:grid;grid-template-columns:32px 1fr 20px;align-items:center;gap:8px;width:100%;min-height:52px;padding:0 10px;border:0;border-radius:13px;background:transparent;color:#20283b;text-align:left;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.lang-switcher .lang-option:hover,.lang-switcher .lang-option:focus-visible{background:#f6f7fb;outline:none}
+.lang-switcher .lang-option[aria-selected="true"]{background:#f7f8fc}
+.lang-option .lang-flag{width:24px;height:16px}
+.lang-check{color:#4055d6;font-size:18px;font-weight:800;text-align:center;opacity:0}
+.lang-option[aria-selected="true"] .lang-check{opacity:1}
+.lang-switcher [hidden]{display:none!important}
+@media(max-width:520px){.lang-switcher .lang-trigger{min-width:92px;min-height:40px;padding:0 10px;gap:7px}.lang-menu{width:238px}}
+
+
+    /* Refined section labels used throughout the site */
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 19px;
+      padding: 7px 11px;
+      border: 1px solid #dfe4f7;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #fff 0%, #f7f8ff 100%);
+      color: #4055d6;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .085em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgb(26 38 84 / .055);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      flex: none;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 3px rgb(64 85 214 / .11);
+    }
+    .video-section .eyebrow {
+      border-color: rgb(170 182 255 / .2);
+      background: rgb(255 255 255 / .07);
+      color: #d7ddff;
+      box-shadow: inset 0 1px rgb(255 255 255 / .04);
+    }
+    .video-section .eyebrow::before {
+      background: #aab6ff;
+      box-shadow: 0 0 0 3px rgb(170 182 255 / .13);
+    }
+    @media (max-width: 680px) {
+      .eyebrow { margin-bottom: 15px; padding: 7px 9px; font-size: 9px; }
+    }
+
+      .embed-mode .topbar { display:none; }
+    .embed-mode .page { width:min(1000px,calc(100% - 40px)); margin:26px auto 34px; }
+  .policy-notice{margin:12px 2px 0;color:#69748c;font-size:12px;line-height:1.55;text-align:center}
+.policy-notice a{color:#3e51c8;font-weight:650;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.policy-notice a:hover{color:#293cae}
+.policy-notice[hidden]{display:none!important}</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Vidfluencer home"><img src="assets/vidfluencer-mark.png" alt=""></a>
+    <div class="topbar-actions">
+      <label class="language-picker"><span aria-hidden="true">◎</span><select data-language-picker aria-label="Change language"><option value="en">English</option><option value="de">Deutsch</option><option value="es">Spanish</option><option value="es">Español</option></select></label>
+      <a class="back-link" id="campaigns-link" href="campaigns.html" hidden>Campaigns</a>
+      <a class="back-link" href="index.html">← Back to Vidfluencer</a>
+    </div>
+  </header>
+  <main class="page">
+    <section class="intro" aria-labelledby="intro-title">
+      <h1 id="intro-title">Make your next <span>move.</span></h1>
+      <p class="intro-copy">Create your Vidfluencer account, review your creator agreement, and add your portfolio in one simple setup.</p>
+      <ul class="benefits">
+        <li><span class="check" aria-hidden="true">✓</span> Free creator coaching</li>
+        <li><span class="check" aria-hidden="true">✓</span> Clear campaign terms</li>
+        <li><span class="check" aria-hidden="true">✓</span> One home for your creator profile</li>
+      </ul>
+    </section>
+    <section class="card" aria-label="Creator account setup">
+      <div class="card-head">
+        <span class="status-banner" id="system-banner" hidden><span class="status-dot" aria-hidden="true"></span><span id="system-label"></span></span>
+        <h2 id="card-title">Create your account</h2>
+        <p id="card-subtitle">Start with your email address.</p>
+      </div>
+      <div class="stepper" aria-label="Setup progress">
+        <div class="step active" data-step-indicator="account"><span class="step-number">1</span><span>Account</span></div>
+        <div class="step" data-step-indicator="verify"><span class="step-number">2</span><span>Verify</span></div>
+        <div class="step" data-step-indicator="agreement"><span class="step-number">3</span><span>Agreement</span></div>
+        <div class="step" data-step-indicator="portfolio"><span class="step-number">4</span><span>Portfolio</span></div>
+      </div>
+      <div class="card-body">
+        <section id="screen-account" data-screen="account">
+          <div class="mode-tabs" role="group" aria-label="Account action">
+            <button class="tab" type="button" data-mode="signup" aria-pressed="true">Create account</button>
+            <button class="tab" type="button" data-mode="signin" aria-pressed="false">Sign in</button>
+          </div>
+          <p class="oauth-label">Continue with</p>
+          <div class="oauth-row" role="group" aria-label="Continue with a social account">
+            <button class="oauth-button" type="button" data-oauth="google" aria-label="Continue with Google">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.55-.2-2.27H12v4.3h6.47a5.5 5.5 0 0 1-2.4 3.61v2.8h3.89c2.28-2.1 3.53-5.18 3.53-8.44z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.92l-3.89-2.8c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.76-2.1-6.7-4.93H1.28v2.89A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.5a7.2 7.2 0 0 1 0-4.6V7.01H1.28a12 12 0 0 0 0 10.38z"/><path fill="#EA4335" d="M12 4.77c1.77 0 3.36.61 4.61 1.82l3.45-3.45C17.95 1.18 15.24 0 12 0A12 12 0 0 0 1.28 7.01L5.3 9.9C6.24 7.07 8.88 4.77 12 4.77z"/></svg>
+              <span>Google</span>
+            </button>
+            <button class="oauth-button" type="button" data-oauth="azure" aria-label="Continue with Microsoft">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M13 1h10v10H13z"/><path fill="#00A4EF" d="M1 13h10v10H1z"/><path fill="#FFB900" d="M13 13h10v10H13z"/></svg>
+              <span>Microsoft</span>
+            </button>
+            <button class="oauth-button" type="button" data-oauth="discord" aria-label="Continue with Discord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5865F2" d="M19.7 5.1A18.4 18.4 0 0 0 15.2 3.7l-.6 1.2a16.7 16.7 0 0 0-5.2 0l-.6-1.2a18.4 18.4 0 0 0-4.5 1.4C1.5 9.3.7 13.4 1.1 17.4a18.6 18.6 0 0 0 5.5 2.8l1.2-2a12 12 0 0 1-1.7-.8l.4-.3a13.3 13.3 0 0 0 11 0l.4.3a12 12 0 0 1-1.7.8l1.2 2a18.6 18.6 0 0 0 5.5-2.8c.5-4.7-.8-8.7-3.2-12.3ZM8.7 14.9c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg>
+              <span>Discord</span>
+            </button>
+          </div>
+          <div class="auth-divider" aria-hidden="true"><span>or use email</span></div>
+          <form id="account-form" novalidate>
+            <div class="field" id="name-field"><label for="full-name">Your name</label><input id="full-name" name="name" autocomplete="name" placeholder="Full name" required></div>
+            <div class="field"><label id="contact-label" for="contact">Email address</label><input id="contact" name="contact" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+            <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required></div>
+            <div class="password-line"><span id="password-hint">Use at least 8 characters.</span><button id="forgot-password" class="text-button" type="button" hidden>Forgot password?</button></div>
+            <button id="account-submit" class="primary" type="submit">Create account <span aria-hidden="true">↗</span></button>
+            <p id="account-message" class="helper" aria-live="polite"></p>
+          </form>
+<p id="policy-notice" class="policy-notice"><span>By creating an account, you agree to our </span><a href="terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms of Service</a><span> and </span><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a><span>.</span></p>
+        </section>
+        <section id="screen-verify" data-screen="verify" hidden>
+          <h3>Check your inbox</h3>
+          <p class="helper"><span>Open the confirmation link sent to</span> <strong id="recipient-address">your email address</strong><span>. Return here after confirming.</span></p>
+          <p id="verify-message" class="helper" aria-live="polite"></p>
+          <button id="verify-continue" class="primary" type="button">I confirmed my email <span aria-hidden="true">→</span></button>
+          <button id="resend-email" class="text-button email-resend" type="button">Resend confirmation email</button>
+        </section>
+        <section id="screen-agreement" data-screen="agreement" hidden>
+          <h3>Welcome to Vidfluencer<span id="welcome-name"></span></h3>
+          <p class="helper">Review your creator agreement, then type your full name as your signature.</p>
+          <div class="contract-box" aria-label="Creator partnership agreement">
+            <div class="agreement-toolbar">
+              <label for="agreement-language">Agreement language</label>
+              <select id="agreement-language" aria-label="Change agreement language"><option value="en">English</option><option value="de">Deutsch</option><option value="es">Spanish</option></select>
+              <a id="agreement-open" href="assets/contracts/creator-agreement-en.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a>
+              <a id="agreement-download" href="assets/contracts/creator-agreement-en.pdf" download="Vidfluencer-Creator-Agreement-EN.pdf">Download PDF ↓</a>
+            </div>
+            <iframe id="agreement-viewer" title="English agreement" src="assets/contracts/creator-agreement-en.pdf"></iframe>
+          </div>
+          <p class="agreement-note">The agreement is available in English, German, and Spanish. The Spanish version is translated from the English agreement.</p>
+          <form id="signature-form" novalidate>
+            <div class="contract-fields">
+              <div class="field"><label for="legal-name">Legal name</label><input id="legal-name" autocomplete="name" required></div>
+              <div class="field"><label for="creator-name">Creator/channel name (optional)</label><input id="creator-name" autocomplete="nickname"></div>
+              <div class="field"><label for="contract-email">Contact email</label><input id="contract-email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="country">Country of residence</label><input id="country" autocomplete="country-name" required></div>
+              <div class="field wide"><label for="address">Address</label><textarea id="address" autocomplete="street-address" required></textarea></div>
+              <div class="field wide"><label for="social-handles">Social channels and handles</label><textarea id="social-handles" placeholder="For example: TikTok @name, Instagram @name" required></textarea></div>
+              <div class="field"><label for="paypal-email">PayPal email</label><input id="paypal-email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="vat-number">VAT number (optional)</label><input id="vat-number" autocomplete="off"></div>
+              <div class="field"><label for="creator-age">Age confirmation</label><select id="creator-age" required><option value="">Choose one</option><option value="adult">I am 18 or older</option><option value="minor">I am under 18</option></select></div>
+              <div class="field"><label for="payment-method">Payment method</label><select id="payment-method" required><option value="">Choose one</option><option value="paypal">PayPal</option><option value="wise">Wise</option><option value="bank">Bank transfer</option></select></div>
+              <div class="field wide"><label for="payout-details">Payout details</label><textarea id="payout-details" placeholder="Details needed for your selected payment method" required></textarea></div>
+            </div>
+            <fieldset id="guardian-fields" class="guardian-fields" hidden>
+              <legend>Parent or legal guardian (required for creators under 18)</legend>
+              <div class="field"><label for="guardian-name">Parent or legal guardian's full name</label><input id="guardian-name" autocomplete="name"></div>
+              <div class="field"><label for="guardian-signature">Parent or legal guardian's typed signature</label><input id="guardian-signature" autocomplete="off"></div>
+            </fieldset>
+            <div class="field signature"><label for="signature-name">Typed signature</label><input id="signature-name" autocomplete="name" placeholder="Type your full legal name" required></div>
+            <label class="consent"><input id="agreement-consent" type="checkbox" required><span id="consent-copy">I confirm that I have read and agree to the selected creator partnership agreement.</span></label>
+            <button class="primary" id="sign-submit" type="submit">Sign &amp; save agreement <span aria-hidden="true">✓</span></button>
+            <p id="signature-message" class="helper" aria-live="polite"></p>
+          </form>
+        </section>
+        <section id="screen-portfolio" data-screen="portfolio" hidden>
+          <h3>Add your portfolio</h3>
+          <p class="helper">Paste a link to your portfolio.</p>
+          <form id="portfolio-form" novalidate>
+            <div class="field"><label for="portfolio-url">Portfolio link <span class="required-mark" aria-hidden="true">*</span></label><input id="portfolio-url" type="url" autocomplete="url" placeholder="https://your-portfolio.com" required></div>
+            <p class="portfolio-note">Make sure the sharing settings let Vidfluencer view your portfolio.</p>
+            <button class="primary" type="submit">Finish setup <span aria-hidden="true">✓</span></button>
+            <p id="portfolio-message" class="helper" aria-live="polite"></p>
+          </form>
+        </section>
+        <p class="privacy-note" id="privacy-note" hidden></p>
+      </div>
+    </section>
+  </main>
+  <script src="assets/translations-de.js"></script>
+  <script src="assets/translations-es.js"></script>
+  <script src="assets/language-switcher.js"></script>
+  <script src="supabase-config.js"></script>
+  <script type="module">
+    const config = window.VIDFLUENCER_CONFIG || {};
+    const hasBackend = Boolean(config.supabaseUrl && config.publishableKey);
+    const hasAgreement = Boolean(config.agreementDocs && config.agreementDocs.en && config.agreementDocs.de && config.agreementDocs.es);
+    function topLevelPortalUrl() {
+      const destination = new URL(window.location.href);
+      destination.searchParams.delete('embed');
+      destination.searchParams.delete('start-oauth');
+      if (document.documentElement.classList.contains('embed-mode')) destination.searchParams.set('resume-modal', '1');
+      return destination.href.split('#')[0];
+    }
+    function returnToSignupOverlayIfNeeded() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('resume-modal') !== '1' || document.documentElement.classList.contains('embed-mode')) return false;
+      const homepage = new URL('index.html', window.location.href);
+      homepage.searchParams.set('signup-resume', '1');
+      window.location.replace(homepage.href);
+      return true;
+    }
+    const isLiveReady = Boolean(config.liveAuthReady && hasBackend && hasAgreement);
+    const screens = [...document.querySelectorAll('[data-screen]')];
+    const steps = [...document.querySelectorAll('[data-step-indicator]')];
+    const accountForm = document.querySelector('#account-form');
+    const accountMessage = document.querySelector('#account-message');
+    const contact = document.querySelector('#contact');
+    const nameInput = document.querySelector('#full-name');
+    const passwordInput = document.querySelector('#password');
+    const banner = document.querySelector('#system-banner');
+    const campaignsLink = document.querySelector('#campaigns-link');
+    const t = value => window.VidfluencerLanguage ? window.VidfluencerLanguage.t(value) : value;
+    const preferredAgreementLanguage = () => ['de','es'].includes(window.VidfluencerLanguage?.language) ? window.VidfluencerLanguage.language : 'en';
+    const say = (node, text, kind) => { node.textContent = t(text); node.className = 'helper' + (kind ? ' ' + kind : ''); };
+    const agreementSelect = document.querySelector('#agreement-language');
+    const legalName = document.querySelector('#legal-name');
+    const signatureName = document.querySelector('#signature-name');
+    const contractEmail = document.querySelector('#contract-email');
+    const guardianFields = document.querySelector('#guardian-fields');
+    const creatorAge = document.querySelector('#creator-age');
+    let currentAgreement = null;
+    let client = null, mode = 'signup', displayName = '', contactValue = '', signedInUser = null;
+    function loadAgreement() {
+      const lang = agreementSelect.value;
+      const doc = config.agreementDocs && config.agreementDocs[lang];
+      if (!doc) return say(document.querySelector('#signature-message'), 'Agreement language is not available.', 'error');
+      currentAgreement = doc;
+      const viewer = document.querySelector('#agreement-viewer');
+      const open = document.querySelector('#agreement-open');
+      const download = document.querySelector('#agreement-download');
+      viewer.src = doc.documentUrl; viewer.title = t(lang === 'de' ? 'German agreement' : lang === 'es' ? 'Spanish agreement' : 'English agreement');
+      open.href = doc.documentUrl; download.href = doc.documentUrl; download.download = doc.fileName;
+    }
+    agreementSelect.addEventListener('change', loadAgreement);
+    document.addEventListener('vidfluencer:languagechange', event => {
+      agreementSelect.value = ['de','es'].includes(event.detail.language) ? event.detail.language : 'en'; loadAgreement();
+      if (!isLiveReady) say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      const visible = document.querySelector('[data-screen]:not([hidden])');
+      if (visible) showScreen(visible.dataset.screen);
+    });
+    agreementSelect.value = preferredAgreementLanguage();
+    loadAgreement();
+    creatorAge.addEventListener('change', () => {
+      const minor = creatorAge.value === 'minor'; guardianFields.hidden = !minor;
+      guardianFields.querySelectorAll('input').forEach(input => { input.required = minor; });
+    });
+    legalName.addEventListener('input', () => { if (!signatureName.value) signatureName.value = legalName.value; });
+
+    if (isLiveReady) {
+      try {
+        const module = await import(config.supabaseJsUrl || 'https://esm.sh/@supabase/supabase-js@2.118.0');
+        client = module.createClient(config.supabaseUrl, config.publishableKey);
+        banner.classList.add('live'); banner.hidden = false;
+        document.querySelector('#system-label').textContent = t('Secure sign-up · Supabase');
+        document.querySelector('#privacy-note').textContent = t('Your account, agreement and portfolio are stored privately under your creator account.');
+        document.querySelector('#privacy-note').hidden = false;
+        say(accountMessage, 'We’ll send an email confirmation link.', '');
+      } catch (error) {
+        banner.classList.add('blocked'); banner.hidden = false;
+        document.querySelector('#system-label').textContent = t('Connection unavailable');
+        say(accountMessage, 'The secure sign-up service could not load. Check your connection and try again.', 'error');
+      }
+    } else {
+      say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+    }
+
+    function showScreen(name) {
+      screens.forEach(screen => screen.hidden = screen.dataset.screen !== name);
+      steps.forEach(step => {
+        const active = step.dataset.stepIndicator === name;
+        const done = ['verify','agreement','portfolio'].indexOf(name) > ['account','verify','agreement','portfolio'].indexOf(step.dataset.stepIndicator);
+        step.classList.toggle('active', active);
+        step.classList.toggle('done', done);
+      });
+      const headings = { account:['Create your account','Start with your email address.'], verify:['Verify your email address','Open the confirmation link sent to your email address.'], agreement:['You’re in','Review your creator agreement, then type your full name as your signature.'], portfolio:['Add your portfolio','Paste a link to your portfolio.'] };
+      document.querySelector('#card-title').textContent = t(headings[name][0]);
+      document.querySelector('#card-subtitle').textContent = t(headings[name][1]);
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    async function saveProfile(user) {
+      const result = await client.from('creator_profiles').upsert({id:user.id, full_name:displayName, contact_method:'email'}, {onConflict:'id'});
+      if (result.error) throw result.error;
+    }
+    async function onboardingDestination(user) {
+      signedInUser = user;
+      const profileResult = await client.from('creator_profiles').select('full_name,needs_portfolio_update,review_note').eq('id', user.id).maybeSingle();
+      if (profileResult.error) throw profileResult.error;
+      if (profileResult.data && profileResult.data.full_name) displayName = profileResult.data.full_name;
+      if (!displayName) displayName = user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name) || '';
+      document.querySelector('#welcome-name').textContent = displayName ? ', ' + displayName.split(' ')[0] : '';
+      const contractResult = await client.from('creator_contracts').select('id').eq('creator_id', user.id).order('signed_at', {ascending:false}).limit(1).maybeSingle();
+      if (contractResult.error) throw contractResult.error;
+      campaignsLink.hidden = true;
+      if (contractResult.data) {
+        const portfolioResult = await client.from('creator_portfolios').select('id,portfolio_url').eq('creator_id',user.id).order('created_at',{ascending:false}).limit(1).maybeSingle();
+        if (portfolioResult.error) throw portfolioResult.error;
+        if (!portfolioResult.data || (profileResult.data && profileResult.data.needs_portfolio_update)) {
+          if (portfolioResult.data && portfolioResult.data.portfolio_url) document.querySelector('#portfolio-url').value = portfolioResult.data.portfolio_url;
+          say(document.querySelector('#portfolio-message'), profileResult.data && profileResult.data.needs_portfolio_update ? 'Please update your portfolio link using the review note shown below.' : 'Paste a link to your portfolio.', profileResult.data && profileResult.data.needs_portfolio_update ? 'warning' : '');
+          if (profileResult.data && profileResult.data.needs_portfolio_update && profileResult.data.review_note) say(document.querySelector('#portfolio-message'), profileResult.data.review_note + ' — update your portfolio link, then resubmit.', 'warning');
+          showScreen('portfolio');
+          returnToSignupOverlayIfNeeded();
+          return;
+        }
+        const approvalView = await client.from('creator_approval_status_view').select('approval_status').eq('creator_id',user.id).maybeSingle();
+        if (approvalView.error) throw approvalView.error;
+        campaignsLink.hidden = !approvalView.data || approvalView.data.approval_status !== 'approved';
+        const campaignsDestination = config.campaignsPage || 'campaigns.html';
+        if (document.documentElement.classList.contains('embed-mode')) window.top.location.assign(campaignsDestination);
+        else window.location.assign(campaignsDestination); return;
+      }
+      agreementSelect.value = preferredAgreementLanguage();
+      loadAgreement(); legalName.value = displayName || ''; signatureName.value = displayName || '';
+      contractEmail.value = user.email || '';
+      say(document.querySelector('#signature-message'), 'Review the agreement above before you sign.', '');
+      showScreen('agreement');
+      returnToSignupOverlayIfNeeded();
+    }
+
+    document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
+      mode = button.dataset.mode;
+      document.querySelectorAll('[data-mode]').forEach(tab => tab.setAttribute('aria-pressed', String(tab === button)));
+      document.querySelector('#name-field').hidden = mode === 'signin';
+      document.querySelector('#policy-notice').hidden = mode === 'signin';
+      nameInput.required = mode === 'signup';
+      passwordInput.autocomplete = mode === 'signin' ? 'current-password' : 'new-password';
+      passwordInput.placeholder = t(mode === 'signin' ? 'Your password' : 'At least 8 characters.');
+      document.querySelector('#account-submit').innerHTML = t(mode === 'signin' ? 'Sign in' : 'Create account') + (mode === 'signin' ? ' <span aria-hidden="true">→</span>' : ' <span aria-hidden="true">↗</span>');
+      document.querySelector('#password-hint').textContent = t(mode === 'signin' ? 'Enter your password.' : 'Use at least 8 characters.');
+      document.querySelector('#forgot-password').hidden = mode !== 'signin';
+      if (!isLiveReady) say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      else say(accountMessage, mode === 'signin' ? 'Sign in to return to your creator setup.' : 'We’ll send an email confirmation link.', '');
+    }));
+
+    async function startOAuth(provider) {
+      if (!isLiveReady || !client) return say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      if (document.documentElement.classList.contains('embed-mode')) {
+        const destination = new URL(window.location.href);
+        destination.searchParams.delete('embed');
+        destination.searchParams.set('resume-modal', '1');
+        destination.searchParams.set('start-oauth', provider);
+        window.top.location.assign(destination.href);
+        return;
+      }
+      document.querySelectorAll('[data-oauth]').forEach(item => item.disabled = true);
+      say(accountMessage, 'Connecting to ' + (provider === 'azure' ? 'Microsoft' : provider) + '…', '');
+      const options = {redirectTo:topLevelPortalUrl()};
+      if (provider === 'azure') options.scopes = 'email';
+      try {
+        const result = await client.auth.signInWithOAuth({provider:provider, options:options});
+        if (result.error) throw result.error;
+      } catch (error) {
+        say(accountMessage, error.message || 'Could not start social sign-in.', 'error');
+        document.querySelectorAll('[data-oauth]').forEach(item => item.disabled = false);
+      }
+    }
+    document.querySelectorAll('[data-oauth]').forEach(button => button.addEventListener('click', () => startOAuth(button.dataset.oauth)));
+    const requestedOAuthProvider = new URLSearchParams(window.location.search).get('start-oauth');
+    if (['google','azure','discord'].includes(requestedOAuthProvider)) {
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.searchParams.delete('start-oauth');
+      history.replaceState(null, '', cleanUrl.href);
+      startOAuth(requestedOAuthProvider);
+    }
+    accountForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!isLiveReady || !client) return say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      if (!accountForm.reportValidity()) return;
+      displayName = nameInput.value.trim();
+      contactValue = contact.value.trim();
+      if (mode === 'signup') { legalName.value = displayName; signatureName.value = displayName; contractEmail.value = contactValue; }
+      document.querySelector('#recipient-address').textContent = contactValue;
+      document.querySelector('#welcome-name').textContent = displayName ? ', ' + displayName.split(' ')[0] : '';
+      say(accountMessage, mode === 'signup' ? 'Creating your secure account…' : 'Signing you in…', '');
+      const submit = document.querySelector('#account-submit');
+      submit.disabled = true;
+      try {
+        if (mode === 'signup') {
+          const credentials = {email:contactValue, password:passwordInput.value, options:{emailRedirectTo:topLevelPortalUrl(), data:{full_name:displayName, contact_method:'email'}}};
+          const result = await client.auth.signUp(credentials);
+          if (result.error) throw result.error;
+          if (result.data.session) { await saveProfile(result.data.user); await onboardingDestination(result.data.user); }
+          else {
+            say(document.querySelector('#verify-message'), 'A confirmation link has been sent. Open it, then return here to continue.', 'success');
+            showScreen('verify');
+          }
+        } else {
+          const credentials = {email:contactValue, password:passwordInput.value};
+          const result = await client.auth.signInWithPassword(credentials);
+          if (result.error) throw result.error;
+          await onboardingDestination(result.data.user);
+        }
+      } catch (error) {
+        say(accountMessage, error.message || 'Could not continue. Check your details and try again.', 'error');
+      } finally { submit.disabled = false; }
+    });
+
+    document.querySelector('#verify-continue').addEventListener('click', async () => {
+      if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      say(document.querySelector('#verify-message'), 'Checking your email confirmation…', '');
+      try {
+        const result = await client.auth.getSession();
+        if (result.error) throw result.error;
+        if (!result.data.session) return say(document.querySelector('#verify-message'), 'The confirmation is not detected yet. Open the link in your email, then try again.', 'warning');
+        signedInUser = result.data.session.user;
+        await saveProfile(signedInUser);
+        await onboardingDestination(signedInUser);
+      } catch (error) {
+        say(document.querySelector('#verify-message'), error.message || 'Email confirmation could not be detected.', 'error');
+      }
+    });
+
+    document.querySelector('#resend-email').addEventListener('click', async () => {
+      if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      try {
+        const result = await client.auth.resend({type:'signup', email:contactValue});
+        if (result.error) throw result.error;
+        say(document.querySelector('#verify-message'), 'A new confirmation email has been sent.', 'success');
+      } catch (error) { say(document.querySelector('#verify-message'), error.message || 'Could not resend the confirmation email.', 'error'); }
+    });
+
+    document.querySelector('#signature-form').addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!event.currentTarget.reportValidity()) return;
+      const signer = signatureName.value.trim();
+      const fullLegalName = legalName.value.trim();
+      if (fullLegalName.toLocaleLowerCase() !== signer.toLocaleLowerCase()) return say(document.querySelector('#signature-message'), 'Type your legal name again as your signature.', 'error');
+      if (!document.querySelector('#agreement-consent').checked) return;
+      if (!currentAgreement) return say(document.querySelector('#signature-message'), 'Agreement language is not available.', 'error');
+      if (!isLiveReady || !client || !signedInUser) return say(document.querySelector('#signature-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      const submit = document.querySelector('#sign-submit');
+      submit.disabled = true;
+      say(document.querySelector('#signature-message'), 'Saving your signed agreement privately…', '');
+      const signedAt = new Date().toISOString();
+      const path = signedInUser.id + '/' + crypto.randomUUID() + '-agreement-' + agreementSelect.value + '.txt';
+      const pdfPath = signedInUser.id + '/' + crypto.randomUUID() + '-' + currentAgreement.fileName;
+      const creator = {
+        legalName:fullLegalName, creatorName:document.querySelector('#creator-name').value.trim(), contactEmail:contractEmail.value.trim(),
+        address:document.querySelector('#address').value.trim(), country:document.querySelector('#country').value.trim(),
+        socialChannels:document.querySelector('#social-handles').value.trim(), paypalEmail:document.querySelector('#paypal-email').value.trim(),
+        vatNumber:document.querySelector('#vat-number').value.trim(), age:creatorAge.value,
+        guardianName:document.querySelector('#guardian-name').value.trim(), guardianSignature:document.querySelector('#guardian-signature').value.trim(),
+        paymentMethod:document.querySelector('#payment-method').value, payoutDetails:document.querySelector('#payout-details').value.trim()
+      };
+      const snapshot = JSON.stringify({agreementTitle:currentAgreement.title, agreementLanguage:agreementSelect.value,
+        agreementVersion:currentAgreement.version, agreementDocument:currentAgreement.fileName, agreementSha256:currentAgreement.sha256,
+        agreementUrl:currentAgreement.documentUrl, privatePdfCopyPath:pdfPath, creator, signerName:signer, creatorId:signedInUser.id, signedAtUtc:signedAt,
+        consent:'I confirm I have read and agree to the selected creator partnership agreement.'}, null, 2);
+      try {
+        const response = await fetch(currentAgreement.documentUrl);
+        if (!response.ok) throw new Error('The agreement PDF could not be loaded. Please reopen it and try again.');
+        const pdfUpload = await client.storage.from('creator-contracts').upload(pdfPath, await response.blob(), {contentType:'application/pdf', upsert:false});
+        if (pdfUpload.error) throw pdfUpload.error;
+        const upload = await client.storage.from('creator-contracts').upload(path, new Blob([snapshot], {type:'text/plain;charset=utf-8'}), {contentType:'text/plain', upsert:false});
+        if (upload.error) throw upload.error;
+        const profilePatch = {full_name:displayName || fullLegalName, legal_name:fullLegalName, creator_name:creator.creatorName || null, contact_email:creator.contactEmail, address:creator.address, country:creator.country, social_handles:creator.socialChannels, paypal_email:creator.paypalEmail, vat_number:creator.vatNumber || null, age_confirmation:creator.age, guardian_name:creator.guardianName || null, guardian_signature:creator.guardianSignature || null, payment_method:creator.paymentMethod, payout_details:creator.payoutDetails};
+        const profileSave = await client.from('creator_profiles').update(profilePatch).eq('id',signedInUser.id);
+        if (profileSave.error) throw profileSave.error;
+        const insert = await client.from('creator_contracts').insert({creator_id:signedInUser.id, agreement_version:currentAgreement.version, signer_name:signer, signed_at:signedAt, storage_path:path, pdf_storage_path:pdfPath});
+        if (insert.error) throw insert.error;
+        say(document.querySelector('#signature-message'), 'Agreement saved securely.', 'success');
+        showScreen('portfolio');
+      } catch (error) {
+        say(document.querySelector('#signature-message'), 'The agreement could not be saved. ' + (error.message || ''), 'error');
+      } finally { submit.disabled = false; }
+    });
+
+    document.querySelector('#portfolio-form').addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!event.currentTarget.reportValidity()) return;
+      const urlValue = document.querySelector('#portfolio-url').value.trim();
+      if (!urlValue) return say(document.querySelector('#portfolio-message'), 'Add your portfolio link to finish setup.', 'error');
+      let parsedUrl;
+      try { parsedUrl = new URL(urlValue); } catch (_) { return say(document.querySelector('#portfolio-message'), 'Enter a complete portfolio link starting with https://.', 'error'); }
+      if (!['http:','https:'].includes(parsedUrl.protocol)) return say(document.querySelector('#portfolio-message'), 'Portfolio links must use http or https.', 'error');
+      if (!isLiveReady || !client) return say(document.querySelector('#portfolio-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      if (!client || !signedInUser) return say(document.querySelector('#portfolio-message'), 'Sign in before submitting your portfolio.', 'error');
+      const submit = event.currentTarget.querySelector('button[type="submit"]');
+      submit.disabled = true;
+      say(document.querySelector('#portfolio-message'), 'Saving your portfolio link privately…', '');
+      try {
+        const existing = await client.from('creator_portfolios').select('id').eq('creator_id',signedInUser.id).order('created_at',{ascending:false}).limit(1).maybeSingle();
+        if (existing.error) throw existing.error;
+        const saved = existing.data
+          ? await client.from('creator_portfolios').update({portfolio_url:urlValue}).eq('id',existing.data.id)
+          : await client.from('creator_portfolios').insert({creator_id:signedInUser.id,portfolio_url:urlValue});
+        if (saved.error) throw saved.error;
+        const campaignsDestination = config.campaignsPage || 'campaigns.html';
+        if (document.documentElement.classList.contains('embed-mode')) window.top.location.assign(campaignsDestination);
+        else window.location.assign(campaignsDestination);
+      } catch (error) {
+        say(document.querySelector('#portfolio-message'), error.message || 'Your portfolio could not be saved. Please try again.', 'error');
+      } finally { submit.disabled = false; }
+    });
+
+    document.querySelector('#forgot-password').addEventListener('click', async () => {
+      if (!isLiveReady || !client) return say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      try {
+        const result = await client.auth.resetPasswordForEmail(contact.value.trim(), {redirectTo:topLevelPortalUrl()});
+        if (result.error) throw result.error;
+        say(accountMessage, 'If the account is eligible, a password reset email is on its way.', 'success');
+      } catch (error) { say(accountMessage, error.message || 'Could not request a password reset.', 'error'); }
+    });
+
+    if (new URLSearchParams(window.location.search).get('mode') === 'signin') document.querySelector('[data-mode="signin"]').click();
+    if (client) {
+      try {
+        const result = await client.auth.getSession();
+        if (result.error) throw result.error;
+        if (result.data.session) {
+          const user = result.data.session.user;
+          const metadata = user.user_metadata || {};
+          const profile = await client.from('creator_profiles').select('full_name').eq('id',user.id).maybeSingle();
+          if (profile.error) throw profile.error;
+          displayName = (profile.data && profile.data.full_name) || metadata.full_name || metadata.name || metadata.username || (user.email ? user.email.split('@')[0] : 'Creator');
+          contactValue = user.email || '';
+          await saveProfile(user);
+          const approval = await client.from('creator_approval_status_view').select('approval_status').eq('creator_id',user.id).maybeSingle();
+          campaignsLink.hidden = !approval.data || approval.data.approval_status !== 'approved';
+          await onboardingDestination(user);
+        }
+      } catch (error) {
+        say(accountMessage, error.message || 'Could not finish social sign-in.', 'error');
+        showScreen('account');
+      }
+    }
+  </script>
+</body>
+</html>
