@@ -801,7 +801,12 @@ Tell people what you create, your style and the brands you work best with.|Besch
 Enter a display name of 1 to 50 characters.|Gib einen Anzeigenamen mit 1 bis 50 Zeichen ein.
 Your bio must be 50 words or fewer.|Deine Biografie darf höchstens 50 Wörter lang sein.
 words|Wörter
-Enter your password to continue.|Gib dein Passwort ein, um fortzufahren.`;
+Enter your password to continue.|Gib dein Passwort ein, um fortzufahren.
+Admin Dashboard|Admin-Dashboard
+Campaign status|Kampagnenstatus
+Admin campaign view|Admin-Kampagnenübersicht
+View campaigns|Kampagnen ansehen
+Campaign not found or no longer available.|Kampagne nicht gefunden oder nicht mehr verfügbar.`;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.de = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
 })();
