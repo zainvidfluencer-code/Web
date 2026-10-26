@@ -305,6 +305,16 @@
   <script src="supabase-config.js"></script>
   <script type="module">
     const config = window.VIDFLUENCER_CONFIG || {};
+    const pendingSignupEmailKey = 'vidfluencer.pendingSignupEmail';
+    function readPendingSignupEmail() {
+      try { return localStorage.getItem(pendingSignupEmailKey) || ''; } catch (_) { return ''; }
+    }
+    function rememberPendingSignupEmail(email) {
+      try { localStorage.setItem(pendingSignupEmailKey, email); } catch (_) {}
+    }
+    function clearPendingSignupEmail() {
+      try { localStorage.removeItem(pendingSignupEmailKey); } catch (_) {}
+    }
     const hasBackend = Boolean(config.supabaseUrl && config.publishableKey);
     const hasAgreement = Boolean(config.agreementDocs && config.agreementDocs.en && config.agreementDocs.de && config.agreementDocs.es);
     function topLevelPortalUrl() {
@@ -342,7 +352,8 @@
     const guardianFields = document.querySelector('#guardian-fields');
     const creatorAge = document.querySelector('#creator-age');
     let currentAgreement = null;
-    let client = null, mode = 'signup', displayName = '', contactValue = '', signedInUser = null;
+    let client = null, mode = 'signup', displayName = '', contactValue = readPendingSignupEmail(), signedInUser = null;
+    if (contactValue) document.querySelector('#recipient-address').textContent = contactValue;
     function loadAgreement() {
       const lang = agreementSelect.value;
       const doc = config.agreementDocs && config.agreementDocs[lang];
@@ -406,6 +417,7 @@
     }
     async function onboardingDestination(user) {
       signedInUser = user;
+      clearPendingSignupEmail();
       const profileResult = await client.from('creator_profiles').select('full_name,needs_portfolio_update,review_note').eq('id', user.id).maybeSingle();
       if (profileResult.error) throw profileResult.error;
       if (profileResult.data && profileResult.data.full_name) displayName = profileResult.data.full_name;
@@ -504,6 +516,8 @@
           if (result.error) throw result.error;
           if (result.data.session) { await saveProfile(result.data.user); await onboardingDestination(result.data.user); }
           else {
+            rememberPendingSignupEmail(contactValue);
+            document.querySelector('#recipient-address').textContent = contactValue;
             say(document.querySelector('#verify-message'), 'A confirmation link has been sent. Open it, then return here to continue.', 'success');
             showScreen('verify');
           }
@@ -533,13 +547,22 @@
       }
     });
 
-    document.querySelector('#resend-email').addEventListener('click', async () => {
+    document.querySelector('#resend-email').addEventListener('click', async event => {
       if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
+      const email = (contactValue || readPendingSignupEmail() || contact.value || contractEmail.value).trim().toLowerCase();
+      if (!email) return say(document.querySelector('#verify-message'), 'Enter the email address you signed up with before requesting another link.', 'error');
+      const button = event.currentTarget;
+      button.disabled = true;
+      contactValue = email;
+      rememberPendingSignupEmail(email);
+      document.querySelector('#recipient-address').textContent = email;
+      say(document.querySelector('#verify-message'), 'Sending a new confirmation email…', '');
       try {
-        const result = await client.auth.resend({type:'signup', email:contactValue});
+        const result = await client.auth.resend({type:'signup', email, options:{emailRedirectTo:topLevelPortalUrl()}});
         if (result.error) throw result.error;
-        say(document.querySelector('#verify-message'), 'A new confirmation email has been sent.', 'success');
+        say(document.querySelector('#verify-message'), 'Confirmation email request accepted. Check your inbox and Resend Emails for delivery.', 'success');
       } catch (error) { say(document.querySelector('#verify-message'), error.message || 'Could not resend the confirmation email.', 'error'); }
+      finally { button.disabled = false; }
     });
 
     document.querySelector('#signature-form').addEventListener('submit', async event => {
@@ -641,6 +664,14 @@
           const approval = await client.from('creator_approval_status_view').select('approval_status').eq('creator_id',user.id).maybeSingle();
           campaignsLink.hidden = !approval.data || approval.data.approval_status !== 'approved';
           await onboardingDestination(user);
+        } else if (contactValue && new URLSearchParams(window.location.search).get('mode') !== 'signin') {
+          const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+          const confirmationFailed = hashParams.has('error') || hashParams.has('error_code');
+          document.querySelector('#recipient-address').textContent = contactValue;
+          showScreen('verify');
+          say(document.querySelector('#verify-message'), confirmationFailed
+            ? 'That confirmation link expired or was already used. Request a fresh confirmation email below.'
+            : 'A confirmation link has been sent. Open it, then return here to continue.', confirmationFailed ? 'warning' : '');
         }
       } catch (error) {
         say(accountMessage, error.message || 'Could not finish social sign-in.', 'error');
