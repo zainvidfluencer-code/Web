@@ -62,21 +62,6 @@
     .field input,.field select,.field textarea { width:100%; min-height:46px; padding:0 14px; border:1px solid #dfe3ed; border-radius:11px; outline:0; color:var(--ink); background:#fff; font-size:14px; transition:border-color .16s,box-shadow .16s; }
     .field textarea { min-height:84px; padding:11px 14px; resize:vertical; }
     .field select { cursor:pointer; }
-    .field .custom-select { position:relative; width:100%; min-width:0; }
-    .field .custom-select-native { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; opacity:0!important; pointer-events:none!important; }
-    .custom-select-trigger { display:flex; width:100%; min-height:46px; align-items:center; justify-content:space-between; gap:14px; padding:0 15px; border:1px solid #dfe3ed; border-radius:15px; background:#fff; color:var(--ink); text-align:left; font:inherit; font-size:14px; cursor:pointer; transition:border-color .16s,box-shadow .16s,background .16s; }
-    .custom-select-trigger:hover { border-color:#c8cfee; background:#fdfdff; }
-    .custom-select-trigger[aria-expanded="true"] { border-color:#9ba8f1; box-shadow:0 0 0 3px rgb(64 85 214 / .1); }
-    .custom-select-trigger[aria-invalid="true"] { border-color:#d65050; }
-    .custom-select-chevron { width:8px; height:8px; flex:none; margin-top:-4px; border-right:1.7px solid #737d91; border-bottom:1.7px solid #737d91; transform:rotate(45deg); transition:transform .16s,margin .16s; }
-    .custom-select-trigger[aria-expanded="true"] .custom-select-chevron { margin-top:4px; transform:rotate(225deg); }
-    .custom-select-menu { position:absolute; z-index:50; top:calc(100% + 7px); right:0; left:0; max-height:240px; overflow:auto; padding:7px; border:1px solid #e5e8f1; border-radius:18px; background:#fff; box-shadow:0 14px 34px rgb(25 35 72 / .14); }
-    .custom-select-option { display:flex; width:100%; min-height:42px; align-items:center; justify-content:space-between; gap:12px; padding:0 12px; border:0; border-radius:12px; background:transparent; color:#35405a; text-align:left; font:inherit; font-size:14px; cursor:pointer; }
-    .custom-select-option:hover,.custom-select-option:focus-visible { outline:none; background:#f5f6ff; color:var(--blue); }
-    .custom-select-option[aria-selected="true"] { background:#f3f5ff; color:var(--blue); font-weight:700; }
-    .custom-select-check { color:var(--blue); font-size:15px; font-weight:800; opacity:0; }
-    .custom-select-option[aria-selected="true"] .custom-select-check { opacity:1; }
-    .custom-select-error { margin:7px 2px 0; }
     .field input:focus,.field select:focus,.field textarea:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
     .agreement-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:12px; border-bottom:1px solid var(--line); background:#fff; }
     .agreement-toolbar label { color:#48536b; font-size:12px; font-weight:700; }
@@ -96,7 +81,6 @@
     .portfolio-note { margin:-5px 0 13px; color:#818ba0; font-size:11px; line-height:1.5; }
     .password-line { display:flex; justify-content:space-between; align-items:center; margin:1px 0 14px; color:var(--muted); font-size:12px; }
     .email-resend { display:block; margin:16px auto 0; }
-    .otp-input { text-align:center; font-size:23px !important; font-weight:750; letter-spacing:.38em; font-variant-numeric:tabular-nums; }
     .text-button { padding:0; border:0; background:none; color:var(--blue); cursor:pointer; font-size:12px; font-weight:700; }
     .primary { display:flex; width:100%; min-height:48px; align-items:center; justify-content:center; gap:8px; border:0; border-radius:12px; background:var(--blue); color:white; cursor:pointer; font-size:14px; font-weight:750; transition:background .18s,transform .18s; }
     .primary:hover { background:#2e43bd; transform:translateY(-1px); }
@@ -257,14 +241,11 @@
 <p id="policy-notice" class="policy-notice"><span>By creating an account, you agree to our </span><a href="terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms of Service</a><span> and </span><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a><span>.</span></p>
         </section>
         <section id="screen-verify" data-screen="verify" hidden>
-          <h3>Verify your email</h3>
-          <p class="helper"><span>Enter the six-digit code sent to</span> <strong id="recipient-address">your email address</strong><span>.</span></p>
-          <form id="verify-form" novalidate>
-            <div class="field"><label for="verify-code">Six-digit verification code</label><input id="verify-code" class="otp-input" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="000000" aria-label="Six-digit verification code" required></div>
-            <p id="verify-message" class="helper" aria-live="polite"></p>
-            <button id="verify-submit" class="primary" type="submit">Verify Email &amp; Continue <span aria-hidden="true">→</span></button>
-          </form>
-          <button id="resend-email" class="text-button email-resend" type="button">Resend code</button>
+          <h3>Check your inbox</h3>
+          <p class="helper"><span>Open the confirmation link sent to</span> <strong id="recipient-address">your email address</strong><span>. Return here after confirming.</span></p>
+          <p id="verify-message" class="helper" aria-live="polite"></p>
+          <button id="verify-continue" class="primary" type="button">I confirmed my email <span aria-hidden="true">→</span></button>
+          <button id="resend-email" class="text-button email-resend" type="button">Resend confirmation email</button>
         </section>
         <section id="screen-agreement" data-screen="agreement" hidden>
           <h3>Welcome to Vidfluencer<span id="welcome-name"></span></h3>
@@ -324,16 +305,6 @@
   <script src="supabase-config.js"></script>
   <script type="module">
     const config = window.VIDFLUENCER_CONFIG || {};
-    const pendingSignupEmailKey = 'vidfluencer.pendingSignupEmail';
-    function readPendingSignupEmail() {
-      try { return localStorage.getItem(pendingSignupEmailKey) || ''; } catch (_) { return ''; }
-    }
-    function rememberPendingSignupEmail(email) {
-      try { localStorage.setItem(pendingSignupEmailKey, email); } catch (_) {}
-    }
-    function clearPendingSignupEmail() {
-      try { localStorage.removeItem(pendingSignupEmailKey); } catch (_) {}
-    }
     const hasBackend = Boolean(config.supabaseUrl && config.publishableKey);
     const hasAgreement = Boolean(config.agreementDocs && config.agreementDocs.en && config.agreementDocs.de && config.agreementDocs.es);
     function topLevelPortalUrl() {
@@ -355,8 +326,6 @@
     const screens = [...document.querySelectorAll('[data-screen]')];
     const steps = [...document.querySelectorAll('[data-step-indicator]')];
     const accountForm = document.querySelector('#account-form');
-    const verifyForm = document.querySelector('#verify-form');
-    const verifyCode = document.querySelector('#verify-code');
     const accountMessage = document.querySelector('#account-message');
     const contact = document.querySelector('#contact');
     const nameInput = document.querySelector('#full-name');
@@ -372,57 +341,8 @@
     const contractEmail = document.querySelector('#contract-email');
     const guardianFields = document.querySelector('#guardian-fields');
     const creatorAge = document.querySelector('#creator-age');
-    const paymentMethodSelect = document.querySelector('#payment-method');
-    function enhanceRoundedSelect(select) {
-      const field = select.closest('.field'), label = field.querySelector('label');
-      if (!label.id) label.id = select.id + '-label';
-      const host = document.createElement('div'); host.className = 'custom-select';
-      select.parentNode.insertBefore(host,select); host.append(select);
-      select.classList.add('custom-select-native'); select.tabIndex=-1; select.setAttribute('aria-hidden','true');
-      const trigger=document.createElement('button'); trigger.type='button'; trigger.className='custom-select-trigger';
-      trigger.setAttribute('aria-haspopup','listbox'); trigger.setAttribute('aria-expanded','false');
-      trigger.setAttribute('aria-labelledby',label.id+' '+select.id+'-value'); trigger.setAttribute('aria-controls',select.id+'-options'); trigger.setAttribute('aria-required','true');
-      const value=document.createElement('span'); value.id=select.id+'-value';
-      const chevron=document.createElement('span'); chevron.className='custom-select-chevron'; chevron.setAttribute('aria-hidden','true'); trigger.append(value,chevron);
-      const menu=document.createElement('div'); menu.className='custom-select-menu'; menu.id=select.id+'-options'; menu.setAttribute('role','listbox'); menu.setAttribute('aria-labelledby',label.id); menu.hidden=true;
-      const error=document.createElement('p'); error.className='helper error custom-select-error'; error.id=select.id+'-error'; error.setAttribute('role','alert'); error.textContent=t('Choose one'); error.hidden=true; trigger.setAttribute('aria-describedby',error.id);
-      host.append(trigger,menu,error);
-      const translated=option=>t(option.textContent.trim());
-      function updateValue(){value.textContent=translated(select.options[select.selectedIndex]||select.options[0])}
-      function close(returnFocus){menu.hidden=true;trigger.setAttribute('aria-expanded','false');if(returnFocus)trigger.focus()}
-      function choose(option){select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));error.hidden=true;trigger.removeAttribute('aria-invalid');close(true)}
-      function render(keepFocus=false){
-        const oldFocus=keepFocus?menu.querySelector(':focus')?.dataset.value:null; menu.replaceChildren();
-        [...select.options].forEach(option=>{
-          const item=document.createElement('button');item.type='button';item.className='custom-select-option';item.setAttribute('role','option');item.setAttribute('aria-selected',String(option.value===select.value));item.dataset.value=option.value;
-          const text=document.createElement('span');text.textContent=translated(option);const check=document.createElement('span');check.className='custom-select-check';check.setAttribute('aria-hidden','true');check.textContent='\u2713';item.append(text,check);
-          item.addEventListener('click',()=>choose(option));
-          item.addEventListener('keydown',event=>{const items=[...menu.querySelectorAll('.custom-select-option')],i=items.indexOf(item);
-            if(event.key==='Escape'){event.preventDefault();close(true)}
-            else if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();items[(i+(event.key==='ArrowDown'?1:items.length-1))%items.length]?.focus()}
-            else if(event.key==='Home'){event.preventDefault();items[0]?.focus()}
-            else if(event.key==='End'){event.preventDefault();items.at(-1)?.focus()}
-            else if(event.key==='Tab')close(false);
-          }); menu.append(item);
-        });
-        if(keepFocus&&!menu.hidden){const target=[...menu.querySelectorAll('.custom-select-option')].find(x=>x.dataset.value===(oldFocus||select.value));target?.focus()}
-      }
-      function open(){render();menu.hidden=false;trigger.setAttribute('aria-expanded','true');(menu.querySelector('[aria-selected="true"]')||menu.querySelector('.custom-select-option'))?.focus()}
-      trigger.addEventListener('click',()=>menu.hidden?open():close(false));
-      trigger.addEventListener('keydown',event=>{if(['ArrowDown','ArrowUp','Enter',' '].includes(event.key)){event.preventDefault();if(menu.hidden)open();else (menu.querySelector('[aria-selected="true"]')||menu.querySelector('.custom-select-option'))?.focus()}});
-      label.addEventListener('click',event=>{event.preventDefault();trigger.focus()});
-      select.addEventListener('change',()=>{updateValue();if(select.value){error.hidden=true;trigger.removeAttribute('aria-invalid')}if(!menu.hidden)render(true)});
-      document.addEventListener('vidfluencer:languagechange',()=>{error.textContent=t('Choose one');updateValue();if(!menu.hidden)render()});
-      document.addEventListener('pointerdown',event=>{if(!host.contains(event.target))close(false)});
-      document.addEventListener('focusin',event=>{if(!host.contains(event.target))close(false)});
-      updateValue();
-      return {validate(){if(select.value)return true;error.hidden=false;trigger.setAttribute('aria-invalid','true');trigger.focus();return false}};
-    }
-    const creatorAgeDropdown=enhanceRoundedSelect(creatorAge);
-    const paymentMethodDropdown=enhanceRoundedSelect(paymentMethodSelect);
     let currentAgreement = null;
-    let client = null, mode = 'signup', displayName = '', contactValue = readPendingSignupEmail(), signedInUser = null;
-    if (contactValue) document.querySelector('#recipient-address').textContent = contactValue;
+    let client = null, mode = 'signup', displayName = '', contactValue = '', signedInUser = null;
     function loadAgreement() {
       const lang = agreementSelect.value;
       const doc = config.agreementDocs && config.agreementDocs[lang];
@@ -474,7 +394,7 @@
         step.classList.toggle('active', active);
         step.classList.toggle('done', done);
       });
-      const headings = { account:['Create your account','Start with your email address.'], verify:['Verify your email address','Enter the six-digit code sent to your email address.'], agreement:['You’re in','Review your creator agreement, then type your full name as your signature.'], portfolio:['Add your portfolio','Paste a link to your portfolio.'] };
+      const headings = { account:['Create your account','Start with your email address.'], verify:['Verify your email address','Open the confirmation link sent to your email address.'], agreement:['You’re in','Review your creator agreement, then type your full name as your signature.'], portfolio:['Add your portfolio','Paste a link to your portfolio.'] };
       document.querySelector('#card-title').textContent = t(headings[name][0]);
       document.querySelector('#card-subtitle').textContent = t(headings[name][1]);
       window.scrollTo({top:0,behavior:'smooth'});
@@ -485,7 +405,6 @@
     }
     async function onboardingDestination(user) {
       signedInUser = user;
-      clearPendingSignupEmail();
       const profileResult = await client.from('creator_profiles').select('full_name,needs_portfolio_update,review_note').eq('id', user.id).maybeSingle();
       if (profileResult.error) throw profileResult.error;
       if (profileResult.data && profileResult.data.full_name) displayName = profileResult.data.full_name;
@@ -584,9 +503,7 @@
           if (result.error) throw result.error;
           if (result.data.session) { await saveProfile(result.data.user); await onboardingDestination(result.data.user); }
           else {
-            rememberPendingSignupEmail(contactValue);
-            document.querySelector('#recipient-address').textContent = contactValue;
-            say(document.querySelector('#verify-message'), 'Check your inbox for a six-digit verification code. Enter it below to continue.', 'success');
+            say(document.querySelector('#verify-message'), 'A confirmation link has been sent. Open it, then return here to continue.', 'success');
             showScreen('verify');
           }
         } else {
@@ -596,74 +513,36 @@
           await onboardingDestination(result.data.user);
         }
       } catch (error) {
-        const needsEmailVerification = mode === 'signin' && (error.code === 'email_not_confirmed' || /email not confirmed/i.test(error.message || ''));
-        if (needsEmailVerification) {
-          contactValue = contact.value.trim().toLowerCase();
-          rememberPendingSignupEmail(contactValue);
-          document.querySelector('#recipient-address').textContent = contactValue;
-          showScreen('verify');
-          const resendButton = document.querySelector('#resend-email');
-          resendButton.disabled = true;
-          say(document.querySelector('#verify-message'), 'Your email is not confirmed. Requesting a fresh six-digit code…', '');
-          try {
-            const resend = await client.auth.resend({type:'signup', email:contactValue, options:{emailRedirectTo:topLevelPortalUrl()}});
-            if (resend.error) throw resend.error;
-            say(document.querySelector('#verify-message'), 'A new verification code was requested. Check your inbox, then enter it below.', 'success');
-          } catch (resendError) {
-            say(document.querySelector('#verify-message'), resendError.message || 'Could not resend the verification code.', 'error');
-          } finally { resendButton.disabled = false; }
-        } else {
-          say(accountMessage, error.message || 'Could not continue. Check your details and try again.', 'error');
-        }
+        say(accountMessage, error.message || 'Could not continue. Check your details and try again.', 'error');
       } finally { submit.disabled = false; }
     });
 
-    verifyCode.addEventListener('input', () => { verifyCode.value = verifyCode.value.replace(/[^0-9]/g, '').slice(0, 6); });
-    verifyForm.addEventListener('submit', async event => {
-      event.preventDefault();
+    document.querySelector('#verify-continue').addEventListener('click', async () => {
       if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
-      if (!verifyForm.reportValidity()) return;
-      const email = (contactValue || readPendingSignupEmail()).trim().toLowerCase();
-      if (!email) return say(document.querySelector('#verify-message'), 'Enter the email address you signed up with before requesting another code.', 'error');
-      const submit = document.querySelector('#verify-submit');
-      submit.disabled = true;
-      say(document.querySelector('#verify-message'), 'Confirming your email…', '');
+      say(document.querySelector('#verify-message'), 'Checking your email confirmation…', '');
       try {
-        const result = await client.auth.verifyOtp({email, token:verifyCode.value, type:'email'});
+        const result = await client.auth.getSession();
         if (result.error) throw result.error;
-        signedInUser = result.data.user || result.data.session?.user || null;
-        if (!signedInUser) return say(document.querySelector('#verify-message'), 'Email verification did not return an account session. Please try again.', 'error');
-        const metadata = signedInUser.user_metadata || {};
-        displayName = displayName || metadata.full_name || metadata.name || metadata.username || '';
+        if (!result.data.session) return say(document.querySelector('#verify-message'), 'The confirmation is not detected yet. Open the link in your email, then try again.', 'warning');
+        signedInUser = result.data.session.user;
         await saveProfile(signedInUser);
         await onboardingDestination(signedInUser);
       } catch (error) {
-        const invalidCode = error.code === 'otp_expired' || /expired|invalid.*token|token.*invalid/i.test(error.message || '');
-        say(document.querySelector('#verify-message'), invalidCode ? 'The code is invalid or expired. Request a new one and try again.' : (error.message || 'That code could not be verified. Request a fresh code and try again.'), 'error');
-      } finally { submit.disabled = false; }
+        say(document.querySelector('#verify-message'), error.message || 'Email confirmation could not be detected.', 'error');
+      }
     });
 
-    document.querySelector('#resend-email').addEventListener('click', async event => {
+    document.querySelector('#resend-email').addEventListener('click', async () => {
       if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
-      const email = (contactValue || readPendingSignupEmail() || contact.value || contractEmail.value).trim().toLowerCase();
-      if (!email) return say(document.querySelector('#verify-message'), 'Enter the email address you signed up with before requesting another code.', 'error');
-      const button = event.currentTarget;
-      button.disabled = true;
-      contactValue = email;
-      rememberPendingSignupEmail(email);
-      document.querySelector('#recipient-address').textContent = email;
-      say(document.querySelector('#verify-message'), 'Sending a new verification code…', '');
       try {
-        const result = await client.auth.resend({type:'signup', email, options:{emailRedirectTo:topLevelPortalUrl()}});
+        const result = await client.auth.resend({type:'signup', email:contactValue});
         if (result.error) throw result.error;
-        say(document.querySelector('#verify-message'), 'Verification code request accepted. Check your inbox and Resend Emails for delivery.', 'success');
-      } catch (error) { say(document.querySelector('#verify-message'), error.message || 'Could not resend the verification code.', 'error'); }
-      finally { button.disabled = false; }
+        say(document.querySelector('#verify-message'), 'A new confirmation email has been sent.', 'success');
+      } catch (error) { say(document.querySelector('#verify-message'), error.message || 'Could not resend the confirmation email.', 'error'); }
     });
 
     document.querySelector('#signature-form').addEventListener('submit', async event => {
       event.preventDefault();
-      if (!creatorAgeDropdown.validate() || !paymentMethodDropdown.validate()) return;
       if (!event.currentTarget.reportValidity()) return;
       const signer = signatureName.value.trim();
       const fullLegalName = legalName.value.trim();
@@ -761,14 +640,6 @@
           const approval = await client.from('creator_approval_status_view').select('approval_status').eq('creator_id',user.id).maybeSingle();
           campaignsLink.hidden = !approval.data || approval.data.approval_status !== 'approved';
           await onboardingDestination(user);
-        } else if (contactValue && new URLSearchParams(window.location.search).get('mode') !== 'signin') {
-          const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-          const confirmationFailed = hashParams.has('error') || hashParams.has('error_code');
-          document.querySelector('#recipient-address').textContent = contactValue;
-          showScreen('verify');
-          say(document.querySelector('#verify-message'), confirmationFailed
-            ? 'That confirmation link is no longer valid. Request a fresh six-digit code below.'
-            : 'Check your inbox for a six-digit verification code. Enter it below to continue.', confirmationFailed ? 'warning' : '');
         }
       } catch (error) {
         say(accountMessage, error.message || 'Could not finish social sign-in.', 'error');
