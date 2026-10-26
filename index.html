@@ -6,6 +6,14 @@
   <meta name="theme-color" content="#f7f8fc">
   <meta name="description" content="Free creator coaching, brand deals, UGC and affiliate opportunities with Vidfluencer.">
   <title>Vidfluencer | Creator monetisation, coaching and campaigns</title>
+  <script>
+    (() => {
+      if (window.location.protocol === 'file:' || !/\/index\.html$/i.test(window.location.pathname)) return;
+      const cleanPath = window.location.pathname.replace(/index\.html$/i, '');
+      const cleanHash = window.location.hash === '#top' ? '' : window.location.hash;
+      window.history.replaceState(window.history.state, '', cleanPath + window.location.search + cleanHash);
+    })();
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -700,6 +708,7 @@
       }
     });
   </script>
+  <script>if (window.location.protocol !== 'file:') document.querySelectorAll('a[href="#top"]').forEach(link => link.setAttribute('href', '/'));</script>
 </body>
 </html>
 
