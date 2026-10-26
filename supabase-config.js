@@ -1,6 +1,6 @@
 /*
   Browser-safe project settings. Keep Supabase secret/service-role keys out of this file.
-  Live authentication remains disabled until the Supabase database and providers are configured.
+  Live authentication is enabled for the configured Supabase project. Keep secret/service-role keys out of this browser file.
 */
 window.VIDFLUENCER_CONFIG = {
   supabaseUrl: "https://etzzzhbfeokhtzdwjyhn.supabase.co",
@@ -9,9 +9,9 @@ window.VIDFLUENCER_CONFIG = {
   liveAuthReady: true,
   pendingCanBrowse: false,
   reviewTimingText: "We aim to review complete applications within 3–5 business days.",
-  campaignsPage: "campaigns.html",
+  campaignsPage: "campaigns/",
   adminSessionMinutes: 30,
-  adminPaths: { login: "vf-admin-gate-k8m2q.html", dashboard: "vf-admin-desk-k8m2q.html" },
+  adminPaths: { login: "admin-login/", dashboard: "admin/" },
   agreementDocs: {
     en: {
       title: "Vidfluencer Creator Partnership Agreement",

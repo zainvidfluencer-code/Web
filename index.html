@@ -392,11 +392,11 @@
         <a href="#work">Examples</a>
         <a href="#brands">For brands</a>
         <a href="#faq">FAQ</a>
-        <a href="creator-portal.html?mode=signin">Sign in</a>
+        <a href="creator-portal/?mode=signin">Sign in</a>
         <a href="https://discord.gg/Cunm36D3C" target="_blank" rel="noopener noreferrer">Join Discord ↗</a>
       </nav>
       <div class="header-actions">
-        <a class="button small nav-cta" href="creator-portal.html">Create account <span aria-hidden="true">↗</span></a>
+        <a class="button small nav-cta" href="creator-portal/">Create account <span aria-hidden="true">↗</span></a>
         <label class="language-picker"><span aria-hidden="true">◎</span><select data-language-picker aria-label="Change language"><option value="en">English</option><option value="de">Deutsch</option><option value="es">Español</option></select></label>
         
       </div>
@@ -412,7 +412,7 @@
           <h1>Build your creator career <span class="accent">with a clearer next step.</span></h1>
           <p class="lead">Sharpen your videos, get personal coaching and explore brand, UGC and affiliate opportunities — with clear briefs and terms before you begin.</p>
           <div class="button-row">
-            <a class="button" href="creator-portal.html">Create your creator account <span aria-hidden="true">↗</span></a>
+            <a class="button" href="creator-portal/">Create your creator account <span aria-hidden="true">↗</span></a>
             <a class="button secondary" href="#work">See creator videos <span aria-hidden="true">→</span></a>
           </div>
           <div class="hero-note"><span>Free creator coaching</span><span>No creator subscription</span><span>Clear campaign terms</span></div>
@@ -655,11 +655,11 @@
     function closeSignup() {
       if (signupDialog.open) signupDialog.close();
     }
-    document.querySelectorAll('a[href*="creator-portal.html"]').forEach(link => {
+    document.querySelectorAll('a[href*="creator-portal/"]').forEach(link => {
       link.addEventListener('click', event => {
         if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const destination = new URL(link.href, window.location.href);
-        if (!destination.pathname.toLowerCase().endsWith('/creator-portal.html')) return;
+        if (!destination.pathname.toLowerCase().endsWith('/creator-portal/')) return;
         event.preventDefault();
         openSignup(destination.href);
       });
@@ -681,7 +681,7 @@
     });
     const signupQuery = new URLSearchParams(window.location.search);
     if (signupQuery.get('signup-resume') === '1') {
-      openSignup(new URL('creator-portal.html', window.location.href).href);
+      openSignup(new URL('creator-portal/', window.location.href).href);
       const cleanHomepage = new URL(window.location.href);
       cleanHomepage.searchParams.delete('signup-resume');
       history.replaceState(null, '', cleanHomepage.href);

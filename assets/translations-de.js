@@ -417,10 +417,6 @@ Email confirmation could not be detected.|Die E-Mail-Bestätigung wurde nicht er
 Preview mode: no email was sent.|Vorschaumodus: Es wurde keine E-Mail gesendet.
 A new confirmation email has been sent.|Eine neue Bestätigungs-E-Mail wurde gesendet.
 Could not resend the confirmation email.|Die Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
-Sending a new confirmation email…|Eine neue Bestätigungs-E-Mail wird gesendet …
-Enter the email address you signed up with before requesting another link.|Gib die E-Mail-Adresse ein, mit der du dich registriert hast, bevor du einen neuen Link anforderst.
-Confirmation email request accepted. Check your inbox and Resend Emails for delivery.|Die Anfrage für eine Bestätigungs-E-Mail wurde angenommen. Prüfe deinen Posteingang und die Resend-E-Mails auf den Zustellstatus.
-That confirmation link expired or was already used. Request a fresh confirmation email below.|Dieser Bestätigungslink ist abgelaufen oder wurde bereits verwendet. Fordere unten eine neue Bestätigungs-E-Mail an.
 Password reset is not configured.|Das Zurücksetzen des Passworts ist nicht eingerichtet.
 Creator growth roadmap|Roadmap für Creator-Wachstum
 How we work toward|So arbeiten wir auf
@@ -680,24 +676,6 @@ One vertical video, 20–40 seconds.|Ein vertikales Video mit 20–40 Sekunden L
 Film in a bright setting; include the preparation and final drink.|Drehe in einer hellen Umgebung und zeige die Zubereitung sowie das fertige Getränk.
 YouTube Shorts|YouTube Shorts
 Rate on request|Preis auf Anfrage
-Verify your email|Bestätige deine E-Mail-Adresse
-Enter the six-digit code sent to|Gib den sechsstelligen Code ein, den wir an
-Enter the six-digit code sent to your email address.|Gib den sechsstelligen Code ein, den wir an deine E-Mail-Adresse gesendet haben.
-Six-digit verification code|Sechsstelliger Bestätigungscode
-Verify Email & Continue|E-Mail bestätigen und fortfahren
-Resend code|Code erneut senden
-Check your inbox for a six-digit verification code. Enter it below to continue.|Prüfe deinen Posteingang auf den sechsstelligen Bestätigungscode. Gib ihn unten ein, um fortzufahren.
-Your email is not confirmed. Requesting a fresh six-digit code…|Deine E-Mail-Adresse ist nicht bestätigt. Ein neuer sechsstelliger Code wird angefordert …
-A new verification code was requested. Check your inbox, then enter it below.|Ein neuer Bestätigungscode wurde angefordert. Prüfe deinen Posteingang und gib ihn unten ein.
-Could not resend the verification code.|Der Bestätigungscode konnte nicht erneut gesendet werden.
-Enter the email address you signed up with before requesting another code.|Gib die E-Mail-Adresse ein, mit der du dich registriert hast, bevor du einen neuen Code anforderst.
-Confirming your email…|Deine E-Mail-Adresse wird bestätigt …
-That code could not be verified. Request a fresh code and try again.|Der Code konnte nicht bestätigt werden. Fordere einen neuen Code an und versuche es erneut.
-The code is invalid or expired. Request a new one and try again.|Der Code ist ungültig oder abgelaufen. Fordere einen neuen an und versuche es erneut.
-Email verification did not return an account session. Please try again.|Die E-Mail-Bestätigung hat keine Kontositzung zurückgegeben. Bitte versuche es erneut.
-Sending a new verification code…|Ein neuer Bestätigungscode wird gesendet …
-Verification code request accepted. Check your inbox and Resend Emails for delivery.|Die Anfrage für einen Bestätigungscode wurde angenommen. Prüfe deinen Posteingang und Resend auf die Zustellung.
-That confirmation link is no longer valid. Request a fresh six-digit code below.|Dieser Bestätigungslink ist nicht mehr gültig. Fordere unten einen neuen sechsstelligen Code an.
 `;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.de = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));

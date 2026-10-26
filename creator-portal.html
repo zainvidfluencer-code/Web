@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>(()=>{if(location.protocol==='file:')return;const routes={'/campaigns.html':'/campaigns/','/creator-portal.html':'/creator-portal/','/privacy-policy.html':'/privacy-policy/','/terms-of-service.html':'/terms-of-service/','/vf-admin-gate-k8m2q.html':'/admin-login/','/vf-admin-desk-k8m2q.html':'/admin/'};const route=routes[location.pathname.toLowerCase()];if(route)location.replace(route+location.search+location.hash)})();</script>
+
   <script>if(new URLSearchParams(location.search).get('embed')==='1')document.documentElement.classList.add('embed-mode')</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -197,7 +199,7 @@
     <a class="brand" href="index.html" aria-label="Vidfluencer home"><img src="assets/vidfluencer-mark.png" alt=""></a>
     <div class="topbar-actions">
       <label class="language-picker"><span aria-hidden="true">◎</span><select data-language-picker aria-label="Change language"><option value="en">English</option><option value="de">Deutsch</option><option value="es">Spanish</option><option value="es">Español</option></select></label>
-      <a class="back-link" id="campaigns-link" href="campaigns.html" hidden>Campaigns</a>
+      <a class="back-link" id="campaigns-link" href="campaigns/" hidden>Campaigns</a>
       <a class="back-link" href="index.html">← Back to Vidfluencer</a>
     </div>
   </header>
@@ -253,7 +255,7 @@
             <button id="account-submit" class="primary" type="submit">Create account <span aria-hidden="true">↗</span></button>
             <p id="account-message" class="helper" aria-live="polite"></p>
           </form>
-<p id="policy-notice" class="policy-notice"><span>By creating an account, you agree to our </span><a href="terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms of Service</a><span> and </span><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a><span>.</span></p>
+<p id="policy-notice" class="policy-notice"><span>By creating an account, you agree to our </span><a href="terms-of-service/" target="_blank" rel="noopener noreferrer">Terms of Service</a><span> and </span><a href="privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a><span>.</span></p>
         </section>
         <section id="screen-verify" data-screen="verify" hidden>
           <h3>Check your inbox</h3>
@@ -324,6 +326,7 @@
     const hasAgreement = Boolean(config.agreementDocs && config.agreementDocs.en && config.agreementDocs.de && config.agreementDocs.es);
     function topLevelPortalUrl() {
       const destination = new URL(window.location.href);
+      destination.pathname = new URL('creator-portal/', document.baseURI).pathname;
       destination.searchParams.delete('embed');
       destination.searchParams.delete('start-oauth');
       if (document.documentElement.classList.contains('embed-mode')) destination.searchParams.set('resume-modal', '1');
@@ -332,7 +335,7 @@
     function returnToSignupOverlayIfNeeded() {
       const params = new URLSearchParams(window.location.search);
       if (params.get('resume-modal') !== '1' || document.documentElement.classList.contains('embed-mode')) return false;
-      const homepage = new URL('index.html', window.location.href);
+      const homepage = new URL('index.html', document.baseURI);
       homepage.searchParams.set('signup-resume', '1');
       window.location.replace(homepage.href);
       return true;
@@ -490,9 +493,9 @@
         const approvalView = await client.from('creator_approval_status_view').select('approval_status').eq('creator_id',user.id).maybeSingle();
         if (approvalView.error) throw approvalView.error;
         campaignsLink.hidden = !approvalView.data || approvalView.data.approval_status !== 'approved';
-        const campaignsDestination = config.campaignsPage || 'campaigns.html';
-        if (document.documentElement.classList.contains('embed-mode')) window.top.location.assign(campaignsDestination);
-        else window.location.assign(campaignsDestination); return;
+        const campaignsDestination = config.campaignsPage || 'campaigns/';
+        if (document.documentElement.classList.contains('embed-mode')) window.top.location.assign(new URL(campaignsDestination, document.baseURI).href);
+        else window.location.assign(new URL(campaignsDestination, document.baseURI).href); return;
       }
       agreementSelect.value = preferredAgreementLanguage();
       loadAgreement(); legalName.value = displayName || ''; signatureName.value = displayName || '';
@@ -671,9 +674,9 @@
           ? await client.from('creator_portfolios').update({portfolio_url:urlValue}).eq('id',existing.data.id)
           : await client.from('creator_portfolios').insert({creator_id:signedInUser.id,portfolio_url:urlValue});
         if (saved.error) throw saved.error;
-        const campaignsDestination = config.campaignsPage || 'campaigns.html';
-        if (document.documentElement.classList.contains('embed-mode')) window.top.location.assign(campaignsDestination);
-        else window.location.assign(campaignsDestination);
+        const campaignsDestination = config.campaignsPage || 'campaigns/';
+        if (document.documentElement.classList.contains('embed-mode')) window.top.location.assign(new URL(campaignsDestination, document.baseURI).href);
+        else window.location.assign(new URL(campaignsDestination, document.baseURI).href);
       } catch (error) {
         say(document.querySelector('#portfolio-message'), error.message || 'Your portfolio could not be saved. Please try again.', 'error');
       } finally { submit.disabled = false; }
