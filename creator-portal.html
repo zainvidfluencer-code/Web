@@ -63,6 +63,21 @@
     .field textarea { min-height:84px; padding:11px 14px; resize:vertical; }
     .field select { cursor:pointer; }
     .field input:focus,.field select:focus,.field textarea:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
+    .field .custom-select { position:relative; width:100%; min-width:0; }
+    .field .custom-select-native { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; opacity:0!important; pointer-events:none!important; }
+    .custom-select-trigger { display:flex; width:100%; min-height:46px; align-items:center; justify-content:space-between; gap:14px; padding:0 15px; border:1px solid #dfe3ed; border-radius:15px; background:#fff; color:var(--ink); text-align:left; font:inherit; font-size:14px; cursor:pointer; transition:border-color .16s,box-shadow .16s,background .16s; }
+    .custom-select-trigger:hover { border-color:#c8cfee; background:#fdfdff; }
+    .custom-select-trigger[aria-expanded="true"] { border-color:#9ba8f1; box-shadow:0 0 0 3px rgb(64 85 214 / .1); }
+    .custom-select-trigger[aria-invalid="true"] { border-color:#d65050; }
+    .custom-select-chevron { width:8px; height:8px; flex:none; margin-top:-4px; border-right:1.7px solid #737d91; border-bottom:1.7px solid #737d91; transform:rotate(45deg); transition:transform .16s,margin .16s; }
+    .custom-select-trigger[aria-expanded="true"] .custom-select-chevron { margin-top:4px; transform:rotate(225deg); }
+    .custom-select-menu { position:absolute; z-index:50; top:calc(100% + 7px); right:0; left:0; max-height:240px; overflow:auto; padding:7px; border:1px solid #e5e8f1; border-radius:18px; background:#fff; box-shadow:0 14px 34px rgb(25 35 72 / .14); }
+    .custom-select-option { display:flex; width:100%; min-height:42px; align-items:center; justify-content:space-between; gap:12px; padding:0 12px; border:0; border-radius:12px; background:transparent; color:#35405a; text-align:left; font:inherit; font-size:14px; cursor:pointer; }
+    .custom-select-option:hover,.custom-select-option:focus-visible { outline:none; background:#f5f6ff; color:var(--blue); }
+    .custom-select-option[aria-selected="true"] { background:#f3f5ff; color:var(--blue); font-weight:700; }
+    .custom-select-check { color:var(--blue); font-size:15px; font-weight:800; opacity:0; }
+    .custom-select-option[aria-selected="true"] .custom-select-check { opacity:1; }
+    .custom-select-error { margin:7px 2px 0; }
     .agreement-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:12px; border-bottom:1px solid var(--line); background:#fff; }
     .agreement-toolbar label { color:#48536b; font-size:12px; font-weight:700; }
     .agreement-toolbar select { min-height:36px; padding:0 10px; border:1px solid var(--line); border-radius:9px; color:var(--ink); background:#fff; font:inherit; font-size:12px; }
@@ -341,6 +356,54 @@
     const contractEmail = document.querySelector('#contract-email');
     const guardianFields = document.querySelector('#guardian-fields');
     const creatorAge = document.querySelector('#creator-age');
+    const paymentMethodSelect = document.querySelector('#payment-method');
+    function enhanceRoundedSelect(select) {
+      const field = select.closest('.field'), label = field.querySelector('label');
+      if (!label.id) label.id = select.id + '-label';
+      const host = document.createElement('div'); host.className = 'custom-select';
+      select.parentNode.insertBefore(host,select); host.append(select);
+      select.classList.add('custom-select-native'); select.tabIndex=-1; select.setAttribute('aria-hidden','true');
+      const trigger=document.createElement('button'); trigger.type='button'; trigger.className='custom-select-trigger';
+      trigger.setAttribute('aria-haspopup','listbox'); trigger.setAttribute('aria-expanded','false');
+      trigger.setAttribute('aria-labelledby',label.id+' '+select.id+'-value'); trigger.setAttribute('aria-controls',select.id+'-options'); trigger.setAttribute('aria-required','true');
+      const value=document.createElement('span'); value.id=select.id+'-value';
+      const chevron=document.createElement('span'); chevron.className='custom-select-chevron'; chevron.setAttribute('aria-hidden','true'); trigger.append(value,chevron);
+      const menu=document.createElement('div'); menu.className='custom-select-menu'; menu.id=select.id+'-options'; menu.setAttribute('role','listbox'); menu.setAttribute('aria-labelledby',label.id); menu.hidden=true;
+      const error=document.createElement('p'); error.className='helper error custom-select-error'; error.id=select.id+'-error'; error.setAttribute('role','alert'); error.textContent=t('Choose one'); error.hidden=true; trigger.setAttribute('aria-describedby',error.id);
+      host.append(trigger,menu,error);
+      const translated=option=>t(option.textContent.trim());
+      function updateValue(){value.textContent=translated(select.options[select.selectedIndex]||select.options[0])}
+      function close(returnFocus){menu.hidden=true;trigger.setAttribute('aria-expanded','false');if(returnFocus)trigger.focus()}
+      function choose(option){select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));error.hidden=true;trigger.removeAttribute('aria-invalid');close(true)}
+      function render(keepFocus=false){
+        const oldFocus=keepFocus?menu.querySelector(':focus')?.dataset.value:null; menu.replaceChildren();
+        [...select.options].forEach(option=>{
+          const item=document.createElement('button');item.type='button';item.className='custom-select-option';item.setAttribute('role','option');item.setAttribute('aria-selected',String(option.value===select.value));item.dataset.value=option.value;
+          const text=document.createElement('span');text.textContent=translated(option);const check=document.createElement('span');check.className='custom-select-check';check.setAttribute('aria-hidden','true');check.textContent='\u2713';item.append(text,check);
+          item.addEventListener('click',()=>choose(option));
+          item.addEventListener('keydown',event=>{const items=[...menu.querySelectorAll('.custom-select-option')],i=items.indexOf(item);
+            if(event.key==='Escape'){event.preventDefault();close(true)}
+            else if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();items[(i+(event.key==='ArrowDown'?1:items.length-1))%items.length]?.focus()}
+            else if(event.key==='Home'){event.preventDefault();items[0]?.focus()}
+            else if(event.key==='End'){event.preventDefault();items.at(-1)?.focus()}
+            else if(event.key==='Tab')close(false);
+          }); menu.append(item);
+        });
+        if(keepFocus&&!menu.hidden){const target=[...menu.querySelectorAll('.custom-select-option')].find(x=>x.dataset.value===(oldFocus||select.value));target?.focus()}
+      }
+      function open(){render();menu.hidden=false;trigger.setAttribute('aria-expanded','true');(menu.querySelector('[aria-selected="true"]')||menu.querySelector('.custom-select-option'))?.focus()}
+      trigger.addEventListener('click',()=>menu.hidden?open():close(false));
+      trigger.addEventListener('keydown',event=>{if(['ArrowDown','ArrowUp','Enter',' '].includes(event.key)){event.preventDefault();if(menu.hidden)open();else (menu.querySelector('[aria-selected="true"]')||menu.querySelector('.custom-select-option'))?.focus()}});
+      label.addEventListener('click',event=>{event.preventDefault();trigger.focus()});
+      select.addEventListener('change',()=>{updateValue();if(select.value){error.hidden=true;trigger.removeAttribute('aria-invalid')}if(!menu.hidden)render(true)});
+      document.addEventListener('vidfluencer:languagechange',()=>{error.textContent=t('Choose one');updateValue();if(!menu.hidden)render()});
+      document.addEventListener('pointerdown',event=>{if(!host.contains(event.target))close(false)});
+      document.addEventListener('focusin',event=>{if(!host.contains(event.target))close(false)});
+      updateValue();
+      return {validate(){if(select.value)return true;error.hidden=false;trigger.setAttribute('aria-invalid','true');trigger.focus();return false}};
+    }
+    const creatorAgeDropdown=enhanceRoundedSelect(creatorAge);
+    const paymentMethodDropdown=enhanceRoundedSelect(paymentMethodSelect);
     let currentAgreement = null;
     let client = null, mode = 'signup', displayName = '', contactValue = '', signedInUser = null;
     function loadAgreement() {
@@ -543,6 +606,7 @@
 
     document.querySelector('#signature-form').addEventListener('submit', async event => {
       event.preventDefault();
+      if (!creatorAgeDropdown.validate() || !paymentMethodDropdown.validate()) return;
       if (!event.currentTarget.reportValidity()) return;
       const signer = signatureName.value.trim();
       const fullLegalName = legalName.value.trim();
