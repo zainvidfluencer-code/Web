@@ -792,6 +792,15 @@ Reauthentication did not finish. Please try again.|No se completó la nueva aute
 Campaigns|Campañas
 Action|Acción
 —|—
+
+Profile details|Datos del perfil
+Choose the name and short bio shown on your creator account.|Elige el nombre y la breve biografía que se mostrarán en tu cuenta de creador.
+Display name|Nombre público
+Creator bio|Biografía del creador
+Tell people what you create, your style and the brands you work best with.|Cuenta qué contenido creas, cuál es tu estilo y con qué marcas trabajas mejor.
+Enter a display name of 1 to 50 characters.|Introduce un nombre público de entre 1 y 50 caracteres.
+Your bio must be 50 words or fewer.|La biografía no puede superar las 50 palabras.
+words|palabras
 Enter your password to continue.|Introduce tu contraseña para continuar.`;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.es = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
