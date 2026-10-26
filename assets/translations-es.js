@@ -416,6 +416,10 @@ Email confirmation could not be detected.|No se pudo detectar la confirmación d
 Preview mode: no email was sent.|Vista previa: no se envió ningún correo.
 A new confirmation email has been sent.|Se ha enviado un nuevo correo de confirmación.
 Could not resend the confirmation email.|No se pudo reenviar el correo de confirmación.
+Sending a new confirmation email…|Enviando un nuevo correo de confirmación…
+Enter the email address you signed up with before requesting another link.|Introduce el correo electrónico con el que te registraste antes de solicitar otro enlace.
+Confirmation email request accepted. Check your inbox and Resend Emails for delivery.|Se aceptó la solicitud del correo de confirmación. Revisa tu bandeja de entrada y los correos de Resend para comprobar la entrega.
+That confirmation link expired or was already used. Request a fresh confirmation email below.|Ese enlace de confirmación ha caducado o ya se usó. Solicita un nuevo correo de confirmación abajo.
 Password reset is not configured.|El restablecimiento de contraseña no está configurado.
 Creator growth roadmap|Ruta de crecimiento para creadores
 How we work toward|Cómo trabajamos para llegar a
@@ -676,7 +680,119 @@ One vertical video, 20–40 seconds.|Un vídeo vertical de 20–40 segundos.
 Film in a bright setting; include the preparation and final drink.|Graba en un espacio luminoso e incluye la preparación y la bebida terminada.
 YouTube Shorts|YouTube Shorts
 Rate on request|Tarifa a consultar
-`;
+Verify your email|Verifica tu correo electrónico
+Enter the six-digit code sent to|Introduce el código de seis dígitos que enviamos a
+Enter the six-digit code sent to your email address.|Introduce el código de seis dígitos que enviamos a tu correo electrónico.
+Six-digit verification code|Código de verificación de seis dígitos
+Verify Email & Continue|Verificar correo y continuar
+Resend code|Reenviar código
+Check your inbox for a six-digit verification code. Enter it below to continue.|Busca en tu bandeja de entrada el código de verificación de seis dígitos. Introdúcelo abajo para continuar.
+Your email is not confirmed. Requesting a fresh six-digit code…|Tu correo no está confirmado. Solicitando un nuevo código de seis dígitos…
+A new verification code was requested. Check your inbox, then enter it below.|Se solicitó un nuevo código de verificación. Revisa tu bandeja de entrada e introdúcelo abajo.
+Could not resend the verification code.|No se pudo reenviar el código de verificación.
+Enter the email address you signed up with before requesting another code.|Introduce el correo electrónico con el que te registraste antes de solicitar otro código.
+Confirming your email…|Confirmando tu correo electrónico…
+That code could not be verified. Request a fresh code and try again.|No se pudo verificar el código. Solicita uno nuevo e inténtalo otra vez.
+The code is invalid or expired. Request a new one and try again.|El código no es válido o ha caducado. Solicita uno nuevo e inténtalo otra vez.
+Email verification did not return an account session. Please try again.|La verificación del correo no devolvió una sesión de cuenta. Inténtalo otra vez.
+Sending a new verification code…|Enviando un nuevo código de verificación…
+Verification code request accepted. Check your inbox and Resend Emails for delivery.|Se aceptó la solicitud del código de verificación. Revisa tu bandeja de entrada y Resend para comprobar la entrega.
+That confirmation link is no longer valid. Request a fresh six-digit code below.|Ese enlace de confirmación ya no es válido. Solicita abajo un nuevo código de seis dígitos.
+
+Add a channel, handle and profile link. You can edit or remove these any time.|Añade un canal, nombre de usuario y enlace al perfil. Puedes editarlos o quitarlos cuando quieras.
+Add an option|Añadir una opción
+Add both a handle and a profile link, or remove the empty row.|Añade un nombre de usuario y un enlace al perfil, o elimina la fila vacía.
+Add option|Añadir opción
+Add social link|Añadir enlace social
+Application could not be found.|No se encontró la solicitud.
+Application review could not be saved.|No se pudo guardar la revisión de la solicitud.
+Application review saved.|Revisión de la solicitud guardada.
+Approval amount (USD)|Importe de aprobación (USD)
+Amount (USD)|Importe (USD)
+Category name|Nombre de la categoría
+Choose initials, a photo returned by a linked account, or upload an image. No extra provider permissions are requested.|Elige tus iniciales, una foto facilitada por una cuenta vinculada o sube una imagen. No se solicitan permisos adicionales al proveedor.
+Complete creator setup|Completa la configuración de creador
+Confirm this creator payment has been sent?|¿Confirmas que se ha enviado este pago al creador?
+Confirm your password|Confirma tu contraseña
+Create filter categories to assign options to this campaign.|Crea categorías de filtros para asignar opciones a esta campaña.
+Creator filter options|Opciones de filtros para creadores
+Creator profile|Perfil del creador
+Delete account and data|Eliminar cuenta y datos
+Delete account permanently|Eliminar cuenta permanentemente
+Deleted creator|Creador eliminado
+Earnings|Ingresos
+Enter a category name.|Introduce un nombre de categoría.
+Enter a filter option.|Introduce una opción de filtro.
+Enter a positive USD amount before approving.|Introduce un importe positivo en USD antes de aprobar.
+Filter categories saved.|Categorías de filtros guardadas.
+Filter category could not be added.|No se pudo añadir la categoría de filtros.
+Filter category could not be removed.|No se pudo quitar la categoría de filtros.
+Filter category could not be saved.|No se pudo guardar la categoría de filtros.
+Filter option|Opción de filtro
+Filter option could not be added.|No se pudo añadir la opción de filtro.
+Filter option could not be removed.|No se pudo quitar la opción de filtro.
+Filter option could not be saved.|No se pudo guardar la opción de filtro.
+Filter options saved.|Opciones de filtros guardadas.
+Handle|Nombre de usuario
+I understand this permanently deletes my creator account and data.|Entiendo que esto elimina permanentemente mi cuenta de creador y mis datos.
+Initials|Iniciales
+Google photo|Foto de Google
+Microsoft photo|Foto de Microsoft
+Discord photo|Foto de Discord
+Upload a picture|Subir una foto
+Mark as paid|Marcar como pagado
+No campaigns yet|Aún no hay campañas
+No campaigns yet. Create a campaign to get started.|Aún no hay campañas. Crea una para empezar.
+No creator earnings have been recorded yet.|Todavía no se han registrado ingresos de creadores.
+No earnings have been recorded yet.|Todavía no se han registrado ingresos.
+No filter categories yet. Add one to create a creator filter.|Aún no hay categorías de filtros. Añade una para crear un filtro de creadores.
+Open creator profile for|Abrir perfil de creador de
+Payment could not be updated.|No se pudo actualizar el pago.
+Payment marked as paid.|Pago marcado como pagado.
+Payments are tracked in USD. Total earned combines pending and paid amounts.|Los pagos se registran en USD. Los ingresos totales combinan los importes pendientes y pagados.
+Paid date|Fecha de pago
+Paid|Pagado
+Total earned|Ingresos totales
+Permanent warning: account deletion cannot be undone. Your creator profile and applications will be removed. Existing earnings records will remain without your name or email.|Aviso permanente: la eliminación de la cuenta no se puede deshacer. Se eliminarán tu perfil de creador y tus solicitudes. Los registros de ingresos existentes se conservarán sin tu nombre ni correo electrónico.
+Picture source|Origen de la imagen
+Profile link|Enlace al perfil
+Profile picture|Foto de perfil
+Reauthenticate with|Volver a autenticar con
+Remove|Quitar
+Remove social link|Quitar enlace social
+Remove this category and its options from campaigns?|¿Quitar esta categoría y sus opciones de las campañas?
+Remove this option from all campaigns?|¿Quitar esta opción de todas las campañas?
+Save|Guardar
+Save application review|Guardar revisión de solicitud
+Save profile|Guardar perfil
+Sign in to creator account|Iniciar sesión en la cuenta de creador
+Social media links|Enlaces de redes sociales
+Social platform|Plataforma social
+Status / Action|Estado / Acción
+This account has no password sign-in. Reauthenticate with one of your linked providers to continue.|Esta cuenta no usa contraseña para iniciar sesión. Vuelve a autenticarte con uno de tus proveedores vinculados para continuar.
+This linked account does not provide a profile photo, so initials will be shown instead.|Esta cuenta vinculada no proporciona una foto de perfil, así que se mostrarán las iniciales.
+This permanently deletes your creator account and uploaded data. Financial records will remain anonymized. Continue?|Esto eliminará permanentemente tu cuenta de creador y los datos subidos. Los registros financieros se conservarán anonimizados. ¿Continuar?
+Upload profile picture - JPG, PNG or WebP - max 2 MB|Subir foto de perfil - JPG, PNG o WebP - máximo 2 MB
+Your account initials will be shown.|Se mostrarán las iniciales de tu cuenta.
+Your creator profile has not been created yet. Complete setup before changing profile details.|Aún no se ha creado tu perfil de creador. Completa la configuración antes de cambiar los datos del perfil.
+Your creator profile, applications, uploaded files, profile picture and social links will be permanently deleted. Financial records will be kept for admin accounting and anonymized.|Tu perfil de creador, solicitudes, archivos subidos, foto de perfil y enlaces sociales se eliminarán permanentemente. Los registros financieros se conservarán anonimizados para la contabilidad administrativa.
+Choose an image file before using upload.|Elige una imagen antes de usar la carga.
+Choose a JPG, PNG or WebP image no larger than 2 MB.|Elige una imagen JPG, PNG o WebP de hasta 2 MB.
+Enter a valid social profile link.|Introduce un enlace válido a tu perfil social.
+Social profile links must begin with https://.|Los enlaces de perfiles sociales deben empezar por https://.
+Profile saved.|Perfil guardado.
+The password could not be verified. Check it and try again.|No se pudo verificar la contraseña. Compruébala e inténtalo de nuevo.
+Password verified. Review the warning and confirm deletion below.|Contraseña verificada. Lee el aviso y confirma la eliminación a continuación.
+For your security, sign in again before deleting this account.|Por seguridad, vuelve a iniciar sesión antes de eliminar esta cuenta.
+Confirm the permanent deletion warning before continuing.|Confirma el aviso de eliminación permanente antes de continuar.
+Deleting your account and files…|Eliminando tu cuenta y tus archivos…
+Account deletion could not be completed.|No se pudo completar la eliminación de la cuenta.
+Your sign-in was refreshed. Review the warning and confirm deletion below.|Se actualizó tu sesión. Lee el aviso y confirma la eliminación a continuación.
+Reauthentication did not finish. Please try again.|No se completó la nueva autenticación. Inténtalo de nuevo.
+Campaigns|Campañas
+Action|Acción
+—|—
+Enter your password to continue.|Introduce tu contraseña para continuar.`;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.es = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
 })();
