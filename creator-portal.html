@@ -453,8 +453,7 @@
       try {
         const module = await import(config.supabaseJsUrl || 'https://esm.sh/@supabase/supabase-js@2.118.0');
         client = module.createClient(config.supabaseUrl, config.publishableKey);
-        banner.classList.add('live'); banner.hidden = false;
-        document.querySelector('#system-label').textContent = t('Secure sign-up · Supabase');
+        banner.classList.remove('blocked'); banner.classList.add('live'); banner.hidden = true;
         document.querySelector('#privacy-note').textContent = t('Your account, agreement and portfolio are stored privately under your creator account.');
         document.querySelector('#privacy-note').hidden = false;
         say(accountMessage, 'We’ll send an email confirmation link.', '');
