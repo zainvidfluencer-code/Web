@@ -81,6 +81,7 @@
     .portfolio-note { margin:-5px 0 13px; color:#818ba0; font-size:11px; line-height:1.5; }
     .password-line { display:flex; justify-content:space-between; align-items:center; margin:1px 0 14px; color:var(--muted); font-size:12px; }
     .email-resend { display:block; margin:16px auto 0; }
+    .otp-input { text-align:center; font-size:23px !important; font-weight:750; letter-spacing:.38em; font-variant-numeric:tabular-nums; }
     .text-button { padding:0; border:0; background:none; color:var(--blue); cursor:pointer; font-size:12px; font-weight:700; }
     .primary { display:flex; width:100%; min-height:48px; align-items:center; justify-content:center; gap:8px; border:0; border-radius:12px; background:var(--blue); color:white; cursor:pointer; font-size:14px; font-weight:750; transition:background .18s,transform .18s; }
     .primary:hover { background:#2e43bd; transform:translateY(-1px); }
@@ -241,11 +242,14 @@
 <p id="policy-notice" class="policy-notice"><span>By creating an account, you agree to our </span><a href="terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms of Service</a><span> and </span><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a><span>.</span></p>
         </section>
         <section id="screen-verify" data-screen="verify" hidden>
-          <h3>Check your inbox</h3>
-          <p class="helper"><span>Open the confirmation link sent to</span> <strong id="recipient-address">your email address</strong><span>. Return here after confirming.</span></p>
-          <p id="verify-message" class="helper" aria-live="polite"></p>
-          <button id="verify-continue" class="primary" type="button">I confirmed my email <span aria-hidden="true">→</span></button>
-          <button id="resend-email" class="text-button email-resend" type="button">Resend confirmation email</button>
+          <h3>Verify your email</h3>
+          <p class="helper"><span>Enter the six-digit code sent to</span> <strong id="recipient-address">your email address</strong><span>.</span></p>
+          <form id="verify-form" novalidate>
+            <div class="field"><label for="verify-code">Six-digit verification code</label><input id="verify-code" class="otp-input" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="000000" aria-label="Six-digit verification code" required></div>
+            <p id="verify-message" class="helper" aria-live="polite"></p>
+            <button id="verify-submit" class="primary" type="submit">Verify Email &amp; Continue <span aria-hidden="true">→</span></button>
+          </form>
+          <button id="resend-email" class="text-button email-resend" type="button">Resend code</button>
         </section>
         <section id="screen-agreement" data-screen="agreement" hidden>
           <h3>Welcome to Vidfluencer<span id="welcome-name"></span></h3>
@@ -336,6 +340,8 @@
     const screens = [...document.querySelectorAll('[data-screen]')];
     const steps = [...document.querySelectorAll('[data-step-indicator]')];
     const accountForm = document.querySelector('#account-form');
+    const verifyForm = document.querySelector('#verify-form');
+    const verifyCode = document.querySelector('#verify-code');
     const accountMessage = document.querySelector('#account-message');
     const contact = document.querySelector('#contact');
     const nameInput = document.querySelector('#full-name');
@@ -406,7 +412,7 @@
         step.classList.toggle('active', active);
         step.classList.toggle('done', done);
       });
-      const headings = { account:['Create your account','Start with your email address.'], verify:['Verify your email address','Open the confirmation link sent to your email address.'], agreement:['You’re in','Review your creator agreement, then type your full name as your signature.'], portfolio:['Add your portfolio','Paste a link to your portfolio.'] };
+      const headings = { account:['Create your account','Start with your email address.'], verify:['Verify your email address','Enter the six-digit code sent to your email address.'], agreement:['You’re in','Review your creator agreement, then type your full name as your signature.'], portfolio:['Add your portfolio','Paste a link to your portfolio.'] };
       document.querySelector('#card-title').textContent = t(headings[name][0]);
       document.querySelector('#card-subtitle').textContent = t(headings[name][1]);
       window.scrollTo({top:0,behavior:'smooth'});
@@ -518,7 +524,7 @@
           else {
             rememberPendingSignupEmail(contactValue);
             document.querySelector('#recipient-address').textContent = contactValue;
-            say(document.querySelector('#verify-message'), 'A confirmation link has been sent. Open it, then return here to continue.', 'success');
+            say(document.querySelector('#verify-message'), 'Check your inbox for a six-digit verification code. Enter it below to continue.', 'success');
             showScreen('verify');
           }
         } else {
@@ -528,40 +534,68 @@
           await onboardingDestination(result.data.user);
         }
       } catch (error) {
-        say(accountMessage, error.message || 'Could not continue. Check your details and try again.', 'error');
+        const needsEmailVerification = mode === 'signin' && (error.code === 'email_not_confirmed' || /email not confirmed/i.test(error.message || ''));
+        if (needsEmailVerification) {
+          contactValue = contact.value.trim().toLowerCase();
+          rememberPendingSignupEmail(contactValue);
+          document.querySelector('#recipient-address').textContent = contactValue;
+          showScreen('verify');
+          const resendButton = document.querySelector('#resend-email');
+          resendButton.disabled = true;
+          say(document.querySelector('#verify-message'), 'Your email is not confirmed. Requesting a fresh six-digit code…', '');
+          try {
+            const resend = await client.auth.resend({type:'signup', email:contactValue, options:{emailRedirectTo:topLevelPortalUrl()}});
+            if (resend.error) throw resend.error;
+            say(document.querySelector('#verify-message'), 'A new verification code was requested. Check your inbox, then enter it below.', 'success');
+          } catch (resendError) {
+            say(document.querySelector('#verify-message'), resendError.message || 'Could not resend the verification code.', 'error');
+          } finally { resendButton.disabled = false; }
+        } else {
+          say(accountMessage, error.message || 'Could not continue. Check your details and try again.', 'error');
+        }
       } finally { submit.disabled = false; }
     });
 
-    document.querySelector('#verify-continue').addEventListener('click', async () => {
+    verifyCode.addEventListener('input', () => { verifyCode.value = verifyCode.value.replace(/[^0-9]/g, '').slice(0, 6); });
+    verifyForm.addEventListener('submit', async event => {
+      event.preventDefault();
       if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
-      say(document.querySelector('#verify-message'), 'Checking your email confirmation…', '');
+      if (!verifyForm.reportValidity()) return;
+      const email = (contactValue || readPendingSignupEmail()).trim().toLowerCase();
+      if (!email) return say(document.querySelector('#verify-message'), 'Enter the email address you signed up with before requesting another code.', 'error');
+      const submit = document.querySelector('#verify-submit');
+      submit.disabled = true;
+      say(document.querySelector('#verify-message'), 'Confirming your email…', '');
       try {
-        const result = await client.auth.getSession();
+        const result = await client.auth.verifyOtp({email, token:verifyCode.value, type:'email'});
         if (result.error) throw result.error;
-        if (!result.data.session) return say(document.querySelector('#verify-message'), 'The confirmation is not detected yet. Open the link in your email, then try again.', 'warning');
-        signedInUser = result.data.session.user;
+        signedInUser = result.data.user || result.data.session?.user || null;
+        if (!signedInUser) return say(document.querySelector('#verify-message'), 'Email verification did not return an account session. Please try again.', 'error');
+        const metadata = signedInUser.user_metadata || {};
+        displayName = displayName || metadata.full_name || metadata.name || metadata.username || '';
         await saveProfile(signedInUser);
         await onboardingDestination(signedInUser);
       } catch (error) {
-        say(document.querySelector('#verify-message'), error.message || 'Email confirmation could not be detected.', 'error');
-      }
+        const invalidCode = error.code === 'otp_expired' || /expired|invalid.*token|token.*invalid/i.test(error.message || '');
+        say(document.querySelector('#verify-message'), invalidCode ? 'The code is invalid or expired. Request a new one and try again.' : (error.message || 'That code could not be verified. Request a fresh code and try again.'), 'error');
+      } finally { submit.disabled = false; }
     });
 
     document.querySelector('#resend-email').addEventListener('click', async event => {
       if (!isLiveReady || !client) return say(document.querySelector('#verify-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
       const email = (contactValue || readPendingSignupEmail() || contact.value || contractEmail.value).trim().toLowerCase();
-      if (!email) return say(document.querySelector('#verify-message'), 'Enter the email address you signed up with before requesting another link.', 'error');
+      if (!email) return say(document.querySelector('#verify-message'), 'Enter the email address you signed up with before requesting another code.', 'error');
       const button = event.currentTarget;
       button.disabled = true;
       contactValue = email;
       rememberPendingSignupEmail(email);
       document.querySelector('#recipient-address').textContent = email;
-      say(document.querySelector('#verify-message'), 'Sending a new confirmation email…', '');
+      say(document.querySelector('#verify-message'), 'Sending a new verification code…', '');
       try {
         const result = await client.auth.resend({type:'signup', email, options:{emailRedirectTo:topLevelPortalUrl()}});
         if (result.error) throw result.error;
-        say(document.querySelector('#verify-message'), 'Confirmation email request accepted. Check your inbox and Resend Emails for delivery.', 'success');
-      } catch (error) { say(document.querySelector('#verify-message'), error.message || 'Could not resend the confirmation email.', 'error'); }
+        say(document.querySelector('#verify-message'), 'Verification code request accepted. Check your inbox and Resend Emails for delivery.', 'success');
+      } catch (error) { say(document.querySelector('#verify-message'), error.message || 'Could not resend the verification code.', 'error'); }
       finally { button.disabled = false; }
     });
 
@@ -670,8 +704,8 @@
           document.querySelector('#recipient-address').textContent = contactValue;
           showScreen('verify');
           say(document.querySelector('#verify-message'), confirmationFailed
-            ? 'That confirmation link expired or was already used. Request a fresh confirmation email below.'
-            : 'A confirmation link has been sent. Open it, then return here to continue.', confirmationFailed ? 'warning' : '');
+            ? 'That confirmation link is no longer valid. Request a fresh six-digit code below.'
+            : 'Check your inbox for a six-digit verification code. Enter it below to continue.', confirmationFailed ? 'warning' : '');
         }
       } catch (error) {
         say(accountMessage, error.message || 'Could not finish social sign-in.', 'error');
