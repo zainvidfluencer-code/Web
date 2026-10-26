@@ -417,6 +417,10 @@ Email confirmation could not be detected.|Die E-Mail-Bestätigung wurde nicht er
 Preview mode: no email was sent.|Vorschaumodus: Es wurde keine E-Mail gesendet.
 A new confirmation email has been sent.|Eine neue Bestätigungs-E-Mail wurde gesendet.
 Could not resend the confirmation email.|Die Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
+Sending a new confirmation email…|Eine neue Bestätigungs-E-Mail wird gesendet …
+Enter the email address you signed up with before requesting another link.|Gib die E-Mail-Adresse ein, mit der du dich registriert hast, bevor du einen neuen Link anforderst.
+Confirmation email request accepted. Check your inbox and Resend Emails for delivery.|Die Anfrage für eine Bestätigungs-E-Mail wurde angenommen. Prüfe deinen Posteingang und die Resend-E-Mails auf den Zustellstatus.
+That confirmation link expired or was already used. Request a fresh confirmation email below.|Dieser Bestätigungslink ist abgelaufen oder wurde bereits verwendet. Fordere unten eine neue Bestätigungs-E-Mail an.
 Password reset is not configured.|Das Zurücksetzen des Passworts ist nicht eingerichtet.
 Creator growth roadmap|Roadmap für Creator-Wachstum
 How we work toward|So arbeiten wir auf
