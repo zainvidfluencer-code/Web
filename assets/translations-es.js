@@ -443,7 +443,7 @@ Affiliate work|Afiliación
 Repeat campaigns|Campañas recurrentes
 A goal to work toward, not a guaranteed income or timeline. Every creator’s path is different.|Es una meta, no una garantía de ingresos ni de plazos. Cada creador tiene su propio camino.
 Creator work|Trabajos de creadores
-A wall of real creator content.|Contenido real de nuestros creadores.
+Our Creators|Nuestros creadores
 Explore short-form videos from our creator community. Every sample plays silently by default.|Descubre vídeos cortos de nuestra comunidad de creadores. Todos se reproducen sin sonido por defecto.
 Short-form UGC|Vídeo UGC corto
 Muted|Silencio
@@ -806,7 +806,114 @@ Admin Dashboard|Panel de administración
 Campaign status|Estado de la campaña
 Admin campaign view|Vista de campañas para administración
 View campaigns|Ver campañas
-Campaign not found or no longer available.|No se encontró la campaña o ya no está disponible.`;
+Campaign not found or no longer available.|No se encontró la campaña o ya no está disponible.
+For Brands | Vidfluencer|Para marcas | Vidfluencer
+Vidfluencer home|Inicio de Vidfluencer
+Contact Us|Contacto
+For Brands|Para marcas
+Creator campaigns,|Campañas de creadores,
+managed with care.|gestionadas con cuidado.
+Tell us what you want to achieve. We’ll help you shape a clear brief, find suitable creators and manage the work from first idea to final video.|Cuéntanos qué quieres conseguir. Te ayudaremos a preparar un briefing claro, encontrar creadores adecuados y gestionar el trabajo desde la primera idea hasta el vídeo final.
+Creator support from brief to delivery|Acompañamiento desde el briefing hasta la entrega
+Video review against the agreed brief|Revisión del vídeo según el briefing acordado
+No subscription or management charge|Sin cuota de suscripción ni gestión
+Straightforward campaign setup|Preparación sencilla de campañas
+A great brief is the first step.|Un buen briefing es el primer paso.
+Share the details you already have. Our team will review your request and follow up to confirm the campaign scope, timing and creator payments before anything goes live.|Comparte la información que ya tengas. Nuestro equipo revisará la solicitud y se pondrá en contacto contigo para confirmar el alcance, los plazos y los pagos a los creadores antes de publicar nada.
+Campaign goals|Objetivos de la campaña
+Describe the result you want from your content.|Describe el resultado que quieres conseguir con tu contenido.
+The right creators|Los creadores adecuados
+We’ll review creator fit and campaign requirements with you.|Revisaremos contigo qué creadores encajan y cuáles son los requisitos de la campaña.
+Clear terms|Condiciones claras
+Agree deliverables, usage and payment before work begins.|Acuerda las entregas, el uso y el pago antes de empezar el trabajo.
+Brand account and campaign request|Cuenta de marca y solicitud de campaña
+Your brand workspace|Tu espacio de marca
+Sign in to manage your campaign requests, or create an account to send us a new brief.|Inicia sesión para gestionar tus solicitudes de campaña o crea una cuenta para enviarnos un nuevo briefing.
+Account access|Acceso a la cuenta
+Create Account|Crear cuenta
+Sign In|Iniciar sesión
+Company Name|Nombre de la empresa
+Your Name|Tu nombre
+Work Email|Correo de trabajo
+Password|Contraseña
+Use at least 8 characters.|Usa al menos 8 caracteres.
+Create Brand Account|Crear cuenta de marca
+Prefer to talk first?|¿Prefieres hablar primero?
+Email our team|Escribe a nuestro equipo
+Signed in as|Sesión iniciada como
+Sign Out|Cerrar sesión
+Finish Your Brand Profile|Completa tu perfil de marca
+This signed-in account is not a brand account. Create a separate brand account to submit campaign requests.|Esta cuenta no es de marca. Crea una cuenta de marca independiente para enviar solicitudes de campaña.
+Set Up a Campaign|Configura una campaña
+Send us the outline. An admin will review it and get in touch before it is turned into a live campaign.|Envíanos la propuesta. Un administrador la revisará y se pondrá en contacto contigo antes de convertirla en una campaña activa.
+Campaign Name|Nombre de la campaña
+Category|Categoría
+Choose a category|Elige una categoría
+Food|Alimentación
+Technology|Tecnología
+Campaign Goal|Objetivo de la campaña
+For example: introduce a new product or increase awareness|Por ejemplo: presentar un producto nuevo o aumentar su notoriedad
+Platforms|Plataformas
+TikTok, Instagram, YouTube Shorts|TikTok, Instagram, YouTube Shorts
+Requested Deliverables|Entregables solicitados
+Video count, format, posting requirements, or other details|Número y formato de vídeos, requisitos de publicación u otros detalles
+Campaign Brief|Briefing de campaña
+Share the product, audience, key messages, creative direction and any requirements.|Comparte información sobre el producto, el público, los mensajes clave, la dirección creativa y cualquier requisito.
+Minimum Budget (USD)|Presupuesto mínimo (USD)
+Maximum Budget (USD)|Presupuesto máximo (USD)
+Target Launch Date|Fecha prevista de lanzamiento
+Submit Campaign Request|Enviar solicitud de campaña
+Questions about working with Vidfluencer?|¿Preguntas sobre cómo trabajar con Vidfluencer?
+Terms of Service|Términos del servicio
+Privacy Policy|Política de privacidad
+Pending Review|Pendiente de revisión
+Approved|Aprobada
+Not Proceeding|No seguirá adelante
+Contacted|Contactado
+Submitted|Enviada
+Your submitted campaign requests will appear here.|Tus solicitudes de campaña aparecerán aquí.
+Account services are not configured yet.|Los servicios de cuenta aún no están configurados.
+Your brand account is ready.|Tu cuenta de marca está lista.
+Check your inbox to confirm your email, then sign in here.|Confirma tu correo desde el enlace de tu bandeja de entrada y luego inicia sesión aquí.
+Brand workspace could not load.|No se pudo cargar el espacio de marca.
+Maximum budget must be at least the minimum budget.|El presupuesto máximo debe ser igual o superior al mínimo.
+Your campaign request has been sent for review.|Tu solicitud de campaña se ha enviado para revisión.
+Your campaign request could not be sent.|No se pudo enviar tu solicitud de campaña.
+We could not complete that action.|No se pudo completar esa acción.
+You have signed out.|Has cerrado sesión.
+Admin sections|Secciones de administración
+Brand Requests|Solicitudes de marca
+Brand Campaign Requests|Solicitudes de campaña de marca
+Refresh|Actualizar
+Filter Requests|Filtrar solicitudes
+Filter brand requests|Filtrar solicitudes de marca
+All Requests|Todas las solicitudes
+No brand campaign requests yet.|Todavía no hay solicitudes de campaña de marca.
+No brand requests match this filter.|Ninguna solicitud de marca coincide con este filtro.
+Select a brand request to review its campaign brief.|Selecciona una solicitud de marca para revisar su briefing.
+Not provided|No indicado
+Campaign goal|Objetivo de campaña
+Budget (USD)|Presupuesto (USD)
+Target launch|Inicio previsto
+Submitted|Enviada
+Admin note|Nota de administración
+Campaign brief|Briefing de campaña
+Mark Contacted|Marcar como contactada
+Approve Request|Aprobar solicitud
+Reject Request|Rechazar solicitud
+Create Campaign Draft|Crear borrador de campaña
+Brand request status saved.|Se guardó el estado de la solicitud de marca.
+Campaign details filled in. Review the brief, payment terms and thumbnail before saving.|Se han completado los datos de la campaña. Revisa el briefing, las condiciones de pago y la miniatura antes de guardar.
+Campaign draft saved and brand request approved.|Se guardó el borrador de campaña y se aprobó la solicitud de marca.
+Enter the six-digit code we sent to|Introduce el código de seis dígitos que enviamos a
+Six-digit verification code|Código de verificación de seis dígitos
+Verify email|Verificar correo
+Back to sign in|Volver a iniciar sesión
+Check your email for a six-digit code.|Revisa tu correo: te hemos enviado un código de seis dígitos.
+We could not verify that code. Check it and try again.|No se pudo verificar el código. Compruébalo e inténtalo de nuevo.
+A new confirmation code has been sent.|Se ha enviado un nuevo código de confirmación.
+The confirmation code could not be resent.|No se pudo reenviar el código de confirmación.
+`;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.es = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
 })();
