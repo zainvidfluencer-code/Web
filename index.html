@@ -162,6 +162,9 @@
       .step { display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding-top: 15px; }
       .step-num { margin: 2px 0 0; }
       .service-grid, .details-grid { grid-template-columns: 1fr; gap: 34px; }
+      .details-grid { gap: 0; }
+      .detail-col { border-top: 0; }
+      .detail-col:first-child { border-top: 1px solid var(--line); }
       .service-quote { padding: 25px; }
       .service-quote p { font-size: 19px; }
       .growth-target { padding: 25px; }
@@ -289,7 +292,7 @@
     .step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
     .step-graph-card { padding: 12px 12px 10px; border: 1px solid #e8ebf5; border-radius: 13px; background: linear-gradient(135deg, #f7f8ff, #fff 75%); }
     .step-graph-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; color: #394765; font-size: 10px; font-weight: 800; }
-    .step-graph-card svg { display: block; width: 100%; height: 49px; margin-top: 8px; overflow: visible; }
+    .step-graph-card svg { display: block; width: 100%; height: auto; aspect-ratio: 15 / 2; margin-top: 8px; overflow: visible; shape-rendering: geometricPrecision; }
     .graph-gridline { fill: none; stroke: #e8ebf4; stroke-width: 1; }
     .graph-line { fill: none; stroke: #5368df; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
     .graph-line-soft { stroke: #8b96e9; }
@@ -297,7 +300,8 @@
     .graph-point { fill: #fff; stroke: #5368df; stroke-width: 2; }
     .graph-point-soft { stroke: #8b96e9; }
     .graph-point-green { stroke: #48a879; }
-    .step-graph-labels { display: flex; justify-content: space-between; margin-top: 4px; color: #7b849a; font-size: 8px; font-weight: 650; }
+    .step-graph-labels { display: flex; justify-content: space-between; flex-wrap: nowrap; margin-top: 4px; color: #7b849a; font-size: 9px; font-weight: 650; }
+    .step-graph-labels span, .step-graph-head span { white-space: nowrap; }
     @media (max-width: 900px) { .step { padding: 17px; } .step-intro { grid-template-columns: 28px minmax(0, 1fr); gap: 9px; } .step-num { width: 28px; height: 28px; } .step h3 { font-size: 15px; } }
     @media (max-width: 680px) { .steps { grid-template-columns: 1fr; gap: 13px; } .step { display: block; padding: 16px; } .step-intro { min-height: 0; } .step-graph-card { margin-left: 37px; } }
 
@@ -420,15 +424,15 @@
         <div class="steps">
           <article class="step">
             <div class="step-intro"><div class="step-num" aria-hidden="true">↗</div><div><h3>Get approved for opportunities</h3><p>Complete your creator setup and wait for approval before browsing campaign briefs.</p></div></div>
-            <div class="step-graph-card" aria-hidden="true"><div class="step-graph-head"><span>Creator approval</span></div><svg viewBox="0 0 240 64" preserveAspectRatio="none"><defs><linearGradient id="campaign-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5368df" stop-opacity=".25"/><stop offset="1" stop-color="#5368df" stop-opacity="0"/></linearGradient></defs><path class="graph-gridline" d="M2 12H238M2 32H238M2 52H238"/><path d="M4 51C29 49 39 43 57 45S87 35 105 38S134 21 157 28S198 17 236 8V62H4Z" fill="url(#campaign-fill)"/><path class="graph-line" d="M4 51C29 49 39 43 57 45S87 35 105 38S134 21 157 28S198 17 236 8"/><circle class="graph-point" cx="57" cy="45" r="3"/><circle class="graph-point" cx="157" cy="28" r="3"/><circle class="graph-point" cx="236" cy="8" r="3"/></svg><div class="step-graph-labels"><span>Setup</span><span>Review</span><span>Access</span></div></div>
+            <div class="step-graph-card" aria-hidden="true"><div class="step-graph-head"><span>Creator approval</span></div><svg viewBox="0 0 480 64"><defs><linearGradient id="campaign-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5368df" stop-opacity=".25"/><stop offset="1" stop-color="#5368df" stop-opacity="0"/></linearGradient></defs><path class="graph-gridline" d="M4 10H476M4 32H476M4 54H476"/><g transform="translate(0 -6.4) scale(2 1.2)"><path d="M4 51C29 49 39 43 57 45S87 35 105 38S134 21 157 28S198 17 236 8V56H4Z" fill="url(#campaign-fill)"/><path class="graph-line" d="M4 51C29 49 39 43 57 45S87 35 105 38S134 21 157 28S198 17 236 8"/><circle class="graph-point" cx="57" cy="45" r="3.5"/><circle class="graph-point" cx="157" cy="28" r="3.5"/><circle class="graph-point" cx="236" cy="8" r="3.5"/></g></svg><div class="step-graph-labels"><span>Setup</span><span>Review</span><span>Access</span></div></div>
           </article>
           <article class="step">
             <div class="step-intro"><div class="step-num" aria-hidden="true">✓</div><div><h3>Follow a clear brief</h3><p>Know what to film, where to post and how to submit your video.</p></div></div>
-            <div class="step-graph-card" aria-hidden="true"><div class="step-graph-head"><span>Brief workflow</span></div><svg viewBox="0 0 240 64" preserveAspectRatio="none"><defs><linearGradient id="brief-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8794eb" stop-opacity=".22"/><stop offset="1" stop-color="#8794eb" stop-opacity="0"/></linearGradient></defs><path class="graph-gridline" d="M2 12H238M2 32H238M2 52H238"/><path d="M4 50C30 50 34 42 58 42S84 35 108 35S132 24 157 24S184 15 236 15V62H4Z" fill="url(#brief-fill)"/><path class="graph-line graph-line-soft" d="M4 50C30 50 34 42 58 42S84 35 108 35S132 24 157 24S184 15 236 15"/><circle class="graph-point graph-point-soft" cx="58" cy="42" r="3"/><circle class="graph-point graph-point-soft" cx="157" cy="24" r="3"/><circle class="graph-point graph-point-soft" cx="236" cy="15" r="3"/></svg><div class="step-graph-labels"><span>Plan</span><span>Create</span><span>Submit</span></div></div>
+            <div class="step-graph-card" aria-hidden="true"><div class="step-graph-head"><span>Brief workflow</span></div><svg viewBox="0 0 480 64"><defs><linearGradient id="brief-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8794eb" stop-opacity=".22"/><stop offset="1" stop-color="#8794eb" stop-opacity="0"/></linearGradient></defs><path class="graph-gridline" d="M4 10H476M4 32H476M4 54H476"/><g transform="translate(0 -6.4) scale(2 1.2)"><path d="M4 50C30 50 34 42 58 42S84 35 108 35S132 24 157 24S184 15 236 15V56H4Z" fill="url(#brief-fill)"/><path class="graph-line graph-line-soft" d="M4 50C30 50 34 42 58 42S84 35 108 35S132 24 157 24S184 15 236 15"/><circle class="graph-point graph-point-soft" cx="58" cy="42" r="3.5"/><circle class="graph-point graph-point-soft" cx="157" cy="24" r="3.5"/><circle class="graph-point graph-point-soft" cx="236" cy="15" r="3.5"/></g></svg><div class="step-graph-labels"><span>Plan</span><span>Create</span><span>Submit</span></div></div>
           </article>
           <article class="step">
             <div class="step-intro"><div class="step-num" aria-hidden="true">£</div><div><h3>Know the payment terms</h3><p>Agree campaign scope and creator payments before work begins.</p></div></div>
-            <div class="step-graph-card" aria-hidden="true"><div class="step-graph-head"><span>Payment milestones</span></div><svg viewBox="0 0 240 64" preserveAspectRatio="none"><path class="graph-gridline" d="M2 12H238M2 32H238M2 52H238"/><path class="graph-line graph-line-green" d="M4 48H74V36H154V21H236"/><circle class="graph-point graph-point-green" cx="74" cy="36" r="3.5"/><circle class="graph-point graph-point-green" cx="154" cy="21" r="3.5"/><circle class="graph-point graph-point-green" cx="236" cy="21" r="3.5"/></svg><div class="step-graph-labels"><span>Scope</span><span>Delivery</span><span>Payment</span></div></div>
+            <div class="step-graph-card" aria-hidden="true"><div class="step-graph-head"><span>Payment milestones</span></div><svg viewBox="0 0 480 64"><path class="graph-gridline" d="M4 10H476M4 32H476M4 54H476"/><g transform="translate(0 -6.4) scale(2 1.2)"><path class="graph-line graph-line-green" d="M4 48H74V36H154V21H236"/><circle class="graph-point graph-point-green" cx="74" cy="36" r="4"/><circle class="graph-point graph-point-green" cx="154" cy="21" r="4"/><circle class="graph-point graph-point-green" cx="236" cy="21" r="4"/></g></svg><div class="step-graph-labels"><span>Scope</span><span>Delivery</span><span>Payment</span></div></div>
           </article>
         </div>
       </div>
