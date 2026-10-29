@@ -920,6 +920,17 @@ Connecting…|Verbindung wird hergestellt…
 Could not start social sign-in.|Die Anmeldung über einen Anbieter konnte nicht gestartet werden.
 Social sign-in was cancelled. Please try again.|Die Anmeldung über einen Anbieter wurde abgebrochen. Bitte versuche es erneut.
 We could not finish setting up your brand account.|Dein Markenkonto konnte nicht fertig eingerichtet werden.
+Campaign Thumbnail (Optional)|Kampagnenvorschaubild (optional)
+Choose Image|Bild auswählen
+No image selected|Kein Bild ausgewählt
+Remove Image|Bild entfernen
+JPG, PNG or WebP · up to 2 MB. Your image stays private until an admin approves the campaign.|JPG, PNG oder WebP · bis zu 2 MB. Das Bild bleibt privat, bis ein Admin die Kampagne freigibt.
+Describe the thumbnail image|Beschreibe das Vorschaubild
+Briefly describe the image|Beschreibe das Bild kurz
+Add a short image description for accessibility.|Füge eine kurze Bildbeschreibung für die Barrierefreiheit hinzu.
+Campaign image storage is not set up yet. Please try again later.|Der Kampagnenbildspeicher ist noch nicht eingerichtet. Bitte versuche es später erneut.
+Campaign Thumbnail|Kampagnenvorschaubild
+Could not load the requested campaign thumbnail.|Das Kampagnenvorschaubild konnte nicht geladen werden.
 `;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.de = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
