@@ -913,6 +913,13 @@ Check your email for a six-digit code.|Schau in dein E-Mail-Postfach. Wir haben 
 We could not verify that code. Check it and try again.|Der Code konnte nicht bestätigt werden. Prüfe ihn und versuche es erneut.
 A new confirmation code has been sent.|Ein neuer Bestätigungscode wurde gesendet.
 The confirmation code could not be resent.|Der Bestätigungscode konnte nicht erneut gesendet werden.
+Continue with Google|Mit Google fortfahren
+Continue with Microsoft|Mit Microsoft fortfahren
+Continue with Discord|Mit Discord fortfahren
+Connecting…|Verbindung wird hergestellt…
+Could not start social sign-in.|Die Anmeldung über einen Anbieter konnte nicht gestartet werden.
+Social sign-in was cancelled. Please try again.|Die Anmeldung über einen Anbieter wurde abgebrochen. Bitte versuche es erneut.
+We could not finish setting up your brand account.|Dein Markenkonto konnte nicht fertig eingerichtet werden.
 `;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.de = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));
