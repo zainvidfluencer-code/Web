@@ -930,6 +930,8 @@ Add a short image description for accessibility.|Füge eine kurze Bildbeschreibu
 Campaign image storage is not set up yet. Please try again later.|Der Kampagnenbildspeicher ist noch nicht eingerichtet. Bitte versuche es später erneut.
 Campaign Thumbnail|Kampagnenvorschaubild
 Could not load the requested campaign thumbnail.|Das Kampagnenvorschaubild konnte nicht geladen werden.
+
+The agreement is available in all 24 official EU languages. The English version governs if translations differ.|Das Abkommen ist in allen 24 Amtssprachen der EU verfügbar. Bei abweichenden Übersetzungen ist die englische Fassung maßgebend.
 `;
   window.VidfluencerTranslations = window.VidfluencerTranslations || {};
   window.VidfluencerTranslations.de = Object.fromEntries(rows.trim().split(/\r?\n/).map(row => { const i=row.indexOf('|'); return [row.slice(0,i),row.slice(i+1)]; }));

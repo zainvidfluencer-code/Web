@@ -277,13 +277,13 @@
           <div class="contract-box" aria-label="Creator partnership agreement">
             <div class="agreement-toolbar">
               <label for="agreement-language">Agreement language</label>
-              <select id="agreement-language" aria-label="Change agreement language"><option value="en">English</option><option value="de">Deutsch</option><option value="es">Spanish</option></select>
+              <select id="agreement-language" aria-label="Change agreement language"><option value="en">English</option><option value="bg">Български</option><option value="hr">Hrvatski</option><option value="cs">Čeština</option><option value="da">Dansk</option><option value="nl">Nederlands</option><option value="et">Eesti</option><option value="fi">Suomi</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="hu">Magyar</option><option value="ga">Gaeilge</option><option value="it">Italiano</option><option value="lv">Latviešu</option><option value="lt">Lietuvių</option><option value="mt">Malti</option><option value="pl">Polski</option><option value="pt">Português</option><option value="ro">Română</option><option value="sk">Slovenčina</option><option value="sl">Slovenščina</option><option value="es">Español</option><option value="sv">Svenska</option></select>
               <a id="agreement-open" href="assets/contracts/creator-agreement-en.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a>
               <a id="agreement-download" href="assets/contracts/creator-agreement-en.pdf" download="Vidfluencer-Creator-Agreement-EN.pdf">Download PDF ↓</a>
             </div>
             <iframe id="agreement-viewer" title="English agreement" src="assets/contracts/creator-agreement-en.pdf"></iframe>
           </div>
-          <p class="agreement-note">The agreement is available in English, German, and Spanish. The Spanish version is translated from the English agreement.</p>
+          <p class="agreement-note">The agreement is available in all 24 official EU languages. The English version governs if translations differ.</p>
           <form id="signature-form" novalidate>
             <div class="contract-fields">
               <div class="field"><label for="legal-name">Legal name</label><input id="legal-name" autocomplete="name" required></div>
@@ -370,7 +370,7 @@
     const banner = document.querySelector('#system-banner');
     const campaignsLink = document.querySelector('#campaigns-link');
     const t = value => window.VidfluencerLanguage ? window.VidfluencerLanguage.t(value) : value;
-    const preferredAgreementLanguage = () => ['de','es'].includes(window.VidfluencerLanguage?.language) ? window.VidfluencerLanguage.language : 'en';
+    const preferredAgreementLanguage = () => config.agreementDocs?.[window.VidfluencerLanguage?.language] ? window.VidfluencerLanguage.language : 'en';
     const say = (node, text, kind) => { node.textContent = t(text); node.className = 'helper' + (kind ? ' ' + kind : ''); };
     const agreementSelect = document.querySelector('#agreement-language');
     const legalName = document.querySelector('#legal-name');
@@ -438,12 +438,12 @@
       const viewer = document.querySelector('#agreement-viewer');
       const open = document.querySelector('#agreement-open');
       const download = document.querySelector('#agreement-download');
-      viewer.src = doc.documentUrl; viewer.title = t(lang === 'de' ? 'German agreement' : lang === 'es' ? 'Spanish agreement' : 'English agreement');
+      viewer.src = doc.documentUrl; viewer.title = `${doc.title} PDF`;
       open.href = doc.documentUrl; download.href = doc.documentUrl; download.download = doc.fileName;
     }
     agreementSelect.addEventListener('change', loadAgreement);
     document.addEventListener('vidfluencer:languagechange', event => {
-      agreementSelect.value = ['de','es'].includes(event.detail.language) ? event.detail.language : 'en'; agreementSelect.dispatchEvent(new Event('change',{bubbles:true}));
+      agreementSelect.value = config.agreementDocs?.[event.detail.language] ? event.detail.language : 'en'; agreementSelect.dispatchEvent(new Event('change',{bubbles:true}));
       if (!isLiveReady) say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
       const visible = document.querySelector('[data-screen]:not([hidden])');
       if (visible) showScreen(visible.dataset.screen);

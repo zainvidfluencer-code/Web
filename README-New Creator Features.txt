@@ -6,7 +6,7 @@ WHAT IS INCLUDED
 - Admin campaign editing and admin-only campaign/category management, using the existing admin role and campaign RLS.
 - Creator-only application submission and existing application status flow.
 - Persistent campaign filter categories and options, plus campaign assignments.
-- Creator profile picture source selection, private uploads (JPG/PNG/WebP up to 2 MB), social links, and earnings display in USD.
+- Creator profile display name and bio, profile picture source selection, private uploads (JPG/PNG/WebP up to 2 MB), social links, and earnings display in USD.
 - Admin USD amount at application approval (the existing campaign payout field is descriptive text, CPM or Pay Per Video, and has no numeric amount).
 - Admin-only paid status/date recording.
 - Recent-auth account deletion; OAuth-only accounts reauthenticate through an already-linked provider. Earnings records remain, with the creator identity anonymized.
@@ -15,7 +15,8 @@ WHAT IS INCLUDED
 SET UP THE DATABASE (one-time)
 1. Open the existing Vidfluencer project in Supabase and open SQL Editor.
 2. Open the complete file supabase-creator-profile-earnings-migration.sql from this package, copy all of it into a new SQL query, and click Run once.
-3. Do not run this on a different project. This migration adds columns/tables/policies and functions; it does not remove existing campaign or application rows.
+3. If you already ran the larger earnings migration, do not rerun it. To add the editable display name and bio, open supabase-creator-profile-customization-migration.sql in a separate query and click Run once.
+4. Do not run these on a different project. The migrations preserve existing campaign, application and creator records.
 
 DEPLOY THE ACCOUNT-DELETION FUNCTION
 Use PowerShell on a computer with Node.js/npm and internet access. From the folder that contains this package, run these commands in order:
@@ -33,7 +34,7 @@ In Supabase Authentication → URL Configuration, add this redirect URL so OAuth
 Keep the existing sign-in and OAuth callback URLs already in the project.
 
 PUBLISH THE WEBSITE FILES
-Your repository's current Pages workflow uploads the repository root (`path: '.'`). Extract the GitHub Pages export ZIP and upload/replace its contents at the repository root, keeping folders such as `assets` and `campaigns` in place and keeping `CNAME` at the root. Do not put everything inside an extra nested folder or inside `docs` unless you also change the workflow upload path. Publish the updated static files only after the database migration is applied; until then, campaign filter/profile/earnings sections will report missing database objects. The public Supabase publishable key in supabase-config.js is designed for browser use; never add a secret/service-role key to the static website.
+Your repository's current Pages workflow uploads the repository root (`path: '.'`). Extract the GitHub Pages export ZIP and upload/replace its contents at the repository root, keeping folders such as `assets` and `campaigns` in place and keeping `CNAME` at the root. Do not put everything inside an extra nested folder or inside `docs` unless you also change the workflow upload path. Publish the updated static files only after the database migration is applied; until then, the new profile fields will not load. The public Supabase publishable key in supabase-config.js is designed for browser use; never add a secret/service-role key to the static website.
 
 DATABASE AND PRIVACY NOTES
 - Campaign editing, category management, campaign approval, and payment marking are admin-only under the existing admin role/RLS and the new protected functions.
@@ -49,7 +50,7 @@ MANUAL CHECKLIST AFTER SETUP
 4. Confirm a second application is blocked and the creator sees the current application status.
 5. Approve the application as admin with a USD amount; confirm the creator sees Pending earnings.
 6. Mark it Paid as admin; confirm the creator's Paid and Total earned values update and the admin sees a paid date.
-7. Set avatar from each linked provider when metadata includes a picture, then test a supported upload and initials fallback; add/edit/remove social links.
+7. Set your display name and bio, save, reopen the profile to confirm they persist, then set an avatar and add/edit/remove social links.
 8. Use a test creator account to verify password-based and linked-provider deletion flows. Confirm uploaded files are removed and the earning entry remains anonymized.
 
 The SQL and function are supplied but intentionally have not been run or deployed to your live project.
