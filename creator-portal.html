@@ -61,8 +61,8 @@
     .field { display:grid; gap:7px; margin-bottom:15px; }
     .field label { color:#48536b; font-size:12px; font-weight:700; }
     .required-mark { color:var(--blue); }
-    .field input,.field select,.field textarea { width:100%; min-height:46px; padding:0 14px; border:1px solid #dfe3ed; border-radius:11px; outline:0; color:var(--ink); background:#fff; font-size:14px; transition:border-color .16s,box-shadow .16s; }
-    .field textarea { min-height:84px; padding:11px 14px; resize:vertical; }
+    .field input,.field select,.field textarea { width:100%; min-height:46px; padding:0 14px; border:1px solid #dfe3ed; border-radius:11px; outline:0; color:var(--ink); background:#fff; font-family:inherit; font-size:15px; font-weight:400; letter-spacing:normal; transition:border-color .16s,box-shadow .16s; }
+    .field textarea { min-height:84px; padding:11px 14px; resize:vertical; line-height:1.5; }
     .field select { cursor:pointer; }
     .field .custom-select { position:relative; width:100%; min-width:0; }
     .field .custom-select-native { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; opacity:0!important; pointer-events:none!important; }
@@ -82,7 +82,10 @@
     .field input:focus,.field select:focus,.field textarea:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
     .agreement-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:12px; border-bottom:1px solid var(--line); background:#fff; }
     .agreement-toolbar label { color:#48536b; font-size:12px; font-weight:700; }
-    .agreement-toolbar select { min-height:36px; padding:0 10px; border:1px solid var(--line); border-radius:9px; color:var(--ink); background:#fff; font:inherit; font-size:12px; }
+    .agreement-toolbar select { min-height:36px; padding:0 10px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:#fff; font:inherit; font-size:12px; }
+    .agreement-toolbar .custom-select { position:relative; width:112px; flex:none; }
+    .agreement-toolbar .custom-select-trigger { min-height:38px; padding:0 11px; border-radius:999px; font-size:12px; }
+    .agreement-toolbar .custom-select-menu { min-width:170px; }
     .agreement-toolbar a { color:var(--blue); font-size:12px; font-weight:700; }
     .contract-box { overflow:hidden; padding:0; margin:15px 0 10px; border:1px solid var(--line); border-radius:14px; background:#fafbfe; }
     .contract-box iframe { display:block; width:100%; height:440px; border:0; background:#eef0f7; }
@@ -92,7 +95,7 @@
     .guardian-fields { padding:13px 13px 1px; margin:0 0 13px; border:1px solid #e2e5ef; border-radius:12px; background:#fafbfe; }
     .guardian-fields legend { padding:0 5px; color:var(--muted); font-size:12px; font-weight:700; }
     @media(max-width:520px) { .topbar-actions { gap:9px; } .back-link { font-size:12px; } .agreement-toolbar { gap:8px; } .contract-box iframe { height:360px; } .contract-fields { grid-template-columns:1fr; } .contract-fields .wide { grid-column:auto; } }
-    .field input::placeholder { color:#a4acbb; }
+    .field input::placeholder,.field textarea::placeholder { color:#8994a9; font-family:inherit; font-size:15px; font-weight:400; letter-spacing:normal; opacity:1; }
     .field input:focus { border-color:#8491ee; box-shadow:0 0 0 3px rgb(64 85 214 / .12); }
     .field input[aria-invalid="true"] { border-color:#d65050; }
     .portfolio-note { margin:-5px 0 13px; color:#818ba0; font-size:11px; line-height:1.5; }
@@ -376,24 +379,24 @@
     const guardianFields = document.querySelector('#guardian-fields');
     const creatorAge = document.querySelector('#creator-age');
     const paymentMethodSelect = document.querySelector('#payment-method');
-    function enhanceRoundedSelect(select) {
-      const field = select.closest('.field'), label = field.querySelector('label');
+    function enhanceRoundedSelect(select, required=true) {
+      const field = select.closest('.field') || select.closest('.agreement-toolbar'), label = field.querySelector(`label[for="${select.id}"]`) || field.querySelector('label');
       if (!label.id) label.id = select.id + '-label';
       const host = document.createElement('div'); host.className = 'custom-select';
       select.parentNode.insertBefore(host,select); host.append(select);
       select.classList.add('custom-select-native'); select.tabIndex=-1; select.setAttribute('aria-hidden','true');
       const trigger=document.createElement('button'); trigger.type='button'; trigger.className='custom-select-trigger';
       trigger.setAttribute('aria-haspopup','listbox'); trigger.setAttribute('aria-expanded','false');
-      trigger.setAttribute('aria-labelledby',label.id+' '+select.id+'-value'); trigger.setAttribute('aria-controls',select.id+'-options'); trigger.setAttribute('aria-required','true');
+      trigger.setAttribute('aria-labelledby',label.id+' '+select.id+'-value'); trigger.setAttribute('aria-controls',select.id+'-options'); if(required)trigger.setAttribute('aria-required','true');
       const value=document.createElement('span'); value.id=select.id+'-value';
       const chevron=document.createElement('span'); chevron.className='custom-select-chevron'; chevron.setAttribute('aria-hidden','true'); trigger.append(value,chevron);
       const menu=document.createElement('div'); menu.className='custom-select-menu'; menu.id=select.id+'-options'; menu.setAttribute('role','listbox'); menu.setAttribute('aria-labelledby',label.id); menu.hidden=true;
-      const error=document.createElement('p'); error.className='helper error custom-select-error'; error.id=select.id+'-error'; error.setAttribute('role','alert'); error.textContent=t('Choose one'); error.hidden=true; trigger.setAttribute('aria-describedby',error.id);
+      const error=document.createElement('p'); error.className='helper error custom-select-error'; error.id=select.id+'-error'; error.setAttribute('role','alert'); error.textContent=t('Choose one'); error.hidden=true; if(required)trigger.setAttribute('aria-describedby',error.id);
       host.append(trigger,menu,error);
       const translated=option=>t(option.textContent.trim());
       function updateValue(){value.textContent=translated(select.options[select.selectedIndex]||select.options[0])}
       function close(returnFocus){menu.hidden=true;trigger.setAttribute('aria-expanded','false');if(returnFocus)trigger.focus()}
-      function choose(option){select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));error.hidden=true;trigger.removeAttribute('aria-invalid');close(true)}
+      function choose(option){select.value=option.value;select.dispatchEvent(new Event('change',{bubbles:true}));if(required){error.hidden=true;trigger.removeAttribute('aria-invalid')}close(true)}
       function render(keepFocus=false){
         const oldFocus=keepFocus?menu.querySelector(':focus')?.dataset.value:null; menu.replaceChildren();
         [...select.options].forEach(option=>{
@@ -414,15 +417,16 @@
       trigger.addEventListener('click',()=>menu.hidden?open():close(false));
       trigger.addEventListener('keydown',event=>{if(['ArrowDown','ArrowUp','Enter',' '].includes(event.key)){event.preventDefault();if(menu.hidden)open();else (menu.querySelector('[aria-selected="true"]')||menu.querySelector('.custom-select-option'))?.focus()}});
       label.addEventListener('click',event=>{event.preventDefault();trigger.focus()});
-      select.addEventListener('change',()=>{updateValue();if(select.value){error.hidden=true;trigger.removeAttribute('aria-invalid')}if(!menu.hidden)render(true)});
-      document.addEventListener('vidfluencer:languagechange',()=>{error.textContent=t('Choose one');updateValue();if(!menu.hidden)render()});
+      select.addEventListener('change',()=>{updateValue();if(required&&select.value){error.hidden=true;trigger.removeAttribute('aria-invalid')}if(!menu.hidden)render(true)});
+      document.addEventListener('vidfluencer:languagechange',()=>{if(required)error.textContent=t('Choose one');updateValue();if(!menu.hidden)render()});
       document.addEventListener('pointerdown',event=>{if(!host.contains(event.target))close(false)});
       document.addEventListener('focusin',event=>{if(!host.contains(event.target))close(false)});
       updateValue();
-      return {validate(){if(select.value)return true;error.hidden=false;trigger.setAttribute('aria-invalid','true');trigger.focus();return false}};
+      return {validate(){if(!required||select.value)return true;error.hidden=false;trigger.setAttribute('aria-invalid','true');trigger.focus();return false}};
     }
     const creatorAgeDropdown=enhanceRoundedSelect(creatorAge);
     const paymentMethodDropdown=enhanceRoundedSelect(paymentMethodSelect);
+    enhanceRoundedSelect(agreementSelect,false);
     let currentAgreement = null;
     let client = null, mode = 'signup', displayName = '', contactValue = readPendingSignupEmail(), signedInUser = null;
     if (contactValue) document.querySelector('#recipient-address').textContent = contactValue;
@@ -439,13 +443,13 @@
     }
     agreementSelect.addEventListener('change', loadAgreement);
     document.addEventListener('vidfluencer:languagechange', event => {
-      agreementSelect.value = ['de','es'].includes(event.detail.language) ? event.detail.language : 'en'; loadAgreement();
+      agreementSelect.value = ['de','es'].includes(event.detail.language) ? event.detail.language : 'en'; agreementSelect.dispatchEvent(new Event('change',{bubbles:true}));
       if (!isLiveReady) say(accountMessage, 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
       const visible = document.querySelector('[data-screen]:not([hidden])');
       if (visible) showScreen(visible.dataset.screen);
     });
     agreementSelect.value = preferredAgreementLanguage();
-    loadAgreement();
+    agreementSelect.dispatchEvent(new Event('change',{bubbles:true}));
     creatorAge.addEventListener('change', () => {
       const minor = creatorAge.value === 'minor'; guardianFields.hidden = !minor;
       guardianFields.querySelectorAll('input').forEach(input => { input.required = minor; });
