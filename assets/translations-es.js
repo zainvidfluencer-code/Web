@@ -274,8 +274,7 @@ Brand Partnership Agreement|Acuerdo de colaboración con marcas
 Brands agree campaign scope and creator payments with Vidfluencer before the work begins.|Las marcas acuerdan con Vidfluencer el alcance de la campaña y los pagos antes de empezar.
 Campaign requirements|Requisitos de la campaña
 Each brief explains the content needed, how to submit it and any campaign-specific eligibility rules.|Cada briefing explica el contenido necesario, cómo enviarlo y los requisitos de participación.
-Frequently asked|Preguntas frecuentes
-Good questions. Clear answers.|Buenas preguntas. Respuestas claras.
+Frequently Asked Questions|Preguntas frecuentes
 Still unsure about a campaign or the community? Get in touch and we’ll point you in the right direction.|¿Tienes dudas sobre una campaña o la comunidad? Escríbenos y te orientaremos.
 How do creators join?|¿Cómo se unen los creadores?
 Join the Vidfluencer Discord and introduce yourself and the topics you create content about.|Únete al Discord de Vidfluencer y cuéntanos quién eres y sobre qué temas creas contenido.
