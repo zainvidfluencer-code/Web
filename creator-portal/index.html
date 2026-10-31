@@ -497,9 +497,19 @@
       if (profileResult.data && profileResult.data.full_name) displayName = profileResult.data.full_name;
       if (!displayName) displayName = user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name) || '';
       document.querySelector('#welcome-name').textContent = displayName ? ', ' + displayName.split(' ')[0] : '';
-      const contractResult = await client.from('creator_contracts').select('id').eq('creator_id', user.id).order('signed_at', {ascending:false}).limit(1).maybeSingle();
+      const contractResult = await client.from('creator_contracts').select('id,contract_status,review_note').eq('creator_id', user.id).order('signed_at', {ascending:false}).limit(1).maybeSingle();
       if (contractResult.error) throw contractResult.error;
       campaignsLink.hidden = true;
+      if (contractResult.data && contractResult.data.contract_status === 'rejected') {
+        agreementSelect.value = preferredAgreementLanguage();
+        loadAgreement(); legalName.value = displayName || ''; signatureName.value = displayName || '';
+        contractEmail.value = user.email || '';
+        const reviewNote = contractResult.data.review_note;
+        say(document.querySelector('#signature-message'), reviewNote ? reviewNote + ' — ' + t('Review the agreement above before you sign.') : t('Review the agreement above before you sign.'), 'warning');
+        showScreen('agreement');
+        returnToSignupOverlayIfNeeded();
+        return;
+      }
       if (contractResult.data) {
         const portfolioResult = await client.from('creator_portfolios').select('id,portfolio_url').eq('creator_id',user.id).order('created_at',{ascending:false}).limit(1).maybeSingle();
         if (portfolioResult.error) throw portfolioResult.error;

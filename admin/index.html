@@ -109,7 +109,21 @@ function saveDemoState(){try{localStorage.setItem(DEMO_STATE_KEY,JSON.stringify(
 function showDemoSave(){note(t(saveDemoState()?'Preview changes saved in this browser.':'Preview changes are temporary until this tab closes.'))}
 function addDemoAudit(action,targetType,targetId,reason=''){demoStore.audit.unshift({created_at:new Date().toISOString(),admin_id:'preview-owner',action,target_type:targetType,target_id:String(targetId),reason:reason||''})}
 function fileToDataUrl(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(reader.error||new Error('File could not be read.'));reader.readAsDataURL(file)})}
-function applyDemoCreatorReview(creator,action,component,reason){if(action==='approve'){if(component==='all'||component==='contract')creator.contract.status='approved';if(component==='all'||component==='portfolio')creator.portfolio.status='approved';creator.needsPortfolioUpdate=false;creator.accountStatus='active';creator.approvalStatus=creator.contract.status==='approved'&&creator.portfolio.status==='approved'?'approved':'pending';creator.reviewNote=''}else if(action==='reject'){if(component==='all'||component==='contract')creator.contract.status='rejected';if(component==='all'||component==='portfolio')creator.portfolio.status='rejected';creator.accountStatus='rejected';creator.approvalStatus='rejected';creator.reviewNote=reason}else if(action==='request_changes'){creator.needsPortfolioUpdate=true;creator.reviewNote=reason;creator.approvalStatus='pending'}else if(action==='suspend'){creator.accountStatus='suspended';creator.approvalStatus='suspended';creator.reviewNote=reason}else if(action==='reinstate'){creator.accountStatus='active';creator.approvalStatus=creator.contract?.status==='approved'&&creator.portfolio?.status==='approved'?'approved':'pending';creator.reviewNote=reason}demoStore.unreadCreatorIds=demoStore.unreadCreatorIds.filter(id=>id!==creator.id);addDemoAudit('creator_review','creator',creator.id,reason)}
+function applyDemoCreatorReview(creator,action,component,reason){
+ const includeContract=component==='all'||component==='contract',includePortfolio=component==='all'||component==='portfolio';
+ if(action==='approve'){
+  if(includeContract&&!creator.contract)throw new Error('No signed agreement exists');if(includePortfolio&&!creator.portfolio)throw new Error('No portfolio link exists');
+  if(includeContract)creator.contract.status='approved';if(includePortfolio)creator.portfolio.status='approved';creator.needsPortfolioUpdate=false;creator.accountStatus='active';creator.approvalStatus=creator.contract?.status==='approved'&&creator.portfolio?.status==='approved'?'approved':'pending';creator.reviewNote='';
+ }else if(action==='reject'){
+  if(includeContract&&creator.contract)creator.contract.status='rejected';if(includePortfolio&&creator.portfolio)creator.portfolio.status='rejected';creator.accountStatus='rejected';creator.approvalStatus='rejected';creator.reviewNote=reason;
+ }else if(action==='request_changes'){
+  if(includeContract){if(!creator.contract)throw new Error('No signed agreement exists');creator.contract.status='rejected';creator.contract.reviewNote=reason}
+  if(includePortfolio){if(!creator.portfolio)throw new Error('No portfolio link exists');creator.portfolio.status='rejected';creator.portfolio.reviewNote=reason;creator.needsPortfolioUpdate=true}
+  creator.accountStatus='active';creator.approvalStatus='rejected';creator.reviewNote=reason;
+ }else if(action==='suspend'){creator.accountStatus='suspended';creator.approvalStatus='suspended';creator.reviewNote=reason}
+ else if(action==='reinstate'){creator.accountStatus='active';creator.approvalStatus=creator.contract?.status==='rejected'||creator.portfolio?.status==='rejected'?'rejected':creator.contract?.status==='approved'&&creator.portfolio?.status==='approved'?'approved':'pending';creator.reviewNote=reason}
+ demoStore.unreadCreatorIds=demoStore.unreadCreatorIds.filter(id=>id!==creator.id);addDemoAudit('creator_review','creator',creator.id,reason)
+}
 function note(s,error=false){$('#global-notice').textContent=s||'';$('#global-notice').className='notice'+(error?' error':'')}
 function call(name,args={}){return client.rpc(name,args)}
 function setTab(name){
@@ -156,7 +170,32 @@ const h3=document.createElement('h3');h3.textContent='Component review';host.app
 const componentNative=document.createElement('select');componentNative.setAttribute('aria-label','Review components');componentNative.innerHTML='<option value="all">Agreement and portfolio</option><option value="contract">Agreement only</option><option value="portfolio">Portfolio only</option>';const component=makeReviewDropdown(componentNative);
 const reasonNative=document.createElement('select');reasonNative.setAttribute('aria-label','Review reason');reasonNative.innerHTML='<option value="">Choose a review reason</option><option>Spam/fake</option><option>Inappropriate content</option><option>Portfolio unreachable</option><option>Incomplete details</option><option>Other</option>';const reasonSelect=makeReviewDropdown(reasonNative);reviewSelects.append(component,reasonSelect);host.append(reviewSelects);
 const reason=document.createElement('textarea');reason.className='creator-review-note';reason.placeholder='Reason or note (required for reject, request changes and suspend)';reason.setAttribute('aria-label','Reason or note for this review');host.append(reason);
-const actions2=document.createElement('div');actions2.className='actions creator-review-actions';for(const [label,action] of [['Approve','approve'],['Reject','reject'],['Request changes','request_changes'],['Suspend','suspend'],['Reinstate','reinstate']]){const b=document.createElement('button');b.className='btn'+(action==='reject'||action==='suspend'?' danger':'');b.textContent=label;b.onclick=async()=>{const why=reason.value.trim()||reasonSelect.value;if(['reject','request_changes','suspend'].includes(action)&&!why)return note(t('Choose or enter a reason first.'),true);if(demo){const target=demoStore.creators.find(x=>x.id===c.id);if(!target)return note(t('Creator could not be found in this preview.'),true);applyDemoCreatorReview(target,action,component.value,why||null);selectedCreator=target;showDemoSave();await loadCreators();await refreshStats();return}if(!confirm(t('Confirm this creator review action?')))return;const r=await call('admin_review_creator',{p_creator_id:c.id,p_action:action,p_component:component.value,p_reason:why||null});if(r.error)return note(r.error.message,true);note('Creator review updated.');await loadCreators();await refreshStats()};actions2.append(b)}host.append(actions2)}
+const actions2=document.createElement('div');actions2.className='actions creator-review-actions';
+for(const [label,action] of [['Approve','approve'],['Reject','reject'],['Request changes','request_changes'],['Suspend','suspend'],['Reinstate','reinstate']]){
+ const b=document.createElement('button');b.type='button';b.className='btn'+(action==='reject'||action==='suspend'?' danger':'');b.textContent=label;
+ b.onclick=async()=>{
+  if(b.disabled)return;
+  const why=reason.value.trim()||reasonSelect.value;
+  if(['reject','request_changes','suspend'].includes(action)&&!why)return note(t('Choose or enter a reason first.'),true);
+  if(!demo&&!confirm(t('Confirm this creator review action?')))return;
+  const buttons=[...actions2.querySelectorAll('button')];buttons.forEach(button=>{button.disabled=true;button.setAttribute('aria-busy','true')});
+  try{
+   if(demo){
+    const target=demoStore.creators.find(x=>x.id===c.id);
+    if(!target)throw new Error(t('Creator could not be found in this preview.'));
+    applyDemoCreatorReview(target,action,component.value,why||null);selectedCreator=target;showDemoSave();
+   }else{
+    const result=await call('admin_review_creator',{p_creator_id:c.id,p_action:action,p_component:component.value,p_reason:why||null});
+    if(result.error)throw result.error;
+    note(t('Creator review updated.'));
+   }
+   await Promise.all([loadCreators(),refreshStats()]);
+  }catch(error){note(error?.message||t('Please try again later.'),true)}
+  finally{buttons.forEach(button=>{button.disabled=false;button.removeAttribute('aria-busy')})}
+ };
+ actions2.append(b)
+}
+host.append(actions2)}
 function campaignImageUrl(c){return c.thumbnail_path?(c.thumbnail_path.startsWith('data:image/')?c.thumbnail_path:cfg.supabaseUrl+'/storage/v1/object/public/campaign-thumbnails/'+c.thumbnail_path.split('/').map(encodeURIComponent).join('/')):''}
 async function loadFilterManager(){
  if(demo){filterCategories=demoStore.filterCategories||[];filterOptions=demoStore.filterOptions||[];renderFilterManager();return}
