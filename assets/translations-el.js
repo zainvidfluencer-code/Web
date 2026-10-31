@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Δείγμα βίντεο δημιουργού, σε σίγαση",
   "Creator work": "Έργο δημιουργού",
   "Creator/channel": "Δημιουργός/κανάλι",
-  "Creator/channel name (optional)": "Όνομα δημιουργού/καναλιού (προαιρετικό)",
+  "Creator/channel name": "Όνομα δημιουργού/καναλιού",
+  "Complete all required creator details before signing the agreement.": "Συμπληρώστε όλα τα απαιτούμενα στοιχεία δημιουργού πριν υπογράψετε τη συμφωνία.",
+  "Type the guardian’s full name again as their signature.": "Πληκτρολογήστε ξανά το πλήρες όνομα του κηδεμόνα ως υπογραφή του.",
   "Creators": "Δημιουργοί",
   "Creators | Vidfluencer": "Δημιουργοί | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Οι δημιουργοί εξετάζουν και υπογράφουν τους όρους της καμπάνιας πριν λάβουν μέρος.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Συχνές ερωτήσεις",
   "Good questions. Clear answers.": "Καλές ερωτήσεις. Σαφείς απαντήσεις.",
   "See creator videos": "Δείτε βίντεο δημιουργών"
+  "The creator must complete all required profile details before approval.": "Ο δημιουργός πρέπει να συμπληρώσει όλα τα υποχρεωτικά στοιχεία προφίλ πριν από την έγκριση.",
 };
 })();

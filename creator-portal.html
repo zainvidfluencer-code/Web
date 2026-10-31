@@ -286,24 +286,24 @@
           <p class="agreement-note">The agreement is available in all 24 official EU languages. The English version governs if translations differ.</p>
           <form id="signature-form" novalidate>
             <div class="contract-fields">
-              <div class="field"><label for="legal-name">Legal name</label><input id="legal-name" autocomplete="name" required></div>
-              <div class="field"><label for="creator-name">Creator/channel name (optional)</label><input id="creator-name" autocomplete="nickname"></div>
-              <div class="field"><label for="contract-email">Contact email</label><input id="contract-email" type="email" autocomplete="email" required></div>
-              <div class="field"><label for="country">Country of residence</label><input id="country" autocomplete="country-name" required></div>
-              <div class="field wide"><label for="address">Address</label><textarea id="address" autocomplete="street-address" required></textarea></div>
-              <div class="field wide"><label for="social-handles">Social channels and handles</label><textarea id="social-handles" placeholder="For example: TikTok @name, Instagram @name" required></textarea></div>
-              <div class="field"><label for="paypal-email">PayPal email</label><input id="paypal-email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="legal-name">Legal name <span class="required-mark" aria-hidden="true">*</span></label><input id="legal-name" autocomplete="name" required></div>
+              <div class="field"><label for="creator-name">Creator/channel name <span class="required-mark" aria-hidden="true">*</span></label><input id="creator-name" autocomplete="nickname" required></div>
+              <div class="field"><label for="contract-email">Contact email <span class="required-mark" aria-hidden="true">*</span></label><input id="contract-email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="country">Country of residence <span class="required-mark" aria-hidden="true">*</span></label><input id="country" autocomplete="country-name" required></div>
+              <div class="field wide"><label for="address">Address <span class="required-mark" aria-hidden="true">*</span></label><textarea id="address" autocomplete="street-address" required></textarea></div>
+              <div class="field wide"><label for="social-handles">Social channels and handles <span class="required-mark" aria-hidden="true">*</span></label><textarea id="social-handles" placeholder="For example: TikTok @name, Instagram @name" required></textarea></div>
+              <div class="field"><label for="creator-age">Age confirmation <span class="required-mark" aria-hidden="true">*</span></label><select id="creator-age" required><option value="">Choose one</option><option value="adult">I am 18 or older</option><option value="minor">I am under 18</option></select></div>
+              <div class="field"><label for="payment-method">Payment method <span class="required-mark" aria-hidden="true">*</span></label><select id="payment-method" required><option value="">Choose one</option><option value="paypal">PayPal</option><option value="wise">Wise</option><option value="bank">Bank transfer</option></select></div>
+              <div class="field" id="paypal-field" hidden><label for="paypal-email">PayPal email <span class="required-mark" aria-hidden="true">*</span></label><input id="paypal-email" type="email" autocomplete="email"></div>
+              <div class="field wide" id="payout-details-field" hidden><label for="payout-details">Payout details <span class="required-mark" aria-hidden="true">*</span></label><textarea id="payout-details" placeholder="Details needed for your selected payment method"></textarea></div>
               <div class="field"><label for="vat-number">VAT number (optional)</label><input id="vat-number" autocomplete="off"></div>
-              <div class="field"><label for="creator-age">Age confirmation</label><select id="creator-age" required><option value="">Choose one</option><option value="adult">I am 18 or older</option><option value="minor">I am under 18</option></select></div>
-              <div class="field"><label for="payment-method">Payment method</label><select id="payment-method" required><option value="">Choose one</option><option value="paypal">PayPal</option><option value="wise">Wise</option><option value="bank">Bank transfer</option></select></div>
-              <div class="field wide"><label for="payout-details">Payout details</label><textarea id="payout-details" placeholder="Details needed for your selected payment method" required></textarea></div>
             </div>
             <fieldset id="guardian-fields" class="guardian-fields" hidden>
               <legend>Parent or legal guardian (required for creators under 18)</legend>
-              <div class="field"><label for="guardian-name">Parent or legal guardian's full name</label><input id="guardian-name" autocomplete="name"></div>
-              <div class="field"><label for="guardian-signature">Parent or legal guardian's typed signature</label><input id="guardian-signature" autocomplete="off"></div>
+              <div class="field"><label for="guardian-name">Parent or legal guardian's full name <span class="required-mark" aria-hidden="true">*</span></label><input id="guardian-name" autocomplete="name"></div>
+              <div class="field"><label for="guardian-signature">Parent or legal guardian's typed signature <span class="required-mark" aria-hidden="true">*</span></label><input id="guardian-signature" autocomplete="off"></div>
             </fieldset>
-            <div class="field signature"><label for="signature-name">Typed signature</label><input id="signature-name" autocomplete="name" placeholder="Type your full legal name" required></div>
+            <div class="field signature"><label for="signature-name">Typed signature <span class="required-mark" aria-hidden="true">*</span></label><input id="signature-name" autocomplete="name" placeholder="Type your full legal name" required></div>
             <label class="consent"><input id="agreement-consent" type="checkbox" required><span id="consent-copy">I confirm that I have read and agree to the selected creator partnership agreement.</span></label>
             <button class="primary" id="sign-submit" type="submit">Sign &amp; save agreement <span aria-hidden="true">✓</span></button>
             <p id="signature-message" class="helper" aria-live="polite"></p>
@@ -323,9 +323,9 @@
       </div>
     </section>
   </main>
-  <script src="assets/translations-de.js?v=20261029-language-refresh-2"></script>
-  <script src="assets/translations-es.js?v=20261029-language-refresh-2"></script>
-  <script src="assets/language-switcher.js?v=20261029-language-refresh-2"></script>
+  <script src="assets/translations-de.js?v=20261031-essential-profile-1"></script>
+  <script src="assets/translations-es.js?v=20261031-essential-profile-1"></script>
+  <script src="assets/language-switcher.js?v=20261031-essential-profile-1"></script>
   <script src="supabase-config.js"></script>
   <script type="module">
     const config = window.VIDFLUENCER_CONFIG || {};
@@ -379,6 +379,10 @@
     const guardianFields = document.querySelector('#guardian-fields');
     const creatorAge = document.querySelector('#creator-age');
     const paymentMethodSelect = document.querySelector('#payment-method');
+    const paypalField = document.querySelector('#paypal-field');
+    const paypalEmail = document.querySelector('#paypal-email');
+    const payoutDetailsField = document.querySelector('#payout-details-field');
+    const payoutDetails = document.querySelector('#payout-details');
     function enhanceRoundedSelect(select, required=true) {
       const field = select.closest('.field') || select.closest('.agreement-toolbar'), label = field.querySelector(`label[for="${select.id}"]`) || field.querySelector('label');
       if (!label.id) label.id = select.id + '-label';
@@ -427,6 +431,17 @@
     const creatorAgeDropdown=enhanceRoundedSelect(creatorAge);
     const paymentMethodDropdown=enhanceRoundedSelect(paymentMethodSelect);
     enhanceRoundedSelect(agreementSelect,false);
+    function updatePaymentFields() {
+      const method = paymentMethodSelect.value;
+      const usePaypal = method === 'paypal';
+      const useBankDetails = method === 'wise' || method === 'bank';
+      paypalField.hidden = !usePaypal;
+      payoutDetailsField.hidden = !useBankDetails;
+      paypalEmail.required = usePaypal;
+      payoutDetails.required = useBankDetails;
+    }
+    paymentMethodSelect.addEventListener('change', updatePaymentFields);
+    updatePaymentFields();
     let currentAgreement = null;
     let client = null, mode = 'signup', displayName = '', contactValue = readPendingSignupEmail(), signedInUser = null;
     if (contactValue) document.querySelector('#recipient-address').textContent = contactValue;
@@ -490,21 +505,50 @@
       const result = await client.from('creator_profiles').upsert({id:user.id, full_name:displayName, contact_method:'email'}, {onConflict:'id'});
       if (result.error) throw result.error;
     }
+    function creatorProfileComplete(profile) {
+      if (!profile) return false;
+      const validEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((value || '').trim());
+      const basics = [profile.legal_name, profile.creator_name, profile.address, profile.country, profile.social_handles].every(value => (value || '').trim());
+      const payment = profile.payment_method === 'paypal' ? validEmail(profile.paypal_email)
+        : ['wise','bank'].includes(profile.payment_method) && (profile.payout_details || '').trim();
+      const guardian = profile.age_confirmation !== 'minor'
+        || ((profile.guardian_name || '').trim() && (profile.guardian_signature || '').trim()
+          && profile.guardian_name.trim().toLocaleLowerCase() === profile.guardian_signature.trim().toLocaleLowerCase());
+      return Boolean(basics && validEmail(profile.contact_email) && ['adult','minor'].includes(profile.age_confirmation) && payment && guardian);
+    }
+    function populateCreatorProfile(profile, user) {
+      legalName.value = profile?.legal_name || displayName || '';
+      document.querySelector('#creator-name').value = profile?.creator_name || '';
+      contractEmail.value = profile?.contact_email || user?.email || '';
+      document.querySelector('#country').value = profile?.country || '';
+      document.querySelector('#address').value = profile?.address || '';
+      document.querySelector('#social-handles').value = profile?.social_handles || '';
+      document.querySelector('#vat-number').value = profile?.vat_number || '';
+      document.querySelector('#guardian-name').value = profile?.guardian_name || '';
+      document.querySelector('#guardian-signature').value = profile?.guardian_signature || '';
+      paypalEmail.value = profile?.paypal_email || '';
+      payoutDetails.value = profile?.payout_details || '';
+      creatorAge.value = profile?.age_confirmation || '';
+      creatorAge.dispatchEvent(new Event('change', {bubbles:true}));
+      paymentMethodSelect.value = profile?.payment_method || '';
+      paymentMethodSelect.dispatchEvent(new Event('change', {bubbles:true}));
+      signatureName.value = legalName.value;
+    }
     async function onboardingDestination(user) {
       signedInUser = user;
       clearPendingSignupEmail();
-      const profileResult = await client.from('creator_profiles').select('full_name,needs_portfolio_update,review_note').eq('id', user.id).maybeSingle();
+      const profileResult = await client.from('creator_profiles').select('full_name,needs_portfolio_update,review_note,legal_name,creator_name,contact_email,address,country,social_handles,vat_number,age_confirmation,guardian_name,guardian_signature,payment_method,paypal_email,payout_details').eq('id', user.id).maybeSingle();
       if (profileResult.error) throw profileResult.error;
       if (profileResult.data && profileResult.data.full_name) displayName = profileResult.data.full_name;
       if (!displayName) displayName = user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name) || '';
       document.querySelector('#welcome-name').textContent = displayName ? ', ' + displayName.split(' ')[0] : '';
+      populateCreatorProfile(profileResult.data, user);
       const contractResult = await client.from('creator_contracts').select('id,contract_status,review_note').eq('creator_id', user.id).order('signed_at', {ascending:false}).limit(1).maybeSingle();
       if (contractResult.error) throw contractResult.error;
       campaignsLink.hidden = true;
       if (contractResult.data && contractResult.data.contract_status === 'rejected') {
         agreementSelect.value = preferredAgreementLanguage();
-        loadAgreement(); legalName.value = displayName || ''; signatureName.value = displayName || '';
-        contractEmail.value = user.email || '';
+        loadAgreement();
         const reviewNote = contractResult.data.review_note;
         say(document.querySelector('#signature-message'), reviewNote ? reviewNote + ' — ' + t('Review the agreement above before you sign.') : t('Review the agreement above before you sign.'), 'warning');
         showScreen('agreement');
@@ -512,6 +556,14 @@
         return;
       }
       if (contractResult.data) {
+        if (!creatorProfileComplete(profileResult.data)) {
+          agreementSelect.value = preferredAgreementLanguage();
+          loadAgreement();
+          say(document.querySelector('#signature-message'), t('Complete all required creator details before signing the agreement.'), 'warning');
+          showScreen('agreement');
+          returnToSignupOverlayIfNeeded();
+          return;
+        }
         const portfolioResult = await client.from('creator_portfolios').select('id,portfolio_url').eq('creator_id',user.id).order('created_at',{ascending:false}).limit(1).maybeSingle();
         if (portfolioResult.error) throw portfolioResult.error;
         if (!portfolioResult.data || (profileResult.data && profileResult.data.needs_portfolio_update)) {
@@ -530,8 +582,7 @@
         else window.location.assign(new URL(campaignsDestination, document.baseURI).href); return;
       }
       agreementSelect.value = preferredAgreementLanguage();
-      loadAgreement(); legalName.value = displayName || ''; signatureName.value = displayName || '';
-      contractEmail.value = user.email || '';
+      loadAgreement();
       say(document.querySelector('#signature-message'), 'Review the agreement above before you sign.', '');
       showScreen('agreement');
       returnToSignupOverlayIfNeeded();
@@ -685,6 +736,7 @@
       const signer = signatureName.value.trim();
       const fullLegalName = legalName.value.trim();
       if (fullLegalName.toLocaleLowerCase() !== signer.toLocaleLowerCase()) return say(document.querySelector('#signature-message'), 'Type your legal name again as your signature.', 'error');
+      if (creatorAge.value === 'minor' && document.querySelector('#guardian-name').value.trim().toLocaleLowerCase() !== document.querySelector('#guardian-signature').value.trim().toLocaleLowerCase()) return say(document.querySelector('#signature-message'), 'Type the guardian’s full name again as their signature.', 'error');
       if (!document.querySelector('#agreement-consent').checked) return;
       if (!currentAgreement) return say(document.querySelector('#signature-message'), 'Agreement language is not available.', 'error');
       if (!isLiveReady || !client || !signedInUser) return say(document.querySelector('#signature-message'), 'Creator account access is temporarily unavailable. Please check back soon.', 'warning');
@@ -697,23 +749,25 @@
       const creator = {
         legalName:fullLegalName, creatorName:document.querySelector('#creator-name').value.trim(), contactEmail:contractEmail.value.trim(),
         address:document.querySelector('#address').value.trim(), country:document.querySelector('#country').value.trim(),
-        socialChannels:document.querySelector('#social-handles').value.trim(), paypalEmail:document.querySelector('#paypal-email').value.trim(),
+        socialChannels:document.querySelector('#social-handles').value.trim(), paypalEmail:paymentMethodSelect.value==='paypal' ? paypalEmail.value.trim() : '',
         vatNumber:document.querySelector('#vat-number').value.trim(), age:creatorAge.value,
         guardianName:document.querySelector('#guardian-name').value.trim(), guardianSignature:document.querySelector('#guardian-signature').value.trim(),
-        paymentMethod:document.querySelector('#payment-method').value, payoutDetails:document.querySelector('#payout-details').value.trim()
+        paymentMethod:paymentMethodSelect.value, payoutDetails:paymentMethodSelect.value==='paypal' ? '' : payoutDetails.value.trim()
       };
       const snapshot = JSON.stringify({agreementTitle:currentAgreement.title, agreementLanguage:agreementSelect.value,
         agreementVersion:currentAgreement.version, agreementDocument:currentAgreement.fileName, agreementSha256:currentAgreement.sha256,
         agreementUrl:currentAgreement.documentUrl, privatePdfCopyPath:pdfPath, creator, signerName:signer, creatorId:signedInUser.id, signedAtUtc:signedAt,
         consent:'I confirm I have read and agree to the selected creator partnership agreement.'}, null, 2);
       try {
+        const profileCheck = {legal_name:creator.legalName, creator_name:creator.creatorName, contact_email:creator.contactEmail, address:creator.address, country:creator.country, social_handles:creator.socialChannels, age_confirmation:creator.age, guardian_name:creator.guardianName, guardian_signature:creator.guardianSignature, payment_method:creator.paymentMethod, paypal_email:creator.paypalEmail, payout_details:creator.payoutDetails};
+        if (!creatorProfileComplete(profileCheck)) throw new Error('Essential creator profile details are required before signing the agreement.');
         const response = await fetch(currentAgreement.documentUrl);
         if (!response.ok) throw new Error('The agreement PDF could not be loaded. Please reopen it and try again.');
         const pdfUpload = await client.storage.from('creator-contracts').upload(pdfPath, await response.blob(), {contentType:'application/pdf', upsert:false});
         if (pdfUpload.error) throw pdfUpload.error;
         const upload = await client.storage.from('creator-contracts').upload(path, new Blob([snapshot], {type:'text/plain;charset=utf-8'}), {contentType:'text/plain', upsert:false});
         if (upload.error) throw upload.error;
-        const profilePatch = {full_name:displayName || fullLegalName, legal_name:fullLegalName, creator_name:creator.creatorName || null, contact_email:creator.contactEmail, address:creator.address, country:creator.country, social_handles:creator.socialChannels, paypal_email:creator.paypalEmail, vat_number:creator.vatNumber || null, age_confirmation:creator.age, guardian_name:creator.guardianName || null, guardian_signature:creator.guardianSignature || null, payment_method:creator.paymentMethod, payout_details:creator.payoutDetails};
+        const profilePatch = {full_name:displayName || fullLegalName, legal_name:fullLegalName, creator_name:creator.creatorName, contact_email:creator.contactEmail, address:creator.address, country:creator.country, social_handles:creator.socialChannels, paypal_email:creator.paypalEmail || null, vat_number:creator.vatNumber || null, age_confirmation:creator.age, guardian_name:creator.guardianName || null, guardian_signature:creator.guardianSignature || null, payment_method:creator.paymentMethod, payout_details:creator.payoutDetails || null};
         const profileSave = await client.from('creator_profiles').update(profilePatch).eq('id',signedInUser.id);
         if (profileSave.error) throw profileSave.error;
         const insert = await client.from('creator_contracts').insert({creator_id:signedInUser.id, agreement_version:currentAgreement.version, signer_name:signer, signed_at:signedAt, storage_path:path, pdf_storage_path:pdfPath});
@@ -721,7 +775,8 @@
         say(document.querySelector('#signature-message'), 'Agreement saved securely.', 'success');
         showScreen('portfolio');
       } catch (error) {
-        say(document.querySelector('#signature-message'), 'The agreement could not be saved. ' + (error.message || ''), 'error');
+        const errorMessage = error.message || '';
+        say(document.querySelector('#signature-message'), errorMessage.includes('Essential creator profile details are required') ? 'Complete all required creator details before signing the agreement.' : 'The agreement could not be saved. ' + errorMessage, 'error');
       } finally { submit.disabled = false; }
     });
 

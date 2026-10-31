@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Veidotāja video paraugs, izslēgts",
   "Creator work": "Radītāju darbs",
   "Creator/channel": "Radītājs/kanāls",
-  "Creator/channel name (optional)": "Radītāja/kanāla nosaukums (neobligāti)",
+  "Creator/channel name": "Radītāja/kanāla nosaukums",
+  "Complete all required creator details before signing the agreement.": "Pirms līguma parakstīšanas aizpildiet visu nepieciešamo informāciju par satura veidotāju.",
+  "Type the guardian’s full name again as their signature.": "Atkārtoti ievadiet aizbildņa pilno vārdu un uzvārdu kā viņa parakstu.",
   "Creators": "Radītāji",
   "Creators | Vidfluencer": "Radītāji | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Pirms dalības veidotāji izskata un paraksta kampaņas noteikumus.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Biežāk uzdotie",
   "Good questions. Clear answers.": "Labi jautājumi. Skaidras atbildes.",
   "See creator videos": "Skatiet satura veidotāju video"
+  "The creator must complete all required profile details before approval.": "Satura veidotājam pirms apstiprināšanas jāaizpilda visa obligātā profila informācija.",
 };
 })();

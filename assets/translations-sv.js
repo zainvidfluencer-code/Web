@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Videoexempel från kreatör, avstängd",
   "Creator work": "Skapararbete",
   "Creator/channel": "Skapare/kanal",
-  "Creator/channel name (optional)": "Namn på kreatör/kanal (valfritt)",
+  "Creator/channel name": "Namn på kreatör/kanal",
+  "Complete all required creator details before signing the agreement.": "Fyll i alla obligatoriska uppgifter om kreatören innan du skriver under avtalet.",
+  "Type the guardian’s full name again as their signature.": "Skriv in vårdnadshavarens fullständiga namn igen som hens underskrift.",
   "Creators": "Skapare",
   "Creators | Vidfluencer": "Skapare | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Kreatörer granskar och undertecknar kampanjvillkoren innan de deltar.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Vanliga frågor",
   "Good questions. Clear answers.": "Bra frågor. Tydliga svar.",
   "See creator videos": "Se kreatörernas videor"
+  "The creator must complete all required profile details before approval.": "Skaparen måste fylla i alla obligatoriska profiluppgifter innan godkännande.",
 };
 })();

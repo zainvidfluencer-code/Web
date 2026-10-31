@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Uzorak videozapisa kreatora, isključen zvuk",
   "Creator work": "Kreatorski rad",
   "Creator/channel": "Kreator/kanal",
-  "Creator/channel name (optional)": "Ime kreatora/kanala (nije obavezno)",
+  "Creator/channel name": "Ime kreatora/kanala",
+  "Complete all required creator details before signing the agreement.": "Ispunite sve obavezne podatke o kreatoru prije potpisivanja ugovora.",
+  "Type the guardian’s full name again as their signature.": "Ponovno upišite puno ime skrbnika kao njegov potpis.",
   "Creators": "Kreatori",
   "Creators | Vidfluencer": "Kreatori | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Kreatori pregledaju i potpisuju uvjete kampanje prije sudjelovanja.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Često postavljana",
   "Good questions. Clear answers.": "Dobra pitanja. Jasni odgovori.",
   "See creator videos": "Pogledajte videozapise kreatora"
+  "The creator must complete all required profile details before approval.": "Kreator mora ispuniti sve obavezne podatke profila prije odobrenja.",
 };
 })();

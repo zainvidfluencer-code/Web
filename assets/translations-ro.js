@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Eșantion video pentru creator, dezactivată",
   "Creator work": "Munca de creator",
   "Creator/channel": "Creator/canal",
-  "Creator/channel name (optional)": "Numele creatorului/canalului (opțional)",
+  "Creator/channel name": "Numele creatorului/canalului",
+  "Complete all required creator details before signing the agreement.": "Completează toate datele obligatorii ale creatorului înainte de a semna acordul.",
+  "Type the guardian’s full name again as their signature.": "Introdu din nou numele complet al tutorelui ca semnătură.",
   "Creators": "Creatori",
   "Creators | Vidfluencer": "Creatori | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Creatorii examinează și semnează termenii campaniei înainte de a participa.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Întrebări frecvente",
   "Good questions. Clear answers.": "Întrebări bune. Răspunsuri clare.",
   "See creator videos": "Vezi videoclipurile creatorilor"
+  "The creator must complete all required profile details before approval.": "Creatorul trebuie să completeze toate datele obligatorii din profil înainte de aprobare.",
 };
 })();

@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Looja videonäidis, vaigistatud",
   "Creator work": "Looja töö",
   "Creator/channel": "Looja/kanal",
-  "Creator/channel name (optional)": "Looja/kanali nimi (valikuline)",
+  "Creator/channel name": "Looja/kanali nimi",
+  "Complete all required creator details before signing the agreement.": "Enne lepingu allkirjastamist täitke kõik nõutud loojaandmed.",
+  "Type the guardian’s full name again as their signature.": "Sisestage eestkostja täisnimi uuesti tema allkirjana.",
   "Creators": "Loojad",
   "Creators | Vidfluencer": "Loojad | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Enne osalemist vaatavad loojad kampaaniatingimused läbi ja allkirjastavad need.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Korduma kippuvad",
   "Good questions. Clear answers.": "Head küsimused. Selged vastused.",
   "See creator videos": "Vaata loojate videoid"
+  "The creator must complete all required profile details before approval.": "Looja peab enne kinnitamist täitma kõik kohustuslikud profiiliandmed.",
 };
 })();

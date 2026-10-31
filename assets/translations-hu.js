@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Alkotói videóminta, némítva",
   "Creator work": "Alkotói munka",
   "Creator/channel": "Alkotó/csatorna",
-  "Creator/channel name (optional)": "Alkotó/csatorna neve (nem kötelező)",
+  "Creator/channel name": "Alkotó/csatorna neve",
+  "Complete all required creator details before signing the agreement.": "A megállapodás aláírása előtt töltse ki az összes kötelező alkotói adatot.",
+  "Type the guardian’s full name again as their signature.": "Írja be újra a gondviselő teljes nevét aláírásként.",
   "Creators": "Alkotók",
   "Creators | Vidfluencer": "Alkotók | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Az alkotók a részvétel előtt áttekintik és aláírják a kampány feltételeit.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Gyakran ismételt",
   "Good questions. Clear answers.": "Jó kérdések. Világos válaszok.",
   "See creator videos": "Nézd meg az alkotói videókat"
+  "The creator must complete all required profile details before approval.": "Az alkotónak a jóváhagyás előtt minden kötelező profiladatot ki kell töltenie.",
 };
 })();

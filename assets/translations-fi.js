@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Tekijän videonäyte, mykistetty",
   "Creator work": "Luojan työ",
   "Creator/channel": "Luoja/kanava",
-  "Creator/channel name (optional)": "Tekijän/kanavan nimi (valinnainen)",
+  "Creator/channel name": "Tekijän/kanavan nimi",
+  "Complete all required creator details before signing the agreement.": "Täytä kaikki vaaditut tekijätiedot ennen sopimuksen allekirjoittamista.",
+  "Type the guardian’s full name again as their signature.": "Kirjoita huoltajan koko nimi uudelleen hänen allekirjoituksenaan.",
   "Creators": "Tekijät",
   "Creators | Vidfluencer": "Tekijät | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Tekijät tarkistavat ja allekirjoittavat kampanjan ehdot ennen osallistumista.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Usein kysyttyä",
   "Good questions. Clear answers.": "Hyviä kysymyksiä. Selkeitä vastauksia.",
   "See creator videos": "Katso sisällöntuottajien videoita"
+  "The creator must complete all required profile details before approval.": "Tekijän on täytettävä kaikki pakolliset profiilitiedot ennen hyväksyntää.",
 };
 })();

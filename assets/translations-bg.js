@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Примерен видеоклип на създателя, заглушен",
   "Creator work": "Създателска работа",
   "Creator/channel": "Създател/канал",
-  "Creator/channel name (optional)": "Име на създател/канал (по избор)",
+  "Creator/channel name": "Име на създател/канал",
+  "Complete all required creator details before signing the agreement.": "Попълнете всички задължителни данни за създателя, преди да подпишете споразумението.",
+  "Type the guardian’s full name again as their signature.": "Въведете отново пълното име на родителя или настойника като негов подпис.",
   "Creators": "Създатели",
   "Creators | Vidfluencer": "Създатели | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Създателите преглеждат и подписват условията на кампанията, преди да участват.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Често задавани",
   "Good questions. Clear answers.": "Добри въпроси. Ясни отговори.",
   "See creator videos": "Вижте видеоклиповете на създателите"
+  "The creator must complete all required profile details before approval.": "Създателят трябва да попълни всички задължителни данни в профила, преди да бъде одобрен.",
 };
 })();

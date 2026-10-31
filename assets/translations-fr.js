@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Extrait vidéo du créateur, désactivé",
   "Creator work": "Travail de créateur",
   "Creator/channel": "Créateur/chaîne",
-  "Creator/channel name (optional)": "Nom du créateur/de la chaîne (facultatif)",
+  "Creator/channel name": "Nom du créateur/de la chaîne",
+  "Complete all required creator details before signing the agreement.": "Renseignez toutes les informations obligatoires du créateur avant de signer le contrat.",
+  "Type the guardian’s full name again as their signature.": "Saisissez à nouveau le nom complet du représentant légal comme signature.",
   "Creators": "Créateurs",
   "Creators | Vidfluencer": "Créateurs | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Les créateurs examinent et signent les conditions de la campagne avant de participer.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Questions fréquentes",
   "Good questions. Clear answers.": "De bonnes questions. Des réponses claires.",
   "See creator videos": "Voir les vidéos des créateurs"
+  "The creator must complete all required profile details before approval.": "Le créateur doit compléter toutes les informations obligatoires de son profil avant son approbation.",
 };
 })();

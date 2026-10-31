@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Físeán cruthaitheoir sampla, balbhaithe",
   "Creator work": "Obair cruthaitheoir",
   "Creator/channel": "Cruthaitheoir/cainéal",
-  "Creator/channel name (optional)": "Ainm cruthaitheora/chainéil (roghnach)",
+  "Creator/channel name": "Ainm cruthaitheora/chainéil",
+  "Complete all required creator details before signing the agreement.": "Comhlánaigh sonraí riachtanacha uile an chruthaitheora sula síníonn tú an comhaontú.",
+  "Type the guardian’s full name again as their signature.": "Clóscríobh ainm iomlán an chaomhnóra arís mar shíniú an chaomhnóra.",
   "Creators": "Cruthaitheoirí",
   "Creators | Vidfluencer": "Cruthaitheoirí | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Déanann cruthaitheoirí athbhreithniú agus síniú ar théarmaí an fheachtais sula nglacfaidh siad páirt.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Ceisteanna coitianta",
   "Good questions. Clear answers.": "Ceisteanna maithe. Freagraí soiléire.",
   "See creator videos": "Féach ar fhíseáin chruthaitheoirí"
+  "The creator must complete all required profile details before approval.": "Caithfidh an cruthaitheoir gach sonra próifíle riachtanach a líonadh sula gceadófar é.",
 };
 })();

@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Kūrėjo vaizdo įrašo pavyzdys, nutildytas",
   "Creator work": "Kūrėjo darbas",
   "Creator/channel": "Kūrėjas/kanalas",
-  "Creator/channel name (optional)": "Kūrėjo / kanalo pavadinimas (neprivaloma)",
+  "Creator/channel name": "Kūrėjo / kanalo pavadinimas",
+  "Complete all required creator details before signing the agreement.": "Prieš pasirašydami sutartį užpildykite visus privalomus kūrėjo duomenis.",
+  "Type the guardian’s full name again as their signature.": "Dar kartą įveskite visą globėjo vardą ir pavardę kaip jo parašą.",
   "Creators": "Kūrėjai",
   "Creators | Vidfluencer": "Kūrėjai | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Prieš dalyvaudami kūrėjai peržiūri ir pasirašo kampanijos sąlygas.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Dažnai užduodami",
   "Good questions. Clear answers.": "Geri klausimai. Aiškūs atsakymai.",
   "See creator videos": "Žiūrėti kūrėjų vaizdo įrašus"
+  "The creator must complete all required profile details before approval.": "Kūrėjas prieš patvirtinimą turi užpildyti visus privalomus profilio duomenis.",
 };
 })();

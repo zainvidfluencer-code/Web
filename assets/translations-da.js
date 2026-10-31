@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Skabervideoeksempel, slået fra",
   "Creator work": "Skaberarbejde",
   "Creator/channel": "Skaber/kanal",
-  "Creator/channel name (optional)": "Skaber/kanalnavn (valgfrit)",
+  "Creator/channel name": "Skaber/kanalnavn",
+  "Complete all required creator details before signing the agreement.": "Udfyld alle påkrævede oplysninger om skaberen, før du underskriver aftalen.",
+  "Type the guardian’s full name again as their signature.": "Indtast værgens fulde navn igen som vedkommendes underskrift.",
   "Creators": "Skabere",
   "Creators | Vidfluencer": "Skabere | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Skabere gennemgår og underskriver kampagnevilkårene, før de deltager.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Ofte stillede",
   "Good questions. Clear answers.": "Gode spørgsmål. Klare svar.",
   "See creator videos": "Se videoer fra skabere"
+  "The creator must complete all required profile details before approval.": "Skaberen skal udfylde alle obligatoriske profiloplysninger, før vedkommende kan godkendes.",
 };
 })();

@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Ukážka videa od autora, stlmená",
   "Creator work": "Práca tvorcu",
   "Creator/channel": "Autor/kanál",
-  "Creator/channel name (optional)": "Názov tvorcu/kanála (voliteľné)",
+  "Creator/channel name": "Názov tvorcu/kanála",
+  "Complete all required creator details before signing the agreement.": "Pred podpísaním zmluvy vyplňte všetky povinné údaje o tvorcovi.",
+  "Type the guardian’s full name again as their signature.": "Zadajte celé meno zákonného zástupcu znova ako jeho podpis.",
   "Creators": "Tvorcovia",
   "Creators | Vidfluencer": "Tvorcovia | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Tvorcovia si pred zapojením preštudujú a podpíšu podmienky kampane.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Často kladené",
   "Good questions. Clear answers.": "Dobré otázky. Jasné odpovede.",
   "See creator videos": "Pozrite si videá tvorcov"
+  "The creator must complete all required profile details before approval.": "Tvorca musí pred schválením vyplniť všetky povinné údaje v profile.",
 };
 })();

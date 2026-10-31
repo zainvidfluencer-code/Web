@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Kampjun tal-vidjow tal-Ħallieq, siekta",
   "Creator work": "Xogħol tal-Ħallieq",
   "Creator/channel": "Ħallieq/kanal",
-  "Creator/channel name (optional)": "Isem tal-kreatur/kanal (mhux obbligatorju)",
+  "Creator/channel name": "Isem tal-kreatur/kanal",
+  "Complete all required creator details before signing the agreement.": "Imla d-dettalji kollha meħtieġa dwar il-kreatur qabel tiffirma l-ftehim.",
+  "Type the guardian’s full name again as their signature.": "Erġa’ daħħal l-isem sħiħ tal-kustodju bħala l-firma tiegħu.",
   "Creators": "Ħallieq",
   "Creators | Vidfluencer": "Ħallieq | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Il-ħallieqa jirrevedu u jiffirmaw it-termini tal-kampanja qabel jieħdu sehem.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Mistoqsijiet frekwenti",
   "Good questions. Clear answers.": "Mistoqsijiet tajbin. Tweġibiet ċari.",
   "See creator videos": "Ara l-vidjows tal-kreaturi"
+  "The creator must complete all required profile details before approval.": "Il-kreatur irid jimla d-dettalji kollha meħtieġa fil-profil qabel l-approvazzjoni.",
 };
 })();

@@ -336,7 +336,9 @@
   "Creator video sample, muted": "Videovoorbeeld van maker, gedempt",
   "Creator work": "Schepper werk",
   "Creator/channel": "Maker/kanaal",
-  "Creator/channel name (optional)": "Naam maker/kanaal (optioneel)",
+  "Creator/channel name": "Naam maker/kanaal",
+  "Complete all required creator details before signing the agreement.": "Vul alle verplichte gegevens van de maker in voordat je de overeenkomst ondertekent.",
+  "Type the guardian’s full name again as their signature.": "Typ de volledige naam van de voogd opnieuw als diens handtekening.",
   "Creators": "Makers",
   "Creators | Vidfluencer": "Makers | Vidfluencer",
   "Creators review and sign the campaign terms before taking part.": "Creators lezen en ondertekenen de campagnevoorwaarden voordat ze deelnemen.",
@@ -1015,5 +1017,6 @@
   "Frequently asked": "Veelgestelde",
   "Good questions. Clear answers.": "Goede vragen. Duidelijke antwoorden.",
   "See creator videos": "Bekijk video's van creators"
+  "The creator must complete all required profile details before approval.": "De creator moet alle verplichte profielgegevens invullen voordat de aanvraag kan worden goedgekeurd.",
 };
 })();
