@@ -124,7 +124,7 @@
   async function updatePhotoPreview() {
     try {
       if (uploadFile) {
-        clearUploadPreviewUrl(); uploadPreviewUrl = URL.createObjectURL(uploadFile); renderPhotoPreview(uploadPreviewUrl); $('#vf-photo-note').textContent=uploadFile.name;$('#vf-photo-note').classList.remove('error'); return
+        clearUploadPreviewUrl(); uploadPreviewUrl = URL.createObjectURL(uploadFile); renderPhotoPreview(uploadPreviewUrl); say($('#vf-photo-note'),''); return
       }
       clearUploadPreviewUrl()
       const url = await resolveAvatar(profile?.profile_picture_source, profile?.profile_picture_path)
