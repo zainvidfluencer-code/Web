@@ -23,7 +23,7 @@
   overlay.innerHTML = `<section class="vf-profile-dialog" role="dialog" aria-modal="true" aria-labelledby="vf-profile-title">
     <header class="vf-profile-head"><h2 id="vf-profile-title" data-vf-i18n="Creator profile">${t('Creator profile')}</h2><button type="button" class="vf-profile-close" aria-label="${t('Close')}" data-vf-aria="Close">×</button></header>
     <section class="vf-profile-section"><h3 data-vf-i18n="Profile picture">${t('Profile picture')}</h3><div class="vf-profile-photo-row"><div class="vf-profile-photo" id="vf-photo-preview"></div><p class="vf-profile-muted" data-vf-i18n="Choose initials, a photo returned by a linked account, or upload an image. No extra provider permissions are requested.">${t('Choose initials, a photo returned by a linked account, or upload an image. No extra provider permissions are requested.')}</p></div>
-      <div class="vf-profile-field"><label for="vf-photo-source" data-vf-i18n="Picture source">${t('Picture source')}</label><select id="vf-photo-source"></select></div>
+      <div class="vf-profile-field"><label for="vf-photo-source" data-vf-i18n="Picture source">${t('Picture source')}</label><select id="vf-photo-source"><option value="initials">${t('Initials')}</option><option value="google">${t('Google photo')}</option><option value="azure">${t('Microsoft photo')}</option><option value="discord">${t('Discord photo')}</option><option value="upload">${t('Upload a picture')}</option></select></div>
       <div class="vf-profile-field" id="vf-photo-upload-field" hidden><label for="vf-photo-upload" data-vf-i18n="Upload profile picture - JPG, PNG or WebP - max 2 MB">${t('Upload profile picture - JPG, PNG or WebP - max 2 MB')}</label><input id="vf-photo-upload" type="file" accept="image/jpeg,image/png,image/webp"></div><p class="vf-profile-note" id="vf-photo-note" role="status"></p>
     </section>
     <section class="vf-profile-section"><h3 data-vf-i18n="Profile details">${t('Profile details')}</h3><p class="vf-profile-muted" data-vf-i18n="Choose the name and short bio shown on your creator account.">${t('Choose the name and short bio shown on your creator account.')}</p><div class="vf-profile-field"><label for="vf-display-name" data-vf-i18n="Display name">${t('Display name')}</label><input id="vf-display-name" type="text" maxlength="50" autocomplete="nickname" required></div><div class="vf-profile-field"><label for="vf-bio" data-vf-i18n="Creator bio">${t('Creator bio')}</label><textarea id="vf-bio" rows="4" placeholder="${t('Tell people what you create, your style and the brands you work best with.')}" data-vf-placeholder="Tell people what you create, your style and the brands you work best with."></textarea><p class="vf-profile-count" id="vf-bio-count" aria-live="polite">0 / 50 ${t('words')}</p></div></section>
@@ -207,7 +207,8 @@
     const fallbackName=profile?.display_name||profile?.full_name||user?.user_metadata?.full_name||user?.user_metadata?.name||user?.email||'Creator'
     $('#vf-photo-preview').textContent=initialsFor(fallbackName)
     renderAvatar('')
-    try{await loadProfile()}catch(error){say($('#vf-delete-note'),error.message||'Profile could not be loaded.',true)}
+    if(!$('#vf-photo-source')._vfSelectUpdate)renderPhotoSource()
+    try{await loadProfile()}catch(error){say($('#vf-photo-note'),error.message||'Profile could not be loaded.',true)}
   }
   function closeProfile(){overlay.hidden=true;document.body.style.overflow='';button.focus()}
   function refreshProfileTranslations(){
