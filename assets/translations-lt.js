@@ -645,7 +645,7 @@
   "Payment type": "Mokėjimo tipas",
   "Payment Type": "Mokėjimo tipas",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Mokėjimus organizuoja Vidfluencer pagal atitinkamą sutartį.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Mokėjimai stebimi USD. Iš viso uždirbtų laukiančių ir sumokėtų sumų.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Mokėjimai apskaitomi USD. Bendra uždirbta suma apima tik išmokėtas sumas.",
   "Payout": "Išmokėjimas",
   "Payout details": "Išsami išmokėjimo informacija",
   "Payout Details Viewed": "Išsami išmokėjimo informacija peržiūrėta",

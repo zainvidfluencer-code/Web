@@ -70,7 +70,7 @@
   let displayNames;
   const scriptUrl = document.currentScript && document.currentScript.src
     ? document.currentScript.src : new URL('assets/language-switcher.js', location.href).href;
-  const dictionaryVersion = '20261101-application-discord-1';
+  const dictionaryVersion = '20261101-paid-total-1';
   const dict = () => (window.VidfluencerTranslations || {})[language] || {};
   const t = value => language === 'en' ? value : (dict()[value] || value);
 

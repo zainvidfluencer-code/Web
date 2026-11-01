@@ -645,7 +645,7 @@
   "Payment type": "Maksājuma veids",
   "Payment Type": "Maksājuma veids",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Maksājumus veic Vidfluencer saskaņā ar attiecīgo līgumu.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Maksājumi tiek izsekoti USD. Kopējais nopelnītais apvieno neapstiprināto un samaksāto summu.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Maksājumi tiek uzskaitīti USD. Kopējie ienākumi ietver tikai izmaksātās summas.",
   "Payout": "Izmaksa",
   "Payout details": "Izmaksas informācija",
   "Payout Details Viewed": "Izmaksas informācija skatīta",

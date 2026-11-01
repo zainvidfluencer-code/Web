@@ -645,7 +645,7 @@
   "Payment type": "Maksutyyppi",
   "Payment Type": "Maksutyyppi",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Vidfluencer järjestää maksut asiaankuuluvan sopimuksen mukaisesti.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Maksuja seurataan dollareina. Ansaitut kokonaissummat yhdistävät odottavat ja maksetut summat.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Maksut kirjataan Yhdysvaltain dollareina. Kokonaistulot sisältävät vain maksetut summat.",
   "Payout": "Maksu",
   "Payout details": "Maksutiedot",
   "Payout Details Viewed": "Maksutiedot katsottu",

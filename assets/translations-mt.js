@@ -645,7 +645,7 @@
   "Payment type": "Tip ta' ħlas",
   "Payment Type": "Tip ta' Ħlas",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Il-ħlasijiet huma rranġati minn Vidfluencer skont il-ftehim rilevanti.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Il-ħlasijiet huma ssorveljati f'USD. It-total miksub jgħaqqad l-ammonti pendenti u dawk imħallsa.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Il-pagamenti jiġu rreġistrati bil-munita USD. Il-qligħ totali jinkludi biss l-ammonti mħallsa.",
   "Payout": "Ħlas",
   "Payout details": "Dettalji tal-ħlas",
   "Payout Details Viewed": "Dettalji tal-Ħlas Ara",

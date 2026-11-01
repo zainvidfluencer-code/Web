@@ -645,7 +645,7 @@
   "Payment type": "Vrsta plaćanja",
   "Payment Type": "Vrsta plaćanja",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Plaćanja organizira Vidfluencer prema relevantnom ugovoru.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Uplate se prate u USD. Ukupna zarada kombinira iznose na čekanju i plaćene iznose.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Isplate se prate u USD-u. Ukupna zarada uključuje samo isplaćene iznose.",
   "Payout": "Isplata",
   "Payout details": "Podaci o isplati",
   "Payout Details Viewed": "Pregledani detalji isplate",

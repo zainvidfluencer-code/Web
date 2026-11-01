@@ -645,7 +645,7 @@
   "Payment type": "Fizetési típus",
   "Payment Type": "Fizetési típus",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "A fizetést a Vidfluencer intézi a vonatkozó megállapodás szerint.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "A kifizetések nyomon követése USD-ben történik. Összesen megkeresett függőben lévő és kifizetett összegek.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "A kifizetéseket USD-ben tartjuk nyilván. A teljes kereset csak a kifizetett összegeket tartalmazza.",
   "Payout": "Kifizetés",
   "Payout details": "Kifizetés részletei",
   "Payout Details Viewed": "A kifizetés részletei megtekintve",

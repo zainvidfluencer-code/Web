@@ -645,7 +645,7 @@
   "Payment type": "Tipo de pago",
   "Payment Type": "Tipo de Pago",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Vidfluencer organiza los pagos de acuerdo con el acuerdo correspondiente.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Los pagos se registran en USD. Los ingresos totales combinan los importes pendientes y pagados.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Los pagos se registran en USD. Los ingresos totales reflejan únicamente los importes pagados.",
   "Payout": "Pago",
   "Payout details": "Datos de pago",
   "Payout Details Viewed": "Datos de pago consultados",

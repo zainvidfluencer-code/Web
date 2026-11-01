@@ -645,7 +645,7 @@
   "Payment type": "Τύπος πληρωμής",
   "Payment Type": "Τύπος πληρωμής",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Οι πληρωμές διευθετούνται από τη Vidfluencer σύμφωνα με τη σχετική συμφωνία.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Οι πληρωμές παρακολουθούνται σε USD. Το σύνολο των κερδών συνδυάζει εκκρεμή και πληρωμένα ποσά.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Οι πληρωμές καταγράφονται σε USD. Τα συνολικά κέρδη περιλαμβάνουν μόνο τα ποσά που έχουν καταβληθεί.",
   "Payout": "Πληρωμή",
   "Payout details": "Λεπτομέρειες πληρωμής",
   "Payout Details Viewed": "Προβλήθηκαν οι λεπτομέρειες πληρωμής",

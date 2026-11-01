@@ -645,7 +645,7 @@
   "Payment type": "Cineál íocaíochta",
   "Payment Type": "Cineál Íocaíochta",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Socraíonn Vidfluencer íocaíochtaí de réir an chomhaontaithe ábhartha.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Déantar íocaíochtaí a rianú i USD. Comhcheanglaíonn an t-iomlán tuillte suimeanna ar feitheamh agus suimeanna íoctha.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Déantar íocaíochtaí a rianú in USD. Ní áirítear sa tuilleamh iomlán ach na méideanna a íocadh.",
   "Payout": "Íocaíocht amach",
   "Payout details": "Sonraí íocaíochta",
   "Payout Details Viewed": "Breathnaíodh ar Shonraí Íocaíochta",

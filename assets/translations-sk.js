@@ -645,7 +645,7 @@
   "Payment type": "Typ platby",
   "Payment Type": "Typ platby",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Platby zabezpečuje Vidfluencer podľa príslušnej dohody.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Platby sa sledujú v USD. Celkové zarobené sumy spájajú čakajúce a zaplatené sumy.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Platby sa evidujú v USD. Celkové zárobky zahŕňajú iba vyplatené sumy.",
   "Payout": "Výplata",
   "Payout details": "Podrobnosti o výplate",
   "Payout Details Viewed": "Zobrazené podrobnosti o platbe",

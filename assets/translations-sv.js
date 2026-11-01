@@ -645,7 +645,7 @@
   "Payment type": "Betalningstyp",
   "Payment Type": "Betalningstyp",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Betalningar ordnas av Vidfluencer enligt gällande avtal.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Betalningar spåras i USD. Totala intjänade kombinerar utestående och utbetalda belopp.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Betalningar registreras i USD. Totala intäkter omfattar endast utbetalda belopp.",
   "Payout": "Utbetalning",
   "Payout details": "Utbetalningsinformation",
   "Payout Details Viewed": "Utbetalningsinformation visade",

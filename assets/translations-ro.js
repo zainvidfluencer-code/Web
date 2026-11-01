@@ -645,7 +645,7 @@
   "Payment type": "Tip de plată",
   "Payment Type": "Tip de plată",
   "Payments are arranged by Vidfluencer according to the relevant agreement.": "Plățile sunt aranjate de Vidfluencer conform acordului relevant.",
-  "Payments are tracked in USD. Total earned combines pending and paid amounts.": "Plățile sunt urmărite în USD. Totalul câștigat combină sumele în așteptare și sumele plătite.",
+  "Payments are tracked in USD. Total earned reflects paid amounts only.": "Plățile sunt înregistrate în USD. Totalul câștigurilor include doar sumele plătite.",
   "Payout": "Plata",
   "Payout details": "Detalii de plată",
   "Payout Details Viewed": "Detalii de plată vizualizate",
