@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Galerija stvarnog sadržaja kreatora.",
   "Frequently asked": "Često postavljana",
   "Good questions. Clear answers.": "Dobra pitanja. Jasni odgovori.",
-  "See creator videos": "Pogledajte videozapise kreatora"
+  "See creator videos": "Pogledajte videozapise kreatora",
   "The creator must complete all required profile details before approval.": "Kreator mora ispuniti sve obavezne podatke profila prije odobrenja.",
+  "Discord handle": "Discord korisničko ime",
+  "Please enter your Discord handle to apply.": "Unesite svoje Discord korisničko ime za prijavu."
 };
 })();

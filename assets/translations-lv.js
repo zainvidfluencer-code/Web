@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Īsta satura veidotāju darbu izlase.",
   "Frequently asked": "Biežāk uzdotie",
   "Good questions. Clear answers.": "Labi jautājumi. Skaidras atbildes.",
-  "See creator videos": "Skatiet satura veidotāju video"
+  "See creator videos": "Skatiet satura veidotāju video",
   "The creator must complete all required profile details before approval.": "Satura veidotājam pirms apstiprināšanas jāaizpilda visa obligātā profila informācija.",
+  "Discord handle": "Discord lietotājvārds",
+  "Please enter your Discord handle to apply.": "Lai pieteiktos, ievadiet savu Discord lietotājvārdu."
 };
 })();

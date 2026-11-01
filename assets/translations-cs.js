@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Galerie skutečného obsahu tvůrců.",
   "Frequently asked": "Často kladené",
   "Good questions. Clear answers.": "Dobré otázky. Jasné odpovědi.",
-  "See creator videos": "Podívejte se na videa tvůrců"
+  "See creator videos": "Podívejte se na videa tvůrců",
   "The creator must complete all required profile details before approval.": "Tvůrce musí před schválením vyplnit všechny povinné údaje v profilu.",
+  "Discord handle": "Uživatelské jméno na Discordu",
+  "Please enter your Discord handle to apply.": "Pro podání žádosti zadejte své uživatelské jméno na Discordu."
 };
 })();

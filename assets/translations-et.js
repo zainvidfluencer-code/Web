@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Päris loojasisu galerii.",
   "Frequently asked": "Korduma kippuvad",
   "Good questions. Clear answers.": "Head küsimused. Selged vastused.",
-  "See creator videos": "Vaata loojate videoid"
+  "See creator videos": "Vaata loojate videoid",
   "The creator must complete all required profile details before approval.": "Looja peab enne kinnitamist täitma kõik kohustuslikud profiiliandmed.",
+  "Discord handle": "Discordi kasutajanimi",
+  "Please enter your Discord handle to apply.": "Kandideerimiseks sisesta oma Discordi kasutajanimi."
 };
 })();

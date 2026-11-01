@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Μια συλλογή αυθεντικού περιεχομένου δημιουργών.",
   "Frequently asked": "Συχνές ερωτήσεις",
   "Good questions. Clear answers.": "Καλές ερωτήσεις. Σαφείς απαντήσεις.",
-  "See creator videos": "Δείτε βίντεο δημιουργών"
+  "See creator videos": "Δείτε βίντεο δημιουργών",
   "The creator must complete all required profile details before approval.": "Ο δημιουργός πρέπει να συμπληρώσει όλα τα υποχρεωτικά στοιχεία προφίλ πριν από την έγκριση.",
+  "Discord handle": "Όνομα χρήστη Discord",
+  "Please enter your Discord handle to apply.": "Εισαγάγετε το όνομα χρήστη σας στο Discord για να υποβάλετε αίτηση."
 };
 })();

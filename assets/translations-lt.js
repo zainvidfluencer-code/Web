@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Tikro kūrėjų turinio galerija.",
   "Frequently asked": "Dažnai užduodami",
   "Good questions. Clear answers.": "Geri klausimai. Aiškūs atsakymai.",
-  "See creator videos": "Žiūrėti kūrėjų vaizdo įrašus"
+  "See creator videos": "Žiūrėti kūrėjų vaizdo įrašus",
   "The creator must complete all required profile details before approval.": "Kūrėjas prieš patvirtinimą turi užpildyti visus privalomus profilio duomenis.",
+  "Discord handle": "Discord naudotojo vardas",
+  "Please enter your Discord handle to apply.": "Norėdami pateikti paraišką, įveskite savo Discord naudotojo vardą."
 };
 })();

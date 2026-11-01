@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Et galleri med ægte indhold fra skabere.",
   "Frequently asked": "Ofte stillede",
   "Good questions. Clear answers.": "Gode spørgsmål. Klare svar.",
-  "See creator videos": "Se videoer fra skabere"
+  "See creator videos": "Se videoer fra skabere",
   "The creator must complete all required profile details before approval.": "Skaberen skal udfylde alle obligatoriske profiloplysninger, før vedkommende kan godkendes.",
+  "Discord handle": "Discord-brugernavn",
+  "Please enter your Discord handle to apply.": "Indtast dit Discord-brugernavn for at ansøge."
 };
 })();

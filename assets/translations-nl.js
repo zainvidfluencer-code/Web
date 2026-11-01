@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Een overzicht van echte creatorcontent.",
   "Frequently asked": "Veelgestelde",
   "Good questions. Clear answers.": "Goede vragen. Duidelijke antwoorden.",
-  "See creator videos": "Bekijk video's van creators"
+  "See creator videos": "Bekijk video's van creators",
   "The creator must complete all required profile details before approval.": "De creator moet alle verplichte profielgegevens invullen voordat de aanvraag kan worden goedgekeurd.",
+  "Discord handle": "Discord-gebruikersnaam",
+  "Please enter your Discord handle to apply.": "Vul je Discord-gebruikersnaam in om te solliciteren."
 };
 })();

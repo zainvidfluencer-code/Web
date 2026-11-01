@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Галерия с истинско съдържание от създатели.",
   "Frequently asked": "Често задавани",
   "Good questions. Clear answers.": "Добри въпроси. Ясни отговори.",
-  "See creator videos": "Вижте видеоклиповете на създателите"
+  "See creator videos": "Вижте видеоклиповете на създателите",
   "The creator must complete all required profile details before approval.": "Създателят трябва да попълни всички задължителни данни в профила, преди да бъде одобрен.",
+  "Discord handle": "Discord потребителско име",
+  "Please enter your Discord handle to apply.": "Въведете своя Discord потребителски профил, за да кандидатствате."
 };
 })();

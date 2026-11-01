@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Aitoa sisällöntuottajien sisältöä.",
   "Frequently asked": "Usein kysyttyä",
   "Good questions. Clear answers.": "Hyviä kysymyksiä. Selkeitä vastauksia.",
-  "See creator videos": "Katso sisällöntuottajien videoita"
+  "See creator videos": "Katso sisällöntuottajien videoita",
   "The creator must complete all required profile details before approval.": "Tekijän on täytettävä kaikki pakolliset profiilitiedot ennen hyväksyntää.",
+  "Discord handle": "Discord-käyttäjänimi",
+  "Please enter your Discord handle to apply.": "Anna Discord-käyttäjänimesi hakeaksesi kampanjaan."
 };
 })();

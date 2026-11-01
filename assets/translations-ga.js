@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Bailiúchán d’ábhar fíor ó chruthaitheoirí.",
   "Frequently asked": "Ceisteanna coitianta",
   "Good questions. Clear answers.": "Ceisteanna maithe. Freagraí soiléire.",
-  "See creator videos": "Féach ar fhíseáin chruthaitheoirí"
+  "See creator videos": "Féach ar fhíseáin chruthaitheoirí",
   "The creator must complete all required profile details before approval.": "Caithfidh an cruthaitheoir gach sonra próifíle riachtanach a líonadh sula gceadófar é.",
+  "Discord handle": "Ainm úsáideora Discord",
+  "Please enter your Discord handle to apply.": "Cuir isteach d’ainm úsáideora Discord chun iarratas a dhéanamh."
 };
 })();

@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "En samling med äkta innehåll från kreatörer.",
   "Frequently asked": "Vanliga frågor",
   "Good questions. Clear answers.": "Bra frågor. Tydliga svar.",
-  "See creator videos": "Se kreatörernas videor"
+  "See creator videos": "Se kreatörernas videor",
   "The creator must complete all required profile details before approval.": "Skaparen måste fylla i alla obligatoriska profiluppgifter innan godkännande.",
+  "Discord handle": "Discord-användarnamn",
+  "Please enter your Discord handle to apply.": "Ange ditt Discord-användarnamn för att ansöka."
 };
 })();

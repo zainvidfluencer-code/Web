@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "O selecție de conținut autentic creat de creatori.",
   "Frequently asked": "Întrebări frecvente",
   "Good questions. Clear answers.": "Întrebări bune. Răspunsuri clare.",
-  "See creator videos": "Vezi videoclipurile creatorilor"
+  "See creator videos": "Vezi videoclipurile creatorilor",
   "The creator must complete all required profile details before approval.": "Creatorul trebuie să completeze toate datele obligatorii din profil înainte de aprobare.",
+  "Discord handle": "Nume de utilizator Discord",
+  "Please enter your Discord handle to apply.": "Introdu numele tău de utilizator Discord pentru a aplica."
 };
 })();

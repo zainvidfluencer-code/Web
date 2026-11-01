@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Ġabra ta’ kontenut awtentiku mill-kreaturi.",
   "Frequently asked": "Mistoqsijiet frekwenti",
   "Good questions. Clear answers.": "Mistoqsijiet tajbin. Tweġibiet ċari.",
-  "See creator videos": "Ara l-vidjows tal-kreaturi"
+  "See creator videos": "Ara l-vidjows tal-kreaturi",
   "The creator must complete all required profile details before approval.": "Il-kreatur irid jimla d-dettalji kollha meħtieġa fil-profil qabel l-approvazzjoni.",
+  "Discord handle": "Isem tal-utent ta’ Discord",
+  "Please enter your Discord handle to apply.": "Daħħal l-isem tal-utent ta’ Discord tiegħek biex tapplika."
 };
 })();

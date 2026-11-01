@@ -1016,7 +1016,9 @@
   "A wall of real creator content.": "Valódi alkotói tartalmak gyűjteménye.",
   "Frequently asked": "Gyakran ismételt",
   "Good questions. Clear answers.": "Jó kérdések. Világos válaszok.",
-  "See creator videos": "Nézd meg az alkotói videókat"
+  "See creator videos": "Nézd meg az alkotói videókat",
   "The creator must complete all required profile details before approval.": "Az alkotónak a jóváhagyás előtt minden kötelező profiladatot ki kell töltenie.",
+  "Discord handle": "Discord-felhasználónév",
+  "Please enter your Discord handle to apply.": "A jelentkezéshez add meg a Discord-felhasználónevedet."
 };
 })();
